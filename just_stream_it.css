@@ -1,5 +1,5 @@
 /* I add a background color to the body of the page */
 body
 { 
-   background-color: rgb(136,0,21);
+   background-color: rgb(51,0,21); /* the background color of the body page is burgundy */
  }
