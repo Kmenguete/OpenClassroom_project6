@@ -44,24 +44,36 @@
  #top_rated_movie
 
  {
+ 	width: 1500px;
+ 	border: 1px solid black;
+ 	overflow: auto;
  	display: flex;
  } 
 
  #category_1 
 
  {
+ 	width: 1500px;
+ 	border: 1px solid black;
+ 	overflow: auto;
  	display: flex;
  }
 
  #category_2
 
  {
+ 	width: 1500px;
+ 	border: 1px solid black;
+ 	overflow: auto;
  	display: flex;
  }
 
  #category_3
 
  {
+ 	width: 1500px;
+ 	border: 1px solid black;
+ 	overflow: auto;
  	display: flex;
  }
 
