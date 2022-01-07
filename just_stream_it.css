@@ -1,18 +1,21 @@
 #the_best_movie
+
 { 
     
     background: url('images/fish_top_rated.jpg');
     position: relative;
     width: 39%;
-    height: 460px;
-   
+    height: 460px; 
+    
  }
+
 .video_player 
+
 {
 	height: 25px;
 	position: relative;
-	right: 5px;
-	bottom: 5px;
+	right: -50px;
+	bottom: -320px;
 	background: url('images/lightgrey.jpeg') repeat-x;
 	border: 1px solid black;
 	border-radius: 5px;
@@ -22,7 +25,16 @@
 	color: black;
 	text-decoration: none; 
 }
+
 #player_logo 
+
 {
 	vertical-align: middle;
-}
+} 
+#movie_abstract 
+{ 
+    position: relative;
+    right: -50px;
+	bottom: -320px;
+	color: black;
+ }
