@@ -31,10 +31,37 @@
 {
 	vertical-align: middle;
 } 
+
 #movie_abstract 
+
 { 
     position: relative;
     right: -50px;
 	bottom: -320px;
 	color: black;
+ } 
+
+ #top_rated_movie
+
+ {
+ 	display: flex;
+ } 
+
+ #category_1 
+
+ {
+ 	display: flex;
  }
+
+ #category_2
+
+ {
+ 	display: flex;
+ }
+
+ #category_3
+
+ {
+ 	display: flex;
+ }
+
