@@ -1,3 +1,12 @@
+#the_best_movie
+{ 
+    
+    background: url('images/fish_top_rated.jpg');
+    position: relative;
+    width: 39%;
+    height: 460px;
+   
+ }
 .video_player 
 {
 	height: 25px;
