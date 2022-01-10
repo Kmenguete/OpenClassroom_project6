@@ -17,12 +17,14 @@
 	right: -50px;
 	bottom: -320px;
 	background: url('images/lightgrey.jpeg') repeat-x;
-	border: 1px solid black;
+	border: 1px solid rgb(65,65,65);
 	border-radius: 5px;
-	font-size: 1.2em;
+	font-size: 20px;
+    font-family: 'abel_regular', Arial, serif;
 	text-align: center;
 	padding: 10px 15px 10px 15px;
-	color: black;
+	color: rgb(65,65,65);
+    box-shadow: 6px 6px 6px rgb(65,65,65);
 	text-decoration: none; 
 }
 
@@ -38,43 +40,49 @@
     position: relative;
     right: -50px;
 	bottom: -320px;
-	color: black;
+	color: rgb(65,65,65);
+    font-size: 20px;
+    font-family: 'abel_regular', Arial, serif;
  } 
 
  #top_rated_movie
 
  {
  	width: 1500px;
- 	border: 1px solid black;
+ 	border: 1px solid rgb(65,65,65);
  	overflow: auto;
  	display: flex;
+    box-shadow: 6px 6px 6px rgb(65,65,65) inset;
  } 
 
  #category_1 
 
  {
  	width: 1500px;
- 	border: 1px solid black;
+ 	border: 1px solid rgb(65,65,65);
  	overflow: auto;
  	display: flex;
+    box-shadow: 6px 6px 6px rgb(65,65,65) inset;
  }
 
  #category_2
 
  {
  	width: 1500px;
- 	border: 1px solid black;
+ 	border: 1px solid rgb(65,65,65);
  	overflow: auto;
  	display: flex;
+    box-shadow: 6px 6px 6px rgb(65,65,65) inset;
  }
 
  #category_3
 
  {
  	width: 1500px;
- 	border: 1px solid black;
+ 	border: 1px solid rgb(65,65,65);
  	overflow: auto;
  	display: flex;
+    box-shadow: 6px 6px 6px rgb(65,65,65) inset;
  }
 
  header
