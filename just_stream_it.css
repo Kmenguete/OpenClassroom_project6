@@ -46,7 +46,7 @@
     font-family: 'abel_regular', Arial, serif;
  } 
 
- #top_rated_movie
+ .top_rated_movie
 
  {
  	width: 1500px;
@@ -56,27 +56,7 @@
     box-shadow: 6px 6px 6px rgb(65,65,65) inset;
  } 
 
- #category_1 
-
- {
- 	width: 1500px;
- 	border: 1px solid rgb(65,65,65);
- 	overflow: auto;
- 	display: flex;
-    box-shadow: 6px 6px 6px rgb(65,65,65) inset;
- }
-
- #category_2
-
- {
- 	width: 1500px;
- 	border: 1px solid rgb(65,65,65);
- 	overflow: auto;
- 	display: flex;
-    box-shadow: 6px 6px 6px rgb(65,65,65) inset;
- }
-
- #category_3
+ .category 
 
  {
  	width: 1500px;
