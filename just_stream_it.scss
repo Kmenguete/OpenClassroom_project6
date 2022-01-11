@@ -1,9 +1,22 @@
 $medium_grey: #414141;
 $shaded_grey_1: #c8c8c8;
 $shaded_grey_2: #aaaaaa;
+
 $relative_position: relative;
+
 $width_best_movie: 39%;
 $height_best_movie: 460px;
+
+$height_video_player: 25px; 
+
+@mixin rated_movies_rules {
+	
+  width: 1500px;
+  border: 1px solid $medium_grey;
+  overflow: auto;
+  display: flex;
+  box-shadow: 6px 6px 6px $medium_grey inset;
+}
 
 .the_best_movie {
   background: url("images/fish_top_rated.jpg");
@@ -13,7 +26,7 @@ $height_best_movie: 460px;
   box-shadow: 6px 6px 6px $medium_grey inset;
 }
 .the_best_movie .video_player {
-  height: 25px;
+  height: $height_video_player;
   position: $relative_position;
   right: -50px;
   bottom: -320px;
@@ -41,19 +54,11 @@ $height_best_movie: 460px;
 }
 
 .top_rated_movie {
-  width: 1500px;
-  border: 1px solid $medium_grey;
-  overflow: auto;
-  display: flex;
-  box-shadow: 6px 6px 6px $medium_grey inset;
+  @include rated_movies_rules;
 }
 
 .category {
-  width: 1500px;
-  border: 1px solid $medium_grey;
-  overflow: auto;
-  display: flex;
-  box-shadow: 6px 6px 6px $medium_grey inset;
+  @include rated_movies_rules;
 }
 
 .abel-regular {
