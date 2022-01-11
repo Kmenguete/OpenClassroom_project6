@@ -1,0 +1,80 @@
+$medium_grey: #414141;
+$shaded_grey_1: #c8c8c8;
+$shaded_grey_2: #aaaaaa;
+.the_best_movie {
+  background: url("images/fish_top_rated.jpg");
+  position: relative;
+  width: 39%;
+  height: 460px;
+  box-shadow: 6px 6px 6px $medium_grey inset;
+}
+.the_best_movie .video_player {
+  height: 25px;
+  position: relative;
+  right: -50px;
+  bottom: -320px;
+  background: url("images/lightgrey.jpeg") repeat-x;
+  border: 1px solid $medium_grey;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: "abel_regular", Arial, serif;
+  text-align: center;
+  padding: 10px 15px 10px 15px;
+  color: $medium_grey;
+  box-shadow: 6px 6px 6px $medium_grey;
+  text-decoration: none;
+}
+.the_best_movie .video_player #player_logo {
+  vertical-align: middle;
+}
+.the_best_movie .movie_abstract {
+  position: relative;
+  right: -50px;
+  bottom: -320px;
+  color: $medium_grey;
+  font-size: 20px;
+  font-family: "abel_regular", Arial, serif;
+}
+
+.top_rated_movie {
+  width: 1500px;
+  border: 1px solid $medium_grey;
+  overflow: auto;
+  display: flex;
+  box-shadow: 6px 6px 6px $medium_grey inset;
+}
+
+.category {
+  width: 1500px;
+  border: 1px solid $medium_grey;
+  overflow: auto;
+  display: flex;
+  box-shadow: 6px 6px 6px $medium_grey inset;
+}
+
+.abel-regular {
+  font-family: "abel_regular", Arial, serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: "abel_regular";
+  src: url("abel/abel-regular.ttf");
+}
+h1 {
+  font-size: 30px;
+  color: $shaded_grey_1
+}
+
+h2 {
+  font-size: 25px;
+  color: $shaded_grey_2
+}
+
+body {
+  background-image: url("images/cinema.jpeg");
+}
