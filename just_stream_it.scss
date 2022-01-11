@@ -1,16 +1,20 @@
 $medium_grey: #414141;
 $shaded_grey_1: #c8c8c8;
 $shaded_grey_2: #aaaaaa;
+$relative_position: relative;
+$width_best_movie: 39%;
+$height_best_movie: 460px;
+
 .the_best_movie {
   background: url("images/fish_top_rated.jpg");
-  position: relative;
-  width: 39%;
-  height: 460px;
+  position: $relative_position;
+  width: $width_best_movie;
+  height: $height_best_movie;
   box-shadow: 6px 6px 6px $medium_grey inset;
 }
 .the_best_movie .video_player {
   height: 25px;
-  position: relative;
+  position: $relative_position;
   right: -50px;
   bottom: -320px;
   background: url("images/lightgrey.jpeg") repeat-x;
@@ -28,7 +32,7 @@ $shaded_grey_2: #aaaaaa;
   vertical-align: middle;
 }
 .the_best_movie .movie_abstract {
-  position: relative;
+  position: $relative_position;
   right: -50px;
   bottom: -320px;
   color: $medium_grey;
