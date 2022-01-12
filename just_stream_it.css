@@ -124,4 +124,21 @@ body {
     font-family: "abel_regular", Arial, serif;
     text-align: center;
     color: rgb(50,50,50);
+} 
+
+/* The Close Button */
+.close {
+    background-color: rgb(200,200,200);
+    float: right;
+    font-size: 20px;
+    font-family: "abel_regular", Arial, serif;
+    text-align: center;
+    color: rgb(50,50,50);
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(50,50,50);
+    text-decoration: none;
+    cursor: pointer;
 }
