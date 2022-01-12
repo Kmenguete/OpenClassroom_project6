@@ -65,6 +65,12 @@
   box-shadow: 6px 6px 6px #414141 inset;
 } 
 
+.modal_info {
+    border: 1px solid #414141;
+    box-shadow: 6px 6px 6px #414141 inset;
+    background-image: url("images/darkgrey.jpeg");
+}
+
 .abel-regular {
   font-family: "abel_regular", Arial, serif;
 }
