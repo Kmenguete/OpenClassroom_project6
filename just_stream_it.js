@@ -2,6 +2,8 @@
 
 var modal = document.getElementById("modal_window");
 
+var bestMovieInfo = document.getElementById("the_best_movie_info");
+
 // Get the button that opens the modal
 
 var button = document.getElementByClassName("modal_info");
