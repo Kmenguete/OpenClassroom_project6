@@ -1,0 +1,3 @@
+function openModalWindow(titleHtml, htmlTagId, button) {
+	// body...
+}
