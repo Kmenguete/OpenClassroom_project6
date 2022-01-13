@@ -1,12 +1,14 @@
-function showModal(titleHtml, contentHtml, buttons) {
+// Get the modal element
+var modal = document.getElementById('modal_window');
+// Get open modal button
+var buttonBestMovieInfo = document.getElementById('the_best_movie_info');
+// Get close button
+var closeButton = document.getElementByClassName('close');
 
+// Listen for click
+buttonBestMovieInfo.addEventListener('click', openModal);
+
+// Function to open modal
+function openModal(){
+	modal.style.display = 'block';
 }
-
-showModal("JustStreamIt", document.querySelector("modal_content"), [{
-
-	label: "Close",
-	onClick: () => {
-		console.log("The button was clicked!");
-	},
-	triggerClose: true
-}]);
