@@ -5,17 +5,40 @@ var buttonBestMovieInfo = document.getElementById('the_best_movie_info');
 // Get close button
 var closeBestMovieInfoButton = document.getElementById('close');
 
-// Listen for open click
+// Listen for open click best movie
 buttonBestMovieInfo.addEventListener('click', openBestMovieModal);
-// Listen for close click
+// Listen for close click best movie
 closeBestMovieInfoButton.addEventListener('click', closeBestMovieModal);
 
-// Function to open modal
+// Function to open modal best movie
 function openBestMovieModal(){
 	modal.style.display = 'block';
 }
 
-// Function to close modal
+// Function to close modal best movie
 function closeBestMovieModal(){
 	modal.style.display = 'none';
+} 
+
+// Get open modal button for other movies
+var buttonRatedMovies = document.getElementsByClassName('modal_info'); 
+
+// Get close button
+var closeOtherMovieInfoButton = document.getElementById('close');
+
+// Listen for open click other movie
+for (var i = 0; i < buttonRatedMovies.length; i++) {
+	buttonRatedMovies[i].addEventListener('click', openRatedMovieModal);
 }
+// Listen for close click other movie
+closeOtherMovieInfoButton.addEventListener('click', closeRatedMovieModal); 
+
+// Function to open modal other movie
+function openRatedMovieModal(){
+	modal.style.display = 'block';
+} 
+
+// Function to close modal other movie
+function closeRatedMovieModal(){
+	modal.style.display = 'none';
+} 
