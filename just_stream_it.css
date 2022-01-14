@@ -50,6 +50,7 @@
 }
 
 .top_rated_movie {
+   margin: 50px;
   justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
@@ -58,6 +59,7 @@
 }
 
 .category {
+   margin: 50px;
   justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
