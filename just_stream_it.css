@@ -17,7 +17,7 @@
   font-family: "abel_regular", Arial, serif;
   text-align: center;
   padding: 10px 15px 10px 15px;
-  color: #414141;
+  color: rgb(50,50,50);
   box-shadow: 6px 6px 6px #414141;
   text-decoration: none;
 }
@@ -50,7 +50,7 @@
 }
 
 .top_rated_movie {
-  width: 1500px;
+  justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
   display: flex;
@@ -58,7 +58,7 @@
 }
 
 .category {
-  width: 1500px;
+  justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
   display: flex;
@@ -86,16 +86,16 @@ header {
 }
 h1 {
   font-size: 30px;
-  color: #c8c8c8;
+  color: rgb(50,50,50);
 }
 
 h2 {
   font-size: 25px;
-  color: #aaaaaa;
+  color: rgb(50,50,50);
 }
 
 body {
-  background-image: url("images/cinema.jpeg");
+  background-color: rgb(230,230,230);
 }
 
 /* The Modal background */
