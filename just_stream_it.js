@@ -47,16 +47,6 @@ function closeRatedMovieModal(){
 
 const apiUrl = 'http://localhost:8000/api/v1/titles/';
 
-// Get movies information from API
-
-async function getMoviesData(url){
-	// Storing response
-	const response = await fetch(url);
-	// Storing data in form of JSON
-	var data = await response.json();
-	console.log(data);
-	if (response) {
-		hideloader();
-	}
-	show(data);
-}
+fetch(apiUrl)
+  .then(res => res.json())
+  .then(data => console.log(data))
