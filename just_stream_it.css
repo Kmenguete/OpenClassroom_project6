@@ -24,8 +24,8 @@
 }
 
 .top_rated_movie {
-   margin: 50px;
-   padding-left: 1100px;
+   margin: 100px;
+   padding-left: 1200px;
   justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
@@ -34,8 +34,8 @@
 }
 
 .category {
-  margin: 50px;
-  padding-left: 1100px;
+  margin: 100px;
+  padding-left: 1200px;
   justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
