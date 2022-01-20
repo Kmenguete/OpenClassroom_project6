@@ -25,7 +25,7 @@
 
 .top_rated_movie {
    margin: 100px;
-   padding-left: 1200px;
+   padding-left: 1620px;
   justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
@@ -35,7 +35,7 @@
 
 .category {
   margin: 100px;
-  padding-left: 1200px;
+  padding-left: 1620px;
   justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
@@ -47,6 +47,7 @@
     border: 1px solid #414141;
     box-shadow: 6px 6px 6px #414141 inset;
     background-image: url("images/darkgrey.jpeg");
+    margin: 30px;
 }
 
 .abel-regular {
