@@ -116,21 +116,23 @@ body {
 
 /* The Close Button */
 #close {
-    transition: all 200ms;
     float: right;
     font-size: 20px;
     color: rgb(100,100,100);
 }
 
-#close:hover {
+#close:hover,
+#close:focus {
     color: black;
+    text-decoration: none;
+    cursor: pointer;
 } 
 
 @media screen and (max-width:  700px){
     .modal_info{
         width: 70%;
     } 
-    #modal_window{
+    .movie_info{
         width: 70%;
     }
 }
