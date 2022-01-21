@@ -6,12 +6,12 @@
   margin: 50px;
 }
 
-.the_best_movie #the_best_movie_info {
+.the_best_movie .the_best_movie_info {
   height: 50px;
   position: relative;
   right: -80px;
   bottom: -320px;
-  background: url("images/darkgrey.jpeg") repeat-x;
+  background-color: rgb(50, 50, 50);
   border: 1px solid #414141;
   border-radius: 5px;
   font-size: 20px;
@@ -19,8 +19,12 @@
   text-align: center;
   padding: 10px 15px 10px 15px;
   color: rgb(200,200,200);
-  box-shadow: 6px 6px 6px #414141;
   text-decoration: none;
+}
+
+.the_best_movie_info:hover{
+    background-color: black;
+    cursor: pointer;
 }
 
 .top_rated_movie {
