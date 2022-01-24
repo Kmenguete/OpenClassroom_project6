@@ -52,6 +52,19 @@
     box-shadow: 6px 6px 6px #414141;
     margin: 30px;
 }
+.button {
+    width: 100%;
+    height: 100%;
+}
+/* There is a transition in the length and width of 1 second. 
+The goal is that the image get bigger when we pass the mouse over the image(it will accompany the hover property)*/
+.button img {
+    transition: all 1s ease;
+}
+.button:hover img {
+    /* L'image est grossie de 25% */
+    transform: scale(1.25);
+}
 
 .abel-regular {
   font-family: "abel_regular", Arial, serif;
