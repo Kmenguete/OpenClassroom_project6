@@ -4,11 +4,9 @@
   height: 460px;
   box-shadow: 6px 6px 6px #414141 inset;
   margin: 50px;
-} 
-
 }
 
-.the_best_movie .the_best_movie_info {
+.the_best_movie #the_best_movie_info {
   height: 50px;
   position: relative;
   right: -80px;
@@ -24,14 +22,14 @@
   text-decoration: none;
 }
 
-.the_best_movie_info:hover{
+#the_best_movie_info:hover{
     background-color: black;
     cursor: pointer;
 }
 
 .top_rated_movie {
    margin: 100px;
-   padding-left: 160px;
+   padding-left: 10px;
   justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
@@ -41,7 +39,7 @@
 
 .category {
   margin: 100px;
-  padding-left: 160px;
+  padding-left: 10px;
   justify-content: center;
   border: 1px solid #414141;
   overflow: auto;
