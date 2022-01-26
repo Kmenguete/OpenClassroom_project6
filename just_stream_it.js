@@ -15,6 +15,12 @@ bestMovie.then(async (responseData)=>{
     const gender = response.genres;
     const releaseDate = response.year;
     const rated = response.rated;
+    const imdbScore = response.imdb_score;
+    const filmDirector = response.directors;
+    const listOfActors = response.actors;
+    const duration = response.duration;
+    const country = response.countries;
+    const movieAbstract = response.description;
 
 
     } catch(error) {
