@@ -22,6 +22,14 @@ bestMovie.then(async (responseData)=>{
     const country = response.countries;
     const movieAbstract = response.description;
 
+    // Get data displayed
+
+    console.log(title);
+
+    const display_title = document.querySelector("#title");
+
+    display_title.innerHTML = title;
+
 
     } catch(error) {
     	console.log(error);
