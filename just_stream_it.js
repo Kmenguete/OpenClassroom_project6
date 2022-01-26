@@ -20,7 +20,8 @@ bestMovie.then(async (responseData)=>{
     const listOfActors = response.actors;
     const duration = response.duration;
     const country = response.countries;
-    const movieAbstract = response.description;
+    const movieAbstract = response.description; 
+    const movieImage = response.image_url;
 
     // Get data displayed
 
@@ -33,7 +34,10 @@ bestMovie.then(async (responseData)=>{
     const display_listOfActors = document.querySelector("#actors");
     const display_duration = document.querySelector("#duration");
     const display_country = document.querySelector("#country");
-    const display_movieAbstract = document.querySelector("#movie_abstract");
+    const display_movieAbstract = document.querySelector("#movie_abstract"); 
+    const bestMovieImage = `<img src="${movieImage}"/>`;
+    const display_movieImage = document.querySelector("#best_movie_image"); 
+
 
     display_title.innerHTML = "Movie: " + title;
     display_gender.innerHTML = "Gender: " + gender;
@@ -45,6 +49,7 @@ bestMovie.then(async (responseData)=>{
     display_duration.innerHTML = "Duration: " + duration;
     display_country.innerHTML = "Country: " + country;
     display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
+    display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
 
 
     } catch(error) {
