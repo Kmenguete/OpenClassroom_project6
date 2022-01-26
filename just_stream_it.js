@@ -49,7 +49,7 @@ bestMovie.then(async (responseData)=>{
     display_duration.innerHTML = "Duration: " + duration;
     display_country.innerHTML = "Country: " + country;
     display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
-    display_movieImage.insertAdjacentHTML("beforebegin", bestMovieImage);
+    display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
 
 
     } catch(error) {
