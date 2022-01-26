@@ -1,7 +1,7 @@
 let bestMovie = fetch('http://localhost:8000/api/v1/titles/1508669');
 
 bestMovie.then(async (responseData)=>{
-    console.loge(responseData);
+    console.log(responseData);
 
     const response = await responseData.json();
     console.log(response); 
@@ -28,7 +28,7 @@ bestMovie.then(async (responseData)=>{
 
     const display_title = document.querySelector("#title");
 
-    display_title.innerHTML = title;
+    display_title.innerHTML = "Movie: " + title;
 
 
     } catch(error) {
