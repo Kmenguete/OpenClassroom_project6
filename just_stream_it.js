@@ -24,11 +24,19 @@ bestMovie.then(async (responseData)=>{
 
     // Get data displayed
 
-    console.log(title);
-
     const display_title = document.querySelector("#title");
+    const display_gender = document.querySelector("#gender");
+    const display_releaseDate = document.querySelector("#release_date");
+    const display_rated = document.querySelector("#rated");
+    const display_imdbScore = document.querySelector("#imdb_score");
+    const display_filmDirector = document.querySelector("#film_director");
 
     display_title.innerHTML = "Movie: " + title;
+    display_gender.innerHTML = "Gender: " + gender;
+    display_releaseDate.innerHTML = "Release Date: " + releaseDate;
+    display_rated.innerHTML = "Rated: " + rated;
+    display_imdbScore.innerHTML = "Imdb score: " + imdbScore;
+    display_filmDirector.innerHTML = "Movie director: " + filmDirector;
 
 
     } catch(error) {
