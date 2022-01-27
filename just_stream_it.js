@@ -25,16 +25,16 @@ bestMovie.then(async (responseData)=>{
 
     // Get data displayed
 
-    const display_title = document.querySelector("#title");
-    const display_gender = document.querySelector("#gender");
-    const display_releaseDate = document.querySelector("#release_date");
-    const display_rated = document.querySelector("#rated");
-    const display_imdbScore = document.querySelector("#imdb_score");
-    const display_filmDirector = document.querySelector("#film_director");
-    const display_listOfActors = document.querySelector("#actors");
-    const display_duration = document.querySelector("#duration");
-    const display_country = document.querySelector("#country");
-    const display_movieAbstract = document.querySelector("#movie_abstract"); 
+    const display_title = document.querySelector("#title_best_movie");
+    const display_gender = document.querySelector("#gender_best_movie");
+    const display_releaseDate = document.querySelector("#release_date_best_movie");
+    const display_rated = document.querySelector("#rated_best_movie");
+    const display_imdbScore = document.querySelector("#imdb_score_best_movie");
+    const display_filmDirector = document.querySelector("#film_director_best_movie");
+    const display_listOfActors = document.querySelector("#actors_best_movie");
+    const display_duration = document.querySelector("#duration_best_movie");
+    const display_country = document.querySelector("#country_best_movie");
+    const display_movieAbstract = document.querySelector("#movie_abstract_best_movie"); 
     const bestMovieImage = `<img src="${movieImage}"/>`;
     const display_movieImage = document.querySelector("#best_movie_image"); 
 

@@ -144,6 +144,20 @@ body {
     cursor: pointer;
 } 
 
+/* The Close Button */
+#close_best_movie {
+    float: right;
+    font-size: 20px;
+    color: rgb(100,100,100);
+}
+
+#close_best_movie:hover,
+#close_best_movie:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} 
+
 @media screen and (max-width:  700px){
     .modal_info{
         width: 70%;
