@@ -75,5 +75,7 @@ searchbestMovie.then(async (responseData)=>{
 
 .catch((error) => {
 	console.log(error);
-});
+}); 
+
+let searchOtherBestMovies = fetch('http://localhost:8000/api/v1/titles/?page=2&sort_by=-imdb_score');
 
