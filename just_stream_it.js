@@ -77,6 +77,7 @@ searchbestMovie.then(async (responseData)=>{
 	console.log(error);
 }); 
 
+// Now I will create a for loop to get the 5 best movies(any category) in my website.
 
 let searchbestMovies = fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score');
 
@@ -101,13 +102,15 @@ searchbestMovies.then(async (responseData)=>{
 		    document.getElementsByTagName('body')[0].appendChild(listContainer);
 		    listContainer.appendChild(istElement); 
 
-		    for (i = 0; i < nomberOfBestMovies; ++i) {
-		    	// create an item for each one
+		    for (i = 0; i < nomberOfBestMovies; ++i) { 
+
+		    	// create an item for each one 
+
 		    	const listItem = document.createElement('li');
 
-		    	// Add the item text
-
-		    	listItem.innerHTML = bestMovies[i];
+		    	// Add the item text 
+		    	
+		    	const bestMoviesData = fetch(bestMovies[i]);
 
 		    	// Add listItem to the listElement
 
