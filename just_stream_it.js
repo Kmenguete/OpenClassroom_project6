@@ -78,3 +78,11 @@ searchbestMovie.then(async (responseData)=>{
 }); 
 
 
+let searchbestMovies = fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score');
+
+searchbestMovies.then(async (responseData)=>{
+	console.log(responseData);
+
+	const response = await responseData.json();
+	console.log(response);
+})
