@@ -84,5 +84,36 @@ searchbestMovies.then(async (responseData)=>{
 	console.log(responseData);
 
 	const response = await responseData.json();
-	console.log(response);
+	console.log(response); 
+	try { 
+		function makeBestMoviesList() { 
+			// Establish the array that stores the responses from the API
+		    const bestMovies = [response.results[0].url, response.results[1].url, response.results[2].url, response.results[3].url, response.results[4].url],
+		    // Make a container element for the list
+		    const listContainer = document.createElement('div');
+		    // Make the list
+		    const listElement = document.createElement('ul');
+		    // Set up a loop that goes through the items in listItems one at a time
+		    const nomberOfBestMovies = bestMovies.length;
+		    let bestMovie;
+		    let i; 
+		    // Add it to the page
+		    document.getElementsByTagName('body')[0].appendChild(listContainer);
+		    listContainer.appendChild(istElement); 
+
+		    for (i = 0; i < nomberOfBestMovies; ++i) {
+		    	// create an item for each one
+		    	const listItem = document.createElement('li');
+
+		    	// Add the item text
+
+		    	listItem.innerHTML = bestMovies[i];
+
+		    	// Add listItem to the listElement
+
+		    	listItem.appendChild(listItem);
+		    }
+		}
+		
+	}
 })
