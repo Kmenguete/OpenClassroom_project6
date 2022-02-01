@@ -116,7 +116,22 @@ searchbestMovies.then(async (responseData)=>{
 
 		    		const response = await responseData.json();
 		    		console.log(response); 
-		    		try{ 
+		    		try{  
+		    			// Get best movie data from API
+
+    
+                    var dynamic_title = response.title;
+                    var dynamic_gender = response.genres;
+                    var dynamic_releaseDate = response.year;
+                    var dynamic_rated = response.rated;
+                    var dynamic_imdbScore = response.imdb_score;
+                    var dynamic_filmDirector = response.directors;
+                    var dynamic_listOfActors = response.actors;
+                    var dynamic_duration = response.duration;
+                    var dynamic_country = response.countries;
+                    var dynamic_movieAbstract = response.description; 
+                    var dynamic_movieImage = response.image_url;
+
 		    		} catch(error) {
     	console.log(error);
     }
