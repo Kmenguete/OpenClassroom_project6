@@ -117,7 +117,16 @@ searchbestMovies.then(async (responseData)=>{
 		    		var response = await responseData.json();
 		    		console.log(response); 
 		    		try{  
-		    			// Get best movies data from API 
+		    			// Get best movies data from API  
+		    			var dynamic_movieImage = response.image_url; 
+		    			// Add the movie image to the li tag
+		    	function add_movieImage() {
+		    		var img = document.createElement('img');
+		    		img.src = dynamic_movieImage;
+		    		document.getElementById('body').appendChild(img);
+		    	} 
+		    	// Use the function
+		    	add_movieImage();
 		    			// Here I am trying to create a modal window for each movie and each modal window should contain specific informations about the selected movie
 		    			$('#modal_window_best_movies').on('show.bs.modal', function(event){
 		    				var element = $(event.relatedTarget); // the li that triggered the modal to show 
@@ -144,9 +153,6 @@ searchbestMovies.then(async (responseData)=>{
                             $('.modal_content').html('Country: ' + dynamic_country);
                             $('.modal_content').html('Movie abstract: ' + dynamic_movieAbstract);
 		    			});
-    
-                    
-                    var dynamic_movieImage = response.image_url;
 
 		    		} catch(error) {
     	console.log(error);
@@ -154,23 +160,16 @@ searchbestMovies.then(async (responseData)=>{
 
 		    	});
 
-		    	// Add the movie image to the li tag
-		    	function add_movieImage() {
-		    		var img = document.createElement('img');
-		    		img.src = dynamic_movieImage;
-		    		document.getElementById('body').appendChild(img);
-		    	}
-
 		    	// Add listItem to the listElement
 
-		    	listItem.appendChild(listItem);
+		    	listElement.appendChild(listItem);
 		    }
 		}
+// Use the function
+makeBestMoviesList();
 		
 	} catch(error) {
     	console.log(error);
     }
 }); 
 
-// Use the function
-makeBestMoviesList();
