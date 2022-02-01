@@ -167,5 +167,7 @@ searchbestMovies.then(async (responseData)=>{
 		    }
 		}
 		
-	}
+	} catch(error) {
+    	console.log(error);
+    }
 });
