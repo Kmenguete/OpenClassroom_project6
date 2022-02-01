@@ -3,15 +3,15 @@ let searchbestMovie = fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_
 searchbestMovie.then(async (responseData)=>{
 	console.log(responseData);
 
-	const response = await responseData.json();
+	var response = await responseData.json();
 	console.log(response); 
 
 	try {
-		const bestMovie = fetch(response.results[0].url);
+		var bestMovie = fetch(response.results[0].url);
 		bestMovie.then(async (responseData)=>{
     console.log(responseData);
 
-    const response = await responseData.json();
+    var response = await responseData.json();
     console.log(response); 
 
     try{
@@ -19,32 +19,32 @@ searchbestMovie.then(async (responseData)=>{
     // Get best movie data from API
 
     
-    const title = response.title;
-    const gender = response.genres;
-    const releaseDate = response.year;
-    const rated = response.rated;
-    const imdbScore = response.imdb_score;
-    const filmDirector = response.directors;
-    const listOfActors = response.actors;
-    const duration = response.duration;
-    const country = response.countries;
-    const movieAbstract = response.description; 
-    const movieImage = response.image_url;
+    var title = response.title;
+    var gender = response.genres;
+    var releaseDate = response.year;
+    var rated = response.rated;
+    var imdbScore = response.imdb_score;
+    var filmDirector = response.directors;
+    var listOfActors = response.actors;
+    var duration = response.duration;
+    var country = response.countries;
+    var movieAbstract = response.description; 
+    var movieImage = response.image_url;
 
     // Get data displayed
 
-    const display_title = document.querySelector("#title_best_movie");
-    const display_gender = document.querySelector("#gender_best_movie");
-    const display_releaseDate = document.querySelector("#release_date_best_movie");
-    const display_rated = document.querySelector("#rated_best_movie");
-    const display_imdbScore = document.querySelector("#imdb_score_best_movie");
-    const display_filmDirector = document.querySelector("#film_director_best_movie");
-    const display_listOfActors = document.querySelector("#actors_best_movie");
-    const display_duration = document.querySelector("#duration_best_movie");
-    const display_country = document.querySelector("#country_best_movie");
-    const display_movieAbstract = document.querySelector("#movie_abstract_best_movie"); 
-    const bestMovieImage = `<img src="${movieImage}"/>`;
-    const display_movieImage = document.querySelector("#best_movie_image"); 
+    var display_title = document.querySelector("#title_best_movie");
+    var display_gender = document.querySelector("#gender_best_movie");
+    var display_releaseDate = document.querySelector("#release_date_best_movie");
+    var display_rated = document.querySelector("#rated_best_movie");
+    var display_imdbScore = document.querySelector("#imdb_score_best_movie");
+    var display_filmDirector = document.querySelector("#film_director_best_movie");
+    var display_listOfActors = document.querySelector("#actors_best_movie");
+    var display_duration = document.querySelector("#duration_best_movie");
+    var display_country = document.querySelector("#country_best_movie");
+    var display_movieAbstract = document.querySelector("#movie_abstract_best_movie"); 
+    var bestMovieImage = `<img src="${movieImage}"/>`;
+    var display_movieImage = document.querySelector("#best_movie_image"); 
 
 
     display_title.innerHTML = "Movie: " + title;
@@ -84,20 +84,20 @@ let searchbestMovies = fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb
 searchbestMovies.then(async (responseData)=>{
 	console.log(responseData);
 
-	const response = await responseData.json();
+	var response = await responseData.json();
 	console.log(response); 
 	try { 
 		function makeBestMoviesList() { 
 			// Establish the array that stores the responses from the API
-		    const bestMovies = [response.results[0].url, response.results[1].url, response.results[2].url, response.results[3].url, response.results[4].url],
+		    var bestMovies = [response.results[0].url, response.results[1].url, response.results[2].url, response.results[3].url, response.results[4].url],
 		    // Make a container element for the list
-		    const listContainer = document.createElement('div');
+		    listContainer = document.createElement('div'),
 		    // Make the list
-		    const listElement = document.createElement('ul');
+		    listElement = document.createElement('ul'),
 		    // Set up a loop that goes through the items in listItems one at a time
-		    const nomberOfBestMovies = bestMovies.length;
-		    let bestMovie;
-		    let i; 
+		    nomberOfBestMovies = bestMovies.length,
+		    bestMovie,
+		    i; 
 		    // Add it to the page
 		    document.getElementsByTagName('body')[0].appendChild(listContainer);
 		    listContainer.appendChild(listElement); 
@@ -106,15 +106,15 @@ searchbestMovies.then(async (responseData)=>{
 
 		    	// create an item for each one 
 
-		    	const listItem = document.createElement('li');
+		    	listItem = document.createElement('li');
 
 		    	// Add the item content 
 
-		    	const bestMoviesData = fetch(bestMovies[i]);
+		    	var bestMoviesData = fetch(bestMovies[i]);
 		    	bestMoviesData.then(async (responseData)=>{
 		    		console.log(responseData);
 
-		    		const response = await responseData.json();
+		    		var response = await responseData.json();
 		    		console.log(response); 
 		    		try{  
 		    			// Get best movies data from API 
@@ -170,4 +170,7 @@ searchbestMovies.then(async (responseData)=>{
 	} catch(error) {
     	console.log(error);
     }
-});
+}); 
+
+// Use the function
+makeBestMoviesList();
