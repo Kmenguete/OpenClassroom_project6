@@ -123,7 +123,7 @@ searchbestMovies.then(async (responseData)=>{
 		    	function add_movieImage() {
 		    		var img = document.createElement('img');
 		    		img.src = dynamic_movieImage;
-		    		document.getElementById('body').appendChild(img);
+		    		document.getElementById('best_movies').appendChild(img);
 		    	} 
 		    	// Use the function
 		    	add_movieImage();
