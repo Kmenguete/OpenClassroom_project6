@@ -117,26 +117,32 @@ searchbestMovies.then(async (responseData)=>{
 		    		const response = await responseData.json();
 		    		console.log(response); 
 		    		try{  
-		    			// Get best movie data from API
-
+		    			// Get best movies data from API 
+		    			$('#modal_window_best_movies').on('show.bs.modal', function(event){
+		    				var element = $(event.relatedTarget); // the li that triggered the modal to show 
+		    				var dynamic_title = response.title;
+                            var dynamic_gender = response.genres;
+                            var dynamic_releaseDate = response.year;
+                            var dynamic_rated = response.rated;
+                            var dynamic_imdbScore = response.imdb_score;
+                            var dynamic_filmDirector = response.directors;
+                            var dynamic_listOfActors = response.actors;
+                            var dynamic_duration = response.duration;
+                            var dynamic_country = response.countries;
+                            var dynamic_movieAbstract = response.description; 
+		    			});
     
-                    var dynamic_title = response.title;
-                    var dynamic_gender = response.genres;
-                    var dynamic_releaseDate = response.year;
-                    var dynamic_rated = response.rated;
-                    var dynamic_imdbScore = response.imdb_score;
-                    var dynamic_filmDirector = response.directors;
-                    var dynamic_listOfActors = response.actors;
-                    var dynamic_duration = response.duration;
-                    var dynamic_country = response.countries;
-                    var dynamic_movieAbstract = response.description; 
+                    
                     var dynamic_movieImage = response.image_url;
 
 		    		} catch(error) {
     	console.log(error);
     }
 
-		    	})
+		    	});
+
+		    	// Add the image to the li tag
+		    	listItem.insertAdjacentHTML("afterbegin", dynamic_movieImage[i])
 
 		    	// Add listItem to the listElement
 
@@ -145,4 +151,4 @@ searchbestMovies.then(async (responseData)=>{
 		}
 		
 	}
-})
+});
