@@ -154,8 +154,12 @@ searchbestMovies.then(async (responseData)=>{
 
 		    	});
 
-		    	// Add the image to the li tag
-		    	listItem.insertAdjacentHTML("afterbegin", dynamic_movieImage[i])
+		    	// Add the movie image to the li tag
+		    	function add_movieImage() {
+		    		var img = document.createElement('img');
+		    		img.src = dynamic_movieImage;
+		    		document.getElementById('body').appendChild(img);
+		    	}
 
 		    	// Add listItem to the listElement
 
