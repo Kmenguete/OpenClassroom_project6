@@ -100,7 +100,7 @@ searchbestMovies.then(async (responseData)=>{
 		    let i; 
 		    // Add it to the page
 		    document.getElementsByTagName('body')[0].appendChild(listContainer);
-		    listContainer.appendChild(istElement); 
+		    listContainer.appendChild(listElement); 
 
 		    for (i = 0; i < nomberOfBestMovies; ++i) { 
 
