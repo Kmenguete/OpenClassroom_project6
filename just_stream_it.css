@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 
-.top_rated_movie {
+.top_rated_movies {
    margin: 100px;
    padding-left: 150px;
   justify-content: center;
@@ -165,4 +165,11 @@ body {
     .movie_info{
         width: 70%;
     }
-}
+} 
+
+#close_best_movies:hover,
+#close_best_movies:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} 
