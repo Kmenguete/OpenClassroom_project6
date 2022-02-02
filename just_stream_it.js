@@ -127,32 +127,6 @@ searchbestMovies.then(async (responseData)=>{
 		    	} 
 		    	// Use the function
 		    	add_movieImage();
-		    			// Here I am trying to create a modal window for each movie and each modal window should contain specific informations about the selected movie
-		    			$('#modal_window_best_movies').on('show.bs.modal', function(event){
-		    				var element = $(event.relatedTarget); // the li that triggered the modal to show 
-		    				var dynamic_title = response.title;
-                            var dynamic_gender = response.genres;
-                            var dynamic_releaseDate = response.year;
-                            var dynamic_rated = response.rated;
-                            var dynamic_imdbScore = response.imdb_score;
-                            var dynamic_filmDirector = response.directors;
-                            var dynamic_listOfActors = response.actors;
-                            var dynamic_duration = response.duration;
-                            var dynamic_country = response.countries;
-                            var dynamic_movieAbstract = response.description; 
-
-                            var modal = $(this);
-                            $('#best_movies_popup').html('Movie: ' + dynamic_title);
-                            $('#best_movies_popup').html('Gender: ' + dynamic_gender);
-                            $('#best_movies_popup').html('Release Date: ' + dynamic_releaseDate);
-                            $('#best_movies_popup').html('Rated: ' + dynamic_rated);
-                            $('#best_movies_popup').html('Imdb score: ' + dynamic_imdbScore);
-                            $('#best_movies_popup').html('Movie director: ' + dynamic_filmDirector);
-                            $('#best_movies_popup').html('List of Actors: ' + dynamic_listOfActors);
-                            $('#best_movies_popup').html('Duration: ' + dynamic_duration);
-                            $('#best_movies_popup').html('Country: ' + dynamic_country);
-                            $('#best_movies_popup').html('Movie abstract: ' + dynamic_movieAbstract);
-		    			});
 
 		    		} catch(error) {
     	console.log(error);
