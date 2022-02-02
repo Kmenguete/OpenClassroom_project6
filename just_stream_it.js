@@ -142,16 +142,16 @@ searchbestMovies.then(async (responseData)=>{
                             var dynamic_movieAbstract = response.description; 
 
                             var modal = $(this);
-                            $('.modal_content').html('Movie: ' + dynamic_title);
-                            $('.modal_content').html('Gender: ' + dynamic_gender);
-                            $('.modal_content').html('Release Date: ' + dynamic_releaseDate);
-                            $('.modal_content').html('Rated: ' + dynamic_rated);
-                            $('.modal_content').html('Imdb score: ' + dynamic_imdbScore);
-                            $('.modal_content').html('Movie director: ' + dynamic_filmDirector);
-                            $('.modal_content').html('List of Actors: ' + dynamic_listOfActors);
-                            $('.modal_content').html('Duration: ' + dynamic_duration);
-                            $('.modal_content').html('Country: ' + dynamic_country);
-                            $('.modal_content').html('Movie abstract: ' + dynamic_movieAbstract);
+                            $('#best_movies_popup').html('Movie: ' + dynamic_title);
+                            $('#best_movies_popup').html('Gender: ' + dynamic_gender);
+                            $('#best_movies_popup').html('Release Date: ' + dynamic_releaseDate);
+                            $('#best_movies_popup').html('Rated: ' + dynamic_rated);
+                            $('#best_movies_popup').html('Imdb score: ' + dynamic_imdbScore);
+                            $('#best_movies_popup').html('Movie director: ' + dynamic_filmDirector);
+                            $('#best_movies_popup').html('List of Actors: ' + dynamic_listOfActors);
+                            $('#best_movies_popup').html('Duration: ' + dynamic_duration);
+                            $('#best_movies_popup').html('Country: ' + dynamic_country);
+                            $('#best_movies_popup').html('Movie abstract: ' + dynamic_movieAbstract);
 		    			});
 
 		    		} catch(error) {
