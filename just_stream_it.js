@@ -106,7 +106,8 @@ searchbestMovies.then(async (responseData)=>{
 
 		    	// create an item for each one 
 
-		    	listItem = document.createElement('li');
+		    	listItem = document.createElement('li'); 
+		    	buttonModal = document.createElement('a');
 
 		    	// Add the item content 
 
@@ -119,6 +120,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		try{  
 		    			// Get best movies data from API  
 		    			var dynamic_movieImage = response.image_url; 
+		
 		    			// Add the movie image to the li tag
 		    	function add_movieImage() {
 		    		var img = document.createElement('img');
