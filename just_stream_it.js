@@ -112,8 +112,8 @@ searchbestMovies.then(async (responseData)=>{
 		    	buttonModal.className = "button";
 		    	buttonModal.href = "#modal_window_best_movies"; 
 		    	buttonModal.id= i;
-		    	listItem.appendChild(buttonModal);
-		    	
+
+
 
 		    	// Add the item content 
 
@@ -130,8 +130,11 @@ searchbestMovies.then(async (responseData)=>{
 		    			// Add the movie image to the li tag
 		    	function add_movieImage() {
 		    		var img = document.createElement('img');
-		    		img.src = dynamic_movieImage;
-		    		document.getElementById('best_movies').appendChild(img);
+		    		img.src = dynamic_movieImage; 
+		    		buttonModal.appendChild(img);
+		    		listItem.appendChild(buttonModal);
+		    		document.getElementById('best_movies').appendChild(listItem);
+		    		listItem.addEventListener("click", function() {console.log(dynamic_movieImage)});
 		    	} 
 		    	// Use the function
 		    	add_movieImage();
