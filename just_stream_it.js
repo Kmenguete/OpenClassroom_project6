@@ -112,6 +112,7 @@ searchbestMovies.then(async (responseData)=>{
 		    	buttonModal.className = "button";
 		    	buttonModal.href = "#modal_window_best_movies"; 
 		    	buttonModal.id= i;
+		    	listItem.appendChild(buttonModal);
 
 		    	// Add the item content 
 
