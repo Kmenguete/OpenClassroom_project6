@@ -90,17 +90,14 @@ searchbestMovies.then(async (responseData)=>{
 		function makeBestMoviesList() { 
 			// Establish the array that stores the responses from the API
 		    var bestMovies = [response.results[0].url, response.results[1].url, response.results[2].url, response.results[3].url, response.results[4].url],
-		    // Make a container element for the list
-		    listContainer = document.createElement('div'),
+		   
 		    // Make the list
 		    listElement = document.createElement('ul'),
 		    // Set up a loop that goes through the items in listItems one at a time
 		    numberOfBestMovies = bestMovies.length,
 		    bestMovie,
 		    i; 
-		    // Add it to the page
-		    document.getElementsByTagName('body')[0].appendChild(listContainer);
-		    listContainer.appendChild(listElement); 
+		    
 
 		    for (var i = 0; i < numberOfBestMovies; ++i) { 
 
