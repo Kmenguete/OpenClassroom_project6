@@ -123,17 +123,12 @@ searchbestMovies.then(async (responseData)=>{
 		    			var dynamic_movieImage = response.image_url; 
 		
 		    			// Add the movie image to the li tag
-		    	function add_movieImage() {
-		    		var img = document.createElement('img');
+		    	    var img = document.createElement('img');
 		    		img.src = dynamic_movieImage; 
 		    		buttonModal.appendChild(img);
 		    		listItem.appendChild(buttonModal);
 		    		document.getElementById('best_movies').appendChild(listItem);
 		    		listItem.addEventListener("click", function() {console.log(dynamic_movieImage)});
-		   
-		    	} 
-		    	// Use the function
-		    	add_movieImage();
 
 		    		} catch(error) {
     	console.log(error);
