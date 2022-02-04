@@ -120,6 +120,7 @@ searchbestMovies.then(async (responseData)=>{
 
 		    	        listItem = document.createElement('li'); 
 		    	        listItem.className = "modal_info";
+		    	        listElement.appendChild(listItem);
 		    	        buttonModal = document.createElement('a');
 		    	        buttonModal.className = "button";
 		    	        buttonModal.href = "#modal_window_best_movies"; 
@@ -139,9 +140,6 @@ searchbestMovies.then(async (responseData)=>{
 
 		    	});
 
-		    	// Add listItem to the listElement
-
-		    	listElement.appendChild(listItem);
 		    }
 		}
 // Use the function
