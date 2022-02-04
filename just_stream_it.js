@@ -95,24 +95,22 @@ searchbestMovies.then(async (responseData)=>{
 		    // Make the list
 		    listElement = document.createElement('ul'),
 		    // Set up a loop that goes through the items in listItems one at a time
-		    nomberOfBestMovies = bestMovies.length,
+		    numberOfBestMovies = bestMovies.length,
 		    bestMovie,
 		    i; 
 		    // Add it to the page
 		    document.getElementsByTagName('body')[0].appendChild(listContainer);
 		    listContainer.appendChild(listElement); 
 
-		    for (i = 0; i < nomberOfBestMovies; ++i) { 
+		    for (var i = 0; i < numberOfBestMovies; ++i) { 
 
 		    	// create an item for each one 
 
-		    	listItem = document.createElement('li');  
+		    	listItem = document.createElement('li'); 
 		    	listItem.className = "modal_info";
 		    	buttonModal = document.createElement('a');
 		    	buttonModal.className = "button";
 		    	buttonModal.href = "#modal_window_best_movies"; 
-		    	buttonModal.id= i;
-
 
 
 		    	// Add the item content 
@@ -135,6 +133,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		listItem.appendChild(buttonModal);
 		    		document.getElementById('best_movies').appendChild(listItem);
 		    		listItem.addEventListener("click", function() {console.log(dynamic_movieImage)});
+		   
 		    	} 
 		    	// Use the function
 		    	add_movieImage();
