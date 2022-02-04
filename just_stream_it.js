@@ -101,14 +101,6 @@ searchbestMovies.then(async (responseData)=>{
 
 		    for (var i = 0; i < numberOfBestMovies; ++i) { 
 
-		    	// create an item for each one 
-
-		    	listItem = document.createElement('li'); 
-		    	listItem.className = "modal_info";
-		    	buttonModal = document.createElement('a');
-		    	buttonModal.className = "button";
-		    	buttonModal.href = "#modal_window_best_movies"; 
-
 
 		    	// Add the item content 
 
@@ -119,16 +111,27 @@ searchbestMovies.then(async (responseData)=>{
 		    		var response = await responseData.json();
 		    		console.log(response); 
 		    		try{  
+		    			
 		    			// Get best movies data from API  
+		    			
 		    			var dynamic_movieImage = response.image_url; 
+		    			
+		    			// create an item for each one 
+
+		    	        listItem = document.createElement('li'); 
+		    	        listItem.className = "modal_info";
+		    	        buttonModal = document.createElement('a');
+		    	        buttonModal.className = "button";
+		    	        buttonModal.href = "#modal_window_best_movies"; 
 		
 		    			// Add the movie image to the li tag
-		    	    var img = document.createElement('img');
-		    		img.src = dynamic_movieImage; 
-		    		buttonModal.appendChild(img);
-		    		listItem.appendChild(buttonModal);
-		    		document.getElementById('best_movies').appendChild(listItem);
-		    		listItem.addEventListener("click", function() {console.log(dynamic_movieImage)});
+		    	        
+		    	        var img = document.createElement('img');
+		    		    img.src = dynamic_movieImage; 
+		    		    buttonModal.appendChild(img);
+		    		    listItem.appendChild(buttonModal);
+		    		    document.getElementById('best_movies').appendChild(listItem);
+		    		    listItem.addEventListener("click", function() {console.log(dynamic_movieImage)});
 
 		    		} catch(error) {
     	console.log(error);
