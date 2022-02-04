@@ -166,6 +166,11 @@ body {
         width: 70%;
     }
 } 
+#close_best_movies {
+    float: right;
+    font-size: 20px;
+    color: rgb(100,100,100); 
+}
 
 #close_best_movies:hover,
 #close_best_movies:focus {
