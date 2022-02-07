@@ -192,10 +192,38 @@ searchbestMovies.then(async (responseData)=>{
 
 			    			// Updating the modal content using jQuery query selectors
 
-			    			var modal = $(this);
+			    			var modal = $(this)
 
 			    			modal.find('.title_best_movies')
 			    			     .text("Movie: " + dynamic_title)
+
+			    			modal.find('.gender_best_movies')
+			    			     .text("Gender: " + dynamic_gender)
+
+			    			modal.find('.release_date_best_movies')
+			    			     .text("Release Date: " + dynamic_releaseDate)
+
+			    			modal.find('.rated_best_movies')
+			    			     .text("Rated: " + dynamic_rated)
+
+			    			modal.find('.imdb_score_best_movies')
+			    			     .text("Imdb score: " + dynamic_imdbScore)
+
+			    			modal.find('.film_director_best_movies')
+			    			     .text("Movie director: " + dynamic_filmDirector)
+
+			    			modal.find('.actors_best_movies')
+			    			     .text("List of Actors: " + dynamic_listOfActors)
+
+			    			modal.find('.duration_best_movies')
+			    			     .text("Duration: " + dynamic_duration)
+
+			    			modal.find('.country_best_movies')
+			    			     .text("Country: " + dynamic_country)
+
+			    			modal.find('.movie_abstract_best_movies')
+			    			     .text("Movie abstract: " + dynamic_movieAbstract)
+
 
 		    		    })
 
