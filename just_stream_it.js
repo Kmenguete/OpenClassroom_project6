@@ -128,16 +128,16 @@ searchbestMovies.then(async (responseData)=>{
 
 		    			// Get data displayed
 
-		    			var display_titles = document.querySelector("#title_best_movies");
-					    var display_genders = document.querySelector("#gender_best_movies");
-					    var display_releaseDates = document.querySelector("#release_date_best_movies");
-					    var display_rateds = document.querySelector("#rated_best_movies");
-					    var display_imdbScores = document.querySelector("#imdb_score_best_movies");
-					    var display_filmDirectors = document.querySelector("#film_director_best_movies");
-					    var display_listsOfActors = document.querySelector("#actors_best_movies");
-					    var display_durations = document.querySelector("#duration_best_movies");
-					    var display_countries = document.querySelector("#country_best_movies");
-					    var display_moviesAbstract = document.querySelector("#movie_abstract_best_movies"); 
+		    			var display_titles = document.querySelector(".title_best_movies");
+					    var display_genders = document.querySelector(".gender_best_movies");
+					    var display_releaseDates = document.querySelector(".release_date_best_movies");
+					    var display_rateds = document.querySelector(".rated_best_movies");
+					    var display_imdbScores = document.querySelector(".imdb_score_best_movies");
+					    var display_filmDirectors = document.querySelector(".film_director_best_movies");
+					    var display_listsOfActors = document.querySelector(".actors_best_movies");
+					    var display_durations = document.querySelector(".duration_best_movies");
+					    var display_countries = document.querySelector(".country_best_movies");
+					    var display_moviesAbstract = document.querySelector(".movie_abstract_best_movies"); 
 
 					    display_titles.innerHTML = "Movie: " + dynamic_title;
 					    display_genders.innerHTML = "Gender: " + dynamic_gender;
@@ -148,7 +148,8 @@ searchbestMovies.then(async (responseData)=>{
 					    display_listsOfActors.innerHTML = "List of Actors: " + dynamic_listOfActors;
 					    display_durations.innerHTML = "Duration: " + dynamic_duration;
 					    display_countries.innerHTML = "Country: " + dynamic_country;
-					    display_moviesAbstract.innerHTML = "Movie abstract: " + dynamic_movieAbstract;
+					    display_moviesAbstract.innerHTML = "Movie abstract: " + dynamic_movieAbstract; 
+
 		    			
 		    			// create an item for each one 
 
@@ -166,10 +167,40 @@ searchbestMovies.then(async (responseData)=>{
 		    		    buttonModal.appendChild(img);
 		    		    listItem.appendChild(buttonModal);
 		    		    document.getElementById('best_movies').appendChild(listItem);
-		    		    listItem.addEventListener("click", function() {console.log(dynamic_movieImage)});
+		    		    listItem.addEventListener("click", function() {console.log(dynamic_movieImage)}); 
+
+		    		    // display different information in modal of each list item
+
+		    		    $('#modal_window_best_movies').on('show.bs.modal', function (event) {
+
+		    		    	// Button that triggered the modal
+		    		    	var li = $(event.relatedTarget);
+
+		    		    	// Extract info from data attributes 
+
+		    		    	var dynamic_title = response.title;
+	                        var dynamic_gender = response.genres;
+						    var dynamic_releaseDate = response.year;
+						    var dynamic_rated = response.rated;
+						    var dynamic_imdbScore = response.imdb_score;
+						    var dynamic_filmDirector = response.directors;
+						    var dynamic_listOfActors = response.actors;
+						    var dynamic_duration = response.duration;
+						    var dynamic_country = response.countries;
+						    var dynamic_movieAbstract = response.description; 
+			    			var dynamic_movieImage = response.image_url; 
+
+			    			// Updating the modal content using jQuery query selectors
+
+			    			var modal = $(this);
+
+			    			modal.find('.title_best_movies')
+			    			     .text("Movie: " + dynamic_title)
+
+		    		    })
 
 		    		} catch(error) {
-    	console.log(error);
+    	console.log(error); 
     }
 
 		    	});
