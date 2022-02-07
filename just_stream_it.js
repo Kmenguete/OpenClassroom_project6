@@ -128,7 +128,7 @@ searchbestMovies.then(async (responseData)=>{
 
 		    			// Get data displayed
 
-		    			/*var display_titles = document.querySelector(".title_best_movies");
+		    			var display_titles = document.querySelector(".title_best_movies");
 					    var display_genders = document.querySelector(".gender_best_movies");
 					    var display_releaseDates = document.querySelector(".release_date_best_movies");
 					    var display_rateds = document.querySelector(".rated_best_movies");
@@ -148,7 +148,7 @@ searchbestMovies.then(async (responseData)=>{
 					    display_listsOfActors.innerHTML = "List of Actors: " + dynamic_listOfActors;
 					    display_durations.innerHTML = "Duration: " + dynamic_duration;
 					    display_countries.innerHTML = "Country: " + dynamic_country;
-					    display_moviesAbstract.innerHTML = "Movie abstract: " + dynamic_movieAbstract; */
+					    display_moviesAbstract.innerHTML = "Movie abstract: " + dynamic_movieAbstract; 
 
 		    			
 		    			// create an item for each one 
@@ -224,7 +224,7 @@ searchbestMovies.then(async (responseData)=>{
 			    			     .text("Movie abstract: " + li_dynamic_movieAbstract)
 
 
-		    		    });
+		    		    })
 
 		    		} catch(error) {
     	console.log(error); 
