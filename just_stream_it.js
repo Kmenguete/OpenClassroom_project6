@@ -127,7 +127,7 @@ searchbestMovies.then(async (responseData)=>{
 		    			var dynamic_movieImage = response.image_url; 
 
 		    			// Get data displayed
-/*
+
 		    			var display_titles = document.querySelector(".title_best_movies");
 					    var display_genders = document.querySelector(".gender_best_movies");
 					    var display_releaseDates = document.querySelector(".release_date_best_movies");
@@ -148,7 +148,7 @@ searchbestMovies.then(async (responseData)=>{
 					    display_listsOfActors.innerHTML = "List of Actors: " + dynamic_listOfActors;
 					    display_durations.innerHTML = "Duration: " + dynamic_duration;
 					    display_countries.innerHTML = "Country: " + dynamic_country;
-					    display_moviesAbstract.innerHTML = "Movie abstract: " + dynamic_movieAbstract; */
+					    display_moviesAbstract.innerHTML = "Movie abstract: " + dynamic_movieAbstract; 
 
 		    			
 		    			// create an item for each one 
@@ -169,53 +169,6 @@ searchbestMovies.then(async (responseData)=>{
 		    		    document.getElementById('best_movies').appendChild(listItem);
 		    		    listItem.addEventListener("click", function() {console.log(dynamic_movieImage)}); 
 
-		    		    // display different information in modal of each list item
-
-		    		    $('#modal_window_best_movies').on('show.bs.modal', function (event) {
-
-		    		    	// Button that triggered the modal
-		    		    	var li = $(event.relatedTarget) 
-
-		    		    	// Extract info from data attributes 
-				            var recipient = li.data('whatever')
-
-
-			    			// Updating the modal content using jQuery query selectors
-
-			    			var modal = $(this)
-
-			    			modal.find('.title_best_movies')
-			    			     .text("Movie: " + dynamic_title)
-
-			    			modal.find('.gender_best_movies')
-			    			     .text("Gender: " + dynamic_gender)
-
-			    			modal.find('.release_date_best_movies')
-			    			     .text("Release Date: " + dynamic_releaseDate)
-
-			    			modal.find('.rated_best_movies')
-			    			     .text("Rated: " + dynamic_rated)
-
-			    			modal.find('.imdb_score_best_movies')
-			    			     .text("Imdb score: " + dynamic_imdbScore)
-
-			    			modal.find('.film_director_best_movies')
-			    			     .text("Movie director: " + dynamic_filmDirector)
-
-			    			modal.find('.actors_best_movies')
-			    			     .text("List of Actors: " + dynamic_listOfActors)
-
-			    			modal.find('.duration_best_movies')
-			    			     .text("Duration: " + dynamic_duration)
-
-			    			modal.find('.country_best_movies')
-			    			     .text("Country: " + dynamic_country)
-
-			    			modal.find('.movie_abstract_best_movies')
-			    			     .text("Movie abstract: " + dynamic_movieAbstract)
-
-
-		    		    })
 
 		    		} catch(error) {
     	console.log(error); 
