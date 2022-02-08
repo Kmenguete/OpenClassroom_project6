@@ -174,54 +174,45 @@ searchbestMovies.then(async (responseData)=>{
 		    		    $('#modal_window_best_movies').on('show.bs.modal', function (event) {
 
 		    		    	// Button that triggered the modal
-		    		    	var li = $(event.relatedTarget)
+		    		    	var li = $(event.relatedTarget) 
 
 		    		    	// Extract info from data attributes 
+				            var recipient = li.data('whatever')
 
-		    		    	var li_dynamic_title = li.data(dynamic_title)
-	                        var li_dynamic_gender = li.data(dynamic_gender)
-						    var li_dynamic_releaseDate = li.data(dynamic_releaseDate)
-						    var li_dynamic_rated = li.data(dynamic_rated)
-						    var li_dynamic_imdbScore = li.data(dynamic_imdbScore)
-						    var li_dynamic_filmDirector = li.data(dynamic_filmDirector)
-						    var li_dynamic_listOfActors = li.data(dynamic_listOfActors)
-						    var li_dynamic_duration = li.data(dynamic_duration)
-						    var li_dynamic_country = li.data(dynamic_country)
-						    var li_dynamic_movieAbstract = li.data(dynamic_movieAbstract)
 
 			    			// Updating the modal content using jQuery query selectors
 
 			    			var modal = $(this)
 
 			    			modal.find('.title_best_movies')
-			    			     .text("Movie: " + li_dynamic_title)
+			    			     .text("Movie: " + dynamic_title)
 
 			    			modal.find('.gender_best_movies')
-			    			     .text("Gender: " + li_dynamic_gender)
+			    			     .text("Gender: " + dynamic_gender)
 
 			    			modal.find('.release_date_best_movies')
-			    			     .text("Release Date: " + li_dynamic_releaseDate)
+			    			     .text("Release Date: " + dynamic_releaseDate)
 
 			    			modal.find('.rated_best_movies')
-			    			     .text("Rated: " + li_dynamic_rated)
+			    			     .text("Rated: " + dynamic_rated)
 
 			    			modal.find('.imdb_score_best_movies')
-			    			     .text("Imdb score: " + li_dynamic_imdbScore)
+			    			     .text("Imdb score: " + dynamic_imdbScore)
 
 			    			modal.find('.film_director_best_movies')
-			    			     .text("Movie director: " + li_dynamic_filmDirector)
+			    			     .text("Movie director: " + dynamic_filmDirector)
 
 			    			modal.find('.actors_best_movies')
-			    			     .text("List of Actors: " + li_dynamic_listOfActors)
+			    			     .text("List of Actors: " + dynamic_listOfActors)
 
 			    			modal.find('.duration_best_movies')
-			    			     .text("Duration: " + li_dynamic_duration)
+			    			     .text("Duration: " + dynamic_duration)
 
 			    			modal.find('.country_best_movies')
-			    			     .text("Country: " + li_dynamic_country)
+			    			     .text("Country: " + dynamic_country)
 
 			    			modal.find('.movie_abstract_best_movies')
-			    			     .text("Movie abstract: " + li_dynamic_movieAbstract)
+			    			     .text("Movie abstract: " + dynamic_movieAbstract)
 
 
 		    		    })
