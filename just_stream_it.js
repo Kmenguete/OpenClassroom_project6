@@ -77,7 +77,92 @@ searchbestMovie.then(async (responseData)=>{
 	console.log(error);
 }); 
 
-// Now I will create a for loop to get the 5 best movies(any category) in my website.
+// Now I will create a for loop to get the 5 best movies(any category) in my website. 
+
+function createModal(movie_data) {
+	var modal_window = document.createElement('div'); 
+	modal_window.setAttribute('class', modal_window);
+	modal_window.setAttribute('id', movie_data.title + '_' + 'modal_window');
+    modal_window.style.position = 'fixed';
+	modal_window.style.top = '0';
+    modal_window.style.bottom = '0';
+    modal_window.style.left = '0';
+    modal_window.style.right = '0';
+    modal_window.style.background = 'rgba(0, 0, 0, 0.7)';
+    modal_window.style.transition = '500ms';
+    modal_window.style.visibility = 'hidden';
+    modal_window.style.opacity = '0';   
+
+    var span = document.createElement('span');
+    span.setAttribute('id', 'close_' + movie_data.title);
+    span.setAttribute('href', '#'); 
+    span.style.float = 'right';
+    span.style.fontSize = '20px';
+    span.style.color = 'rgb(100,100,100)';
+    span.style.color = 'black';
+    span.style.textDecoration = 'none';
+    span.style.cursor = 'pointer';
+
+    var modal_content = document.createElement('div');
+    modal_content.setAttribute('class', modal_content);
+    modal_content.setAttribute('id', movie_data.title + '_' + 'modal_content');
+    modal_content.style.position = 'relative';
+    modal_content.style.transition = 'all 5s ease-in-out';
+    modal_content.style.backgroundColor = 'rgb(200, 200, 200)';
+    modal_content.style.margin = '15% auto'; /* 15% from the top and centered */
+    modal_content.style.padding = '20px';
+    modal_content.style.border = '1px solid #414141';
+    modal_content.style.width = '80%'; /* Could be more or less, depending on screen size */
+    modal_content.style.fontSize = '20px';
+    modal_content.style.fontFamily = '"abel_regular", Arial, serif';
+    modal_content.style.textAlign = 'left';
+    modal_content.style.color = 'rgb(50,50,50)'; 
+
+    var imageMovie = document.createElement('img');
+    imageMovie.src = movie_data.image_url;
+    imageMovie.alt = movie_data.title;
+
+
+
+    var display_titles = document.createElement("p");
+    var display_genres = document.createElement("p");
+    var display_releaseDates = document.createElement("p");
+    var display_rated = document.createElement("p");
+    var display_imdbScores = document.createElement("p");
+    var display_filmDirectors = document.createElement("p");
+    var display_listsOfActors = document.createElement("p");
+    var display_duration = document.createElement("p");
+    var display_countries = document.createElement("p");
+    var display_moviesAbstract = document.createElement("p"); 
+
+    display_titles.innerHTML = "Movie: " + movie_data.title;
+    display_genres.innerHTML = "Genres: " + movie_data.genres;
+    display_date_published.innerHTML = "Release Date: " + movie_data.date_published;
+    display_rated.innerHTML = "Rated: " + movie_data.rated;
+    display_imdbScores.innerHTML = "Imdb score: " + movie_data.imdb_score;
+    display_filmDirectors.innerHTML = "Movie director: " + movie_data.directors;
+    display_listsOfActors.innerHTML = "List of Actors: " + movie_data.actors;
+    display_duration.innerHTML = "Duration: " + movie_data.duration;
+    display_countries.innerHTML = "Country: " + movie_data.countries;
+    display_moviesAbstract.innerHTML = "Movie abstract: " + movie_data.description;  
+
+
+    modal_content.appendChild(span)
+    modal_content.appendChild(imageMovie)
+    modal_content.appendChild(display_titles) 
+    modal_content.appendChild(display_genres) 
+    modal_content.appendChild(display_releaseDates)
+    modal_content.appendChild(display_rated)
+    modal_content.appendChild(display_imdbScores)
+    modal_content.appendChild(display_filmDirectors)
+    modal_content.appendChild(display_listsOfActors)
+    modal_content.appendChild(display_duration)
+    modal_content.appendChild(display_countries)
+    modal_content.appendChild(display_moviesAbstract) 
+
+    modal_window.appendChild(modal_content)
+ 
+};
 
 let searchbestMovies = fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score');
 
@@ -97,6 +182,7 @@ searchbestMovies.then(async (responseData)=>{
 		    numberOfBestMovies = bestMovies.length,
 		    bestMovie,
 		    i; 
+		    for (let bestMovieUrl of bestMovies)
 		    
 
 		    for (var i = 0; i < numberOfBestMovies; ++i) { 
@@ -111,44 +197,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		var response = await responseData.json();
 		    		console.log(response); 
 		    		try{  
-		    			
-		    			// Get best movies data from API  
-		    			
-		    			var dynamic_title = response.title;
-                        var dynamic_gender = response.genres;
-					    var dynamic_releaseDate = response.year;
-					    var dynamic_rated = response.rated;
-					    var dynamic_imdbScore = response.imdb_score;
-					    var dynamic_filmDirector = response.directors;
-					    var dynamic_listOfActors = response.actors;
-					    var dynamic_duration = response.duration;
-					    var dynamic_country = response.countries;
-					    var dynamic_movieAbstract = response.description; 
-		    			var dynamic_movieImage = response.image_url; 
-
-		    			// Get data displayed
-
-		    			var display_titles = document.querySelector(".title_best_movies");
-					    var display_genders = document.querySelector(".gender_best_movies");
-					    var display_releaseDates = document.querySelector(".release_date_best_movies");
-					    var display_rateds = document.querySelector(".rated_best_movies");
-					    var display_imdbScores = document.querySelector(".imdb_score_best_movies");
-					    var display_filmDirectors = document.querySelector(".film_director_best_movies");
-					    var display_listsOfActors = document.querySelector(".actors_best_movies");
-					    var display_durations = document.querySelector(".duration_best_movies");
-					    var display_countries = document.querySelector(".country_best_movies");
-					    var display_moviesAbstract = document.querySelector(".movie_abstract_best_movies"); 
-
-					    display_titles.innerHTML = "Movie: " + dynamic_title;
-					    display_genders.innerHTML = "Gender: " + dynamic_gender;
-					    display_releaseDates.innerHTML = "Release Date: " + dynamic_releaseDate;
-					    display_rateds.innerHTML = "Rated: " + dynamic_rated;
-					    display_imdbScores.innerHTML = "Imdb score: " + dynamic_imdbScore;
-					    display_filmDirectors.innerHTML = "Movie director: " + dynamic_filmDirector;
-					    display_listsOfActors.innerHTML = "List of Actors: " + dynamic_listOfActors;
-					    display_durations.innerHTML = "Duration: " + dynamic_duration;
-					    display_countries.innerHTML = "Country: " + dynamic_country;
-					    display_moviesAbstract.innerHTML = "Movie abstract: " + dynamic_movieAbstract; 
+		    		
 
 		    			
 		    			// create an item for each one 
@@ -163,11 +212,12 @@ searchbestMovies.then(async (responseData)=>{
 		    			// Add the movie image to the li tag
 		    	        
 		    	        var img = document.createElement('img');
-		    		    img.src = dynamic_movieImage; 
+		    		    img.src = movie_data.movieImage; 
 		    		    buttonModal.appendChild(img);
 		    		    listItem.appendChild(buttonModal);
 		    		    document.getElementById('best_movies').appendChild(listItem);
-		    		    listItem.addEventListener("click", function() {console.log(dynamic_movieImage)}); 
+		    		    listItem.addEventListener("click", function() {console.log(movie_data.movieImage)}); 
+		    		 
 
 
 		    		} catch(error) {
