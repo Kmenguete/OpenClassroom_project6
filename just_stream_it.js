@@ -80,23 +80,38 @@ searchbestMovie.then(async (responseData)=>{
  
 // creating modal object 
 
-class modal_window {
-	constructor (modal, buttonModal) {
+class modal_window_class {
+	constructor (modal, buttonModal, span) {
 		this.modal = modal;
 		this.buttonModal = buttonModal;
+		this.span = span;
+		// debugger
 		this.buttonModal.addEventListener('click', function() {
-			this.modal.style.visibility = 'visible';
+			this.modal.style.display = 'block';
 		})
-		
+		let children = [].slice.call(modal.children)
+		span = children[0]
+		span.addEventListener('mouseover', function() {
+			span.style.color = 'black';
+		    span.style.textDecoration = 'none';
+		    span.style.cursor = 'pointer';
+		})
+		span.addEventListener('click', function() {
+			this.modal.style.display = 'none';
+		})
+		window.onclick = function(event) {
+			modal.style.display = 'none'
+		}
 	}
 } 
 
 // creating modals for movies list
 
-function createModal(movie_data) {
+function createModal(movie_data) { 
+	var movie_title = movie_data.title.replaceAll(' ', '_')
 	var modal_window = document.createElement('div'); 
 	modal_window.setAttribute('class', modal_window);
-	modal_window.setAttribute('id', movie_data.title + '_' + 'modal_window');
+	modal_window.setAttribute('id', movie_title + '_' + 'modal_window');
     modal_window.style.position = 'fixed';
 	modal_window.style.top = '0';
     modal_window.style.bottom = '0';
@@ -104,23 +119,21 @@ function createModal(movie_data) {
     modal_window.style.right = '0';
     modal_window.style.background = 'rgba(0, 0, 0, 0.7)';
     modal_window.style.transition = '500ms';
-    modal_window.style.visibility = 'hidden';
+    modal_window.style.display = 'none';
     modal_window.style.opacity = '0';   
 
     var span = document.createElement('span');
-    span.setAttribute('id', 'close_' + movie_data.title);
+    span.setAttribute('id', 'close_' + movie_title);
     span.setAttribute('class', 'close');
     span.setAttribute('href', '#'); 
     span.style.float = 'right';
     span.style.fontSize = '20px';
     span.style.color = 'rgb(100,100,100)';
-    span.style.color = 'black';
-    span.style.textDecoration = 'none';
-    span.style.cursor = 'pointer';
+   
 
     var modal_content = document.createElement('div');
     modal_content.setAttribute('class', modal_content);
-    modal_content.setAttribute('id', movie_data.title + '_' + 'modal_content');
+    modal_content.setAttribute('id', movie_title + '_' + 'modal_content');
     modal_content.style.position = 'relative';
     modal_content.style.transition = 'all 5s ease-in-out';
     modal_content.style.backgroundColor = 'rgb(200, 200, 200)';
@@ -135,7 +148,7 @@ function createModal(movie_data) {
 
     var imageMovie = document.createElement('img');
     imageMovie.src = movie_data.image_url;
-    imageMovie.alt = movie_data.title;
+    imageMovie.alt = movie_title;
 
 
 
@@ -150,7 +163,7 @@ function createModal(movie_data) {
     var display_countries = document.createElement("p");
     var display_moviesAbstract = document.createElement("p"); 
 
-    display_titles.innerHTML = "Movie: " + movie_data.title;
+    display_titles.innerHTML = "Movie: " + movie_title;
     display_genres.innerHTML = "Genres: " + movie_data.genres;
     display_date_published.innerHTML = "Release Date: " + movie_data.date_published;
     display_rated.innerHTML = "Rated: " + movie_data.rated;
@@ -214,20 +227,29 @@ searchbestMovies.then(async (responseData)=>{
 
 		    		var response = await responseData.json();
 		    		console.log(response); 
-		    		try{  
+		    		try{ 
+
+		    			var movie_title = response.title.replaceAll(' ', '_')
+
+
+		    			var modal_container = document.querySelector(".modal_container") 
 		    		
-		    			modal_window = createModal(response);
-		    			console.log("REGARDEZ ICI !!!")
-		    			console.log(modal_window)
-		    			console.log(modal_window.id)
+		    			var modal_window = createModal(response);
+		    			modal_container.appendChild(modal_window);
+
+		    			
+
 		    			// create an item for each one 
 
 		    	        listItem = document.createElement('li'); 
 		    	        listItem.className = "modal_info";
 		    	        listElement.appendChild(listItem);
-		    	        buttonModal = document.createElement('a');
+		    	        var buttonModal = document.createElement('a');
+		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal')
 		    	        buttonModal.className = "button";
-		    	        buttonModal.href = modal_window.id; 
+		    	   
+		    	        console.log("Le href se trouve ici !!!");
+		    	        console.log(modal_window.id);
 		
 		    			// Add the movie image to the li tag
 		    	        
@@ -236,6 +258,17 @@ searchbestMovies.then(async (responseData)=>{
 		    		    buttonModal.appendChild(img);
 		    		    listItem.appendChild(buttonModal);
 		    		    document.getElementById('best_movies').appendChild(listItem);
+
+		    		    var new_modal_window = document.getElementById(movie_title + '_modal_window');
+		    			var new_span = document.getElementById('close_' + movie_title);
+		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
+		    			console.log("REGARDEZ ICI !!!")
+		    			console.log(new_modal_window)
+		    			console.log(new_modal_window.id) 
+		    			console.log(new_span)
+		    			console.log(new_buttonModal)
+		    			new modal_window_class(new_modal_window, new_buttonModal, new_span)
+
 		    		    
 		    		 
 
@@ -256,3 +289,6 @@ makeBestMoviesList();
     }
 }); 
 
+nouveau_modal = document.getElementById('Notuku_Potu_modal_window')
+console.log('NOUVELLE MODALE')
+console.log(nouveau_modal)
