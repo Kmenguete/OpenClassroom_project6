@@ -77,7 +77,21 @@ searchbestMovie.then(async (responseData)=>{
 	console.log(error);
 }); 
 
-// Now I will create a for loop to get the 5 best movies(any category) in my website. 
+ 
+// creating modal object 
+
+class modal_window {
+	constructor (modal, buttonModal) {
+		this.modal = modal;
+		this.buttonModal = buttonModal;
+		this.buttonModal.addEventListener('click', function() {
+			this.modal.style.visibility = 'visible';
+		})
+		
+	}
+} 
+
+// creating modals for movies list
 
 function createModal(movie_data) {
 	var modal_window = document.createElement('div'); 
@@ -95,6 +109,7 @@ function createModal(movie_data) {
 
     var span = document.createElement('span');
     span.setAttribute('id', 'close_' + movie_data.title);
+    span.setAttribute('class', 'close');
     span.setAttribute('href', '#'); 
     span.style.float = 'right';
     span.style.fontSize = '20px';
@@ -126,7 +141,7 @@ function createModal(movie_data) {
 
     var display_titles = document.createElement("p");
     var display_genres = document.createElement("p");
-    var display_releaseDates = document.createElement("p");
+    var display_date_published = document.createElement("p");
     var display_rated = document.createElement("p");
     var display_imdbScores = document.createElement("p");
     var display_filmDirectors = document.createElement("p");
@@ -151,7 +166,7 @@ function createModal(movie_data) {
     modal_content.appendChild(imageMovie)
     modal_content.appendChild(display_titles) 
     modal_content.appendChild(display_genres) 
-    modal_content.appendChild(display_releaseDates)
+    modal_content.appendChild(display_date_published)
     modal_content.appendChild(display_rated)
     modal_content.appendChild(display_imdbScores)
     modal_content.appendChild(display_filmDirectors)
@@ -160,9 +175,12 @@ function createModal(movie_data) {
     modal_content.appendChild(display_countries)
     modal_content.appendChild(display_moviesAbstract) 
 
-    modal_window.appendChild(modal_content)
+    modal_window.appendChild(modal_content) 
+    return modal_window;
  
-};
+}; 
+
+// Now I will create a for loop to get the 5 best movies(any category) in my website.
 
 let searchbestMovies = fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score');
 
@@ -182,7 +200,7 @@ searchbestMovies.then(async (responseData)=>{
 		    numberOfBestMovies = bestMovies.length,
 		    bestMovie,
 		    i; 
-		    for (let bestMovieUrl of bestMovies)
+		    // for (let bestMovieUrl of bestMovies)
 		    
 
 		    for (var i = 0; i < numberOfBestMovies; ++i) { 
@@ -198,8 +216,10 @@ searchbestMovies.then(async (responseData)=>{
 		    		console.log(response); 
 		    		try{  
 		    		
-
-		    			
+		    			modal_window = createModal(response);
+		    			console.log("REGARDEZ ICI !!!")
+		    			console.log(modal_window)
+		    			console.log(modal_window.id)
 		    			// create an item for each one 
 
 		    	        listItem = document.createElement('li'); 
@@ -207,16 +227,16 @@ searchbestMovies.then(async (responseData)=>{
 		    	        listElement.appendChild(listItem);
 		    	        buttonModal = document.createElement('a');
 		    	        buttonModal.className = "button";
-		    	        buttonModal.href = "#modal_window_best_movies"; 
+		    	        buttonModal.href = modal_window.id; 
 		
 		    			// Add the movie image to the li tag
 		    	        
 		    	        var img = document.createElement('img');
-		    		    img.src = movie_data.movieImage; 
+		    		    img.src = response.image_url; 
 		    		    buttonModal.appendChild(img);
 		    		    listItem.appendChild(buttonModal);
 		    		    document.getElementById('best_movies').appendChild(listItem);
-		    		    listItem.addEventListener("click", function() {console.log(movie_data.movieImage)}); 
+		    		    
 		    		 
 
 
