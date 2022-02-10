@@ -85,8 +85,11 @@ class modal_window_class {
 		this.modal = modal;
 		this.buttonModal = buttonModal;
 		this.span = span;
-		buttonModal.addEventListener('click', function() {
-		    modal.style.display = 'block';
+		buttonModal.onclick = function() {
+			modal.style.display = 'block';
+		} 
+		buttonModal.addEventListener('mouseover', function() {
+			buttonModal.style.transform = 'scale(1.25)';
 		})
 		let children = [].slice.call(modal.children)
 		span = children[0]
@@ -95,9 +98,9 @@ class modal_window_class {
 		    span.style.textDecoration = 'none';
 		    span.style.cursor = 'pointer';
 		})
-		span.addEventListener('click', function() {
+		span.onclick = function() {
 			modal.style.display = 'none';
-		})
+		}
 		window.onclick = function(event) {
 			modal.style.display = 'none'
 		}
