@@ -87,7 +87,7 @@ class modal_window_class {
 		this.span = span;
 		// debugger
 		this.buttonModal.addEventListener('click', function() {
-			this.modal.style.display = 'block';
+		    modal.style.display = 'block';
 		})
 		let children = [].slice.call(modal.children)
 		span = children[0]
@@ -97,7 +97,7 @@ class modal_window_class {
 		    span.style.cursor = 'pointer';
 		})
 		span.addEventListener('click', function() {
-			this.modal.style.display = 'none';
+			modal.style.display = 'none';
 		})
 		window.onclick = function(event) {
 			modal.style.display = 'none'
@@ -248,8 +248,6 @@ searchbestMovies.then(async (responseData)=>{
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal')
 		    	        buttonModal.className = "button";
 		    	   
-		    	        console.log("Le href se trouve ici !!!");
-		    	        console.log(modal_window.id);
 		
 		    			// Add the movie image to the li tag
 		    	        
@@ -262,12 +260,8 @@ searchbestMovies.then(async (responseData)=>{
 		    		    var new_modal_window = document.getElementById(movie_title + '_modal_window');
 		    			var new_span = document.getElementById('close_' + movie_title);
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
-		    			console.log("REGARDEZ ICI !!!")
-		    			console.log(new_modal_window)
-		    			console.log(new_modal_window.id) 
-		    			console.log(new_span)
-		    			console.log(new_buttonModal)
-		    			new modal_window_class(new_modal_window, new_buttonModal, new_span)
+		    			
+		    			new modal_window_class(new_modal_window, new_buttonModal, new_span);
 
 		    		    
 		    		 
@@ -288,7 +282,3 @@ makeBestMoviesList();
     	console.log(error);
     }
 }); 
-
-nouveau_modal = document.getElementById('Notuku_Potu_modal_window')
-console.log('NOUVELLE MODALE')
-console.log(nouveau_modal)
