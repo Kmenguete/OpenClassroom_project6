@@ -85,12 +85,14 @@ class modal_window_class {
 		this.modal = modal;
 		this.buttonModal = buttonModal;
 		this.span = span;
+		buttonModal.addEventListener('mouseover', function() {
+			buttonModal.style.transform = 'scale(1.25)';
+			buttonModal.style.cursor = 'pointer';
+			buttonModal.style.textDecoration = 'none';
+		})
 		buttonModal.onclick = function() {
 			modal.style.display = 'block';
 		} 
-		buttonModal.addEventListener('mouseover', function() {
-			buttonModal.style.transform = 'scale(1.25)';
-		})
 		let children = [].slice.call(modal.children)
 		span = children[0]
 		span.addEventListener('mouseover', function() {
