@@ -78,7 +78,7 @@ searchbestMovie.then(async (responseData)=>{
 }); 
 
  
-// creating modal object 
+// creating modal event object 
 
 class modal_window_class {
 	constructor (modal, buttonModal, span) {
