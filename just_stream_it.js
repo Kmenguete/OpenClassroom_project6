@@ -85,7 +85,6 @@ class modal_window_class {
 		this.modal = modal;
 		this.buttonModal = buttonModal;
 		this.span = span;
-		// debugger
 		this.buttonModal.addEventListener('click', function() {
 		    modal.style.display = 'block';
 		})
