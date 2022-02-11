@@ -106,10 +106,9 @@ function setModalValues(
 // creating modal event object 
 
 class modal_window_class {
-	constructor (modal, buttonModal, span) {
+	constructor (modal, buttonModal) {
 		this.modal = modal;
 		this.buttonModal = buttonModal;
-		this.span = span;
 		buttonModal.addEventListener('mouseover', function() {
 			buttonModal.style.transform = 'scale(1.25)';
 			buttonModal.style.cursor = 'pointer';
@@ -118,16 +117,6 @@ class modal_window_class {
 		buttonModal.onclick = function() {
 			modal.style.display = 'block';
 		} 
-		let children = [].slice.call(modal.children)
-		span = children[0]
-		span.addEventListener('mouseover', function() {
-			span.style.color = 'black';
-		    span.style.textDecoration = 'none';
-		    span.style.cursor = 'pointer';
-		})
-		span.onclick = function() {
-			modal.style.display = 'none';
-		}
 		window.onclick = function(event) {
 			modal.style.display = 'none'
 		}
@@ -159,6 +148,14 @@ function createModal(movie_data) {
     span.style.float = 'right';
     span.style.fontSize = '20px';
     span.style.color = 'rgb(100,100,100)';
+    span.addEventListener('mouseover', function() {
+			span.style.color = 'black';
+		    span.style.textDecoration = 'none';
+		    span.style.cursor = 'pointer';
+		})
+		span.onclick = function() {
+			modal.style.display = 'none';
+		}
    
 
     var modal_content = document.createElement('div');
@@ -302,7 +299,7 @@ searchbestMovies.then(async (responseData)=>{
 		    			var new_span = document.getElementById('close_' + movie_title);
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
-		    			var openModal = new modal_window_class(new_modal_window, new_buttonModal, new_span);
+		    			var openModal = new modal_window_class(new_modal_window, new_buttonModal);
 
 		    			return openModal;
 		    			
