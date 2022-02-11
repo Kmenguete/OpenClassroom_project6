@@ -314,7 +314,6 @@ searchbestMovies.then(async (responseData)=>{
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal')
 		    	        buttonModal.className = "button";
 		    	        listItem.addEventListener("click", function() {
-                            console.log("button clicked!!!!")
                             const modalId = "modal_window_best_movies";
                             document.getElementById(modalId).classList.add("is-visible");
                           });
