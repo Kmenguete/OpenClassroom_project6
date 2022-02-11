@@ -31,18 +31,7 @@ searchbestMovie.then(async (responseData)=>{
     var movieAbstract = response.description; 
     var movieImage = response.image_url;
 
-    // Get data displayed
-
- //   var display_title = document.querySelector("#title_best_movie");
-  //    var display_gender = document.querySelector("#gender_best_movie");
- //     var display_releaseDate = document.querySelector("#release_date_best_movie");
-  //    var display_rated = document.querySelector("#rated_best_movie");
-  //    var display_imdbScore = document.querySelector("#imdb_score_best_movie");
-  //    var display_filmDirector = document.querySelector("#film_director_best_movie");
-  //    var display_listOfActors = document.querySelector("#actors_best_movie");
-  //    var display_duration = document.querySelector("#duration_best_movie");
- //     var display_country = document.querySelector("#country_best_movie");
-  //    var display_movieAbstract = document.querySelector("#movie_abstract_best_movie"); 
+  
   setModalValues(
       title, 
       gender,
@@ -59,16 +48,6 @@ searchbestMovie.then(async (responseData)=>{
       var display_movieImage = document.querySelector("#best_movie_image"); 
 
 
- //     display_title.innerHTML = "Movie: " + title;
-  //    display_gender.innerHTML = "Gender: " + gender;
-  //    display_releaseDate.innerHTML = "Release Date: " + releaseDate;
-  //    display_rated.innerHTML = "Rated: " + rated;
-  //    display_imdbScore.innerHTML = "Imdb score: " + imdbScore;
-  //    display_filmDirector.innerHTML = "Movie director: " + filmDirector;
-  //    display_listOfActors.innerHTML = "List of Actors: " + listOfActors;
-  //    display_duration.innerHTML = "Duration: " + duration;
-  //    display_country.innerHTML = "Country: " + country;
-   //   display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
     display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
 
 
@@ -302,23 +281,7 @@ searchbestMovies.then(async (responseData)=>{
 		    	        var buttonModal = document.createElement('a');
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal')
                         
-                        /*listItem.onclick = function() {
-                            console.log("button clicked!!!!")
-                            setModalValues(
-                                title, 
-                                gender,
-                                releaseDate,
-                                rated,
-                                imdbScore,
-                                filmDirector,
-                                listOfActors,
-                                duration,
-                                country,
-                                movieAbstract
-                                )
-                            document.getElementById("modal_window_best_movies").style.display = "visible";  
-                        }*/
-                        //buttonModal.href = "#modal_window_best_movie"
+                        
 		    	        buttonModal.className = "button";
                         listItem.addEventListener("click", function() {
                             console.log("button clicked!!!!")
@@ -339,7 +302,9 @@ searchbestMovies.then(async (responseData)=>{
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
 		    			var openModal = new modal_window_class(new_modal_window, new_buttonModal, new_span);
-		    			openModal.createModal(response)
+
+		    			return openModal;
+		    			
 		    		} catch(error) {
     	console.log(error); 
     }
