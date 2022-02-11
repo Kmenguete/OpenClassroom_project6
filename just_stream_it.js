@@ -31,8 +31,19 @@ searchbestMovie.then(async (responseData)=>{
     var movieAbstract = response.description; 
     var movieImage = response.image_url;
 
+    // Get data displayed
 
-    setModalValues(
+ //   var display_title = document.querySelector("#title_best_movie");
+  //    var display_gender = document.querySelector("#gender_best_movie");
+ //     var display_releaseDate = document.querySelector("#release_date_best_movie");
+  //    var display_rated = document.querySelector("#rated_best_movie");
+  //    var display_imdbScore = document.querySelector("#imdb_score_best_movie");
+  //    var display_filmDirector = document.querySelector("#film_director_best_movie");
+  //    var display_listOfActors = document.querySelector("#actors_best_movie");
+  //    var display_duration = document.querySelector("#duration_best_movie");
+ //     var display_country = document.querySelector("#country_best_movie");
+  //    var display_movieAbstract = document.querySelector("#movie_abstract_best_movie"); 
+  setModalValues(
       title, 
       gender,
       releaseDate,
@@ -46,6 +57,18 @@ searchbestMovie.then(async (responseData)=>{
       )
       var bestMovieImage = `<img src="${movieImage}"/>`;
       var display_movieImage = document.querySelector("#best_movie_image"); 
+
+
+ //     display_title.innerHTML = "Movie: " + title;
+  //    display_gender.innerHTML = "Gender: " + gender;
+  //    display_releaseDate.innerHTML = "Release Date: " + releaseDate;
+  //    display_rated.innerHTML = "Rated: " + rated;
+  //    display_imdbScore.innerHTML = "Imdb score: " + imdbScore;
+  //    display_filmDirector.innerHTML = "Movie director: " + filmDirector;
+  //    display_listOfActors.innerHTML = "List of Actors: " + listOfActors;
+  //    display_duration.innerHTML = "Duration: " + duration;
+  //    display_country.innerHTML = "Country: " + country;
+   //   display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
     display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
 
 
@@ -100,12 +123,15 @@ function setModalValues(
     display_country.innerHTML = "Country: " + country;
     display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
 }
-
  
-// create function that open and close modal
+// creating modal event object 
 
-function openAndCloseModal(modal, buttonModal, span) {
-	buttonModal.addEventListener('mouseover', function() {
+class modal_window_class {
+	constructor (modal, buttonModal, span) {
+		this.modal = modal;
+		this.buttonModal = buttonModal;
+		this.span = span;
+		buttonModal.addEventListener('mouseover', function() {
 			buttonModal.style.transform = 'scale(1.25)';
 			buttonModal.style.cursor = 'pointer';
 			buttonModal.style.textDecoration = 'none';
@@ -126,9 +152,8 @@ function openAndCloseModal(modal, buttonModal, span) {
 		window.onclick = function(event) {
 			modal.style.display = 'none'
 		}
-	};
-
-
+	}
+} 
 
 // creating modals for movies list
 
@@ -150,7 +175,7 @@ function createModal(movie_data) {
     var span = document.createElement('span');
     span.setAttribute('id', 'close_' + movie_title);
     span.setAttribute('class', 'close');
-    span.innerHTML = '&times;';
+    span.setAttribute('href', '#'); 
     span.style.float = 'right';
     span.style.fontSize = '20px';
     span.style.color = 'rgb(100,100,100)';
@@ -220,7 +245,7 @@ function createModal(movie_data) {
 
 // Now I will create a for loop to get the 5 best movies(any category) in my website.
 
-let searchbestMovies = fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score');
+let searchbestMovies = fetch('http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score');
 
 searchbestMovies.then(async (responseData)=>{
 	console.log(responseData);
@@ -239,19 +264,16 @@ searchbestMovies.then(async (responseData)=>{
 		    bestMovie,
 		    i; 
 		    // for (let bestMovieUrl of bestMovies)
-		    
 
 		    for (var i = 0; i < numberOfBestMovies; ++i) { 
-
-
 		    	// Add the item content 
 
 		    	var bestMoviesData = fetch(bestMovies[i]);
 		    	bestMoviesData.then(async (responseData)=>{
-		    		console.log(responseData); 
+		    		console.log(responseData);
 
-		    		var response = await responseData.json(); 
-		    		var title = response.title;
+		    		var response = await responseData.json();
+                    var title = response.title;
                     var gender = response.genres;
                     var releaseDate = response.year;
                     var rated = response.rated;
@@ -262,19 +284,15 @@ searchbestMovies.then(async (responseData)=>{
                     var country = response.countries;
                     var movieAbstract = response.description; 
                     var movieImage = response.image_url;
-
-		    		console.log(response);  
+                    
+                    console.log(response); 
 		    		try{ 
-
 		    			var movie_title = response.title.replaceAll(' ', '_')
-
 
 		    			var modal_container = document.querySelector(".modal_container") 
 		    		
 		    			var modal_window = createModal(response);
 		    			modal_container.appendChild(modal_window);
-
-		    			
 
 		    			// create an item for each one 
 
@@ -283,28 +301,48 @@ searchbestMovies.then(async (responseData)=>{
 		    	        listElement.appendChild(listItem);
 		    	        var buttonModal = document.createElement('a');
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal')
+                        
+                        /*listItem.onclick = function() {
+                            console.log("button clicked!!!!")
+                            setModalValues(
+                                title, 
+                                gender,
+                                releaseDate,
+                                rated,
+                                imdbScore,
+                                filmDirector,
+                                listOfActors,
+                                duration,
+                                country,
+                                movieAbstract
+                                )
+                            document.getElementById("modal_window_best_movies").style.display = "visible";  
+                        }*/
+                        //buttonModal.href = "#modal_window_best_movie"
 		    	        buttonModal.className = "button";
-		    	        buttonModal.href = '#' + movie_title + '_modal_window';
-		    	   
-		
+                        listItem.addEventListener("click", function() {
+                            console.log("button clicked!!!!")
+                            const modalId = "modal_window_best_movies";
+                            document.getElementById(modalId).classList.add("is-visible");
+                          });
+		    	
 		    			// Add the movie image to the li tag
-		    	        
 		    	        var img = document.createElement('img');
 		    		    img.src = response.image_url; 
 		    		    buttonModal.appendChild(img);
 		    		    listItem.appendChild(buttonModal);
+                        //listItem.onclick = openModal.createModal(response)
 		    		    document.getElementById('best_movies').appendChild(listItem);
 
 		    		    var new_modal_window = document.getElementById(movie_title + '_modal_window');
-		    			var new_span = document.getElementsByClassName("close")[0];
+		    			var new_span = document.getElementById('close_' + movie_title);
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
-		    			openAndCloseModal(new_modal_window, new_buttonModal, new_span);   		
-
+		    			var openModal = new modal_window_class(new_modal_window, new_buttonModal, new_span);
+		    			openModal.createModal(response)
 		    		} catch(error) {
     	console.log(error); 
     }
-
 		    	});
 
 		    }
