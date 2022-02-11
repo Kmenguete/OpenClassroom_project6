@@ -284,7 +284,7 @@ searchbestMovies.then(async (responseData)=>{
 		    	        var buttonModal = document.createElement('a');
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal')
 		    	        buttonModal.className = "button";
-		    	        buttonModal.href = "#" + movie_title + '_modal_window';
+		    	        buttonModal.href = '#' + movie_title + '_modal_window';
 		    	   
 		
 		    			// Add the movie image to the li tag
