@@ -332,12 +332,7 @@ searchbestMovies.then(async (responseData)=>{
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
 		    			
-		    			function openModal() {
-		    				var openModal = new modal_window_class(new_modal_window, new_buttonModal, new_span);
-		    				return openModal
-		    			}
-
-		    		    openModal();		    		
+		    			new modal_window_class(new_modal_window, new_buttonModal, new_span);    		
 
 		    		} catch(error) {
     	console.log(error); 
