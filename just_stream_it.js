@@ -295,7 +295,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		    document.getElementById('best_movies').appendChild(listItem);
 
 		    		    var new_modal_window = document.getElementById(movie_title + '_modal_window');
-		    			var new_span = document.getElementById('close_' + movie_title);
+		    			var new_span = document.getElementsByClassName("close")[0];
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
 		    			openAndCloseModal(new_modal_window, new_buttonModal, new_span);   		
