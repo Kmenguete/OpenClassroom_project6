@@ -33,7 +33,7 @@ searchbestMovie.then(async (responseData)=>{
 
     // Get data displayed
 
-    var display_title = document.querySelector("#title_best_movie");
+    /*var display_title = document.querySelector("#title_best_movie");
     var display_gender = document.querySelector("#gender_best_movie");
     var display_releaseDate = document.querySelector("#release_date_best_movie");
     var display_rated = document.querySelector("#rated_best_movie");
@@ -44,10 +44,25 @@ searchbestMovie.then(async (responseData)=>{
     var display_country = document.querySelector("#country_best_movie");
     var display_movieAbstract = document.querySelector("#movie_abstract_best_movie"); 
     var bestMovieImage = `<img src="${movieImage}"/>`;
-    var display_movieImage = document.querySelector("#best_movie_image"); 
+    var display_movieImage = document.querySelector("#best_movie_image"); */ 
+
+    setModalValues(
+      title, 
+      gender,
+      releaseDate,
+      rated,
+      imdbScore,
+      filmDirector,
+      listOfActors,
+      duration,
+      country,
+      movieAbstract
+      )
+      var bestMovieImage = `<img src="${movieImage}"/>`;
+      var display_movieImage = document.querySelector("#best_movie_image"); 
 
 
-    display_title.innerHTML = "Movie: " + title;
+ /*   display_title.innerHTML = "Movie: " + title;
     display_gender.innerHTML = "Gender: " + gender;
     display_releaseDate.innerHTML = "Release Date: " + releaseDate;
     display_rated.innerHTML = "Rated: " + rated;
@@ -56,7 +71,7 @@ searchbestMovie.then(async (responseData)=>{
     display_listOfActors.innerHTML = "List of Actors: " + listOfActors;
     display_duration.innerHTML = "Duration: " + duration;
     display_country.innerHTML = "Country: " + country;
-    display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
+    display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;*/
     display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
 
 
@@ -76,6 +91,41 @@ searchbestMovie.then(async (responseData)=>{
 .catch((error) => {
 	console.log(error);
 }); 
+
+function setModalValues(
+    title,
+    gender,
+    releaseDate ,
+    rated,
+    imdbScore,
+    filmDirector,
+    listOfActors,
+    duration,
+    country,
+    movieAbstract,
+) {
+    var display_title = document.querySelector("#title_best_movie");
+    var display_gender = document.querySelector("#gender_best_movie");
+    var display_releaseDate = document.querySelector("#release_date_best_movie");
+    var display_rated = document.querySelector("#rated_best_movie");
+    var display_imdbScore = document.querySelector("#imdb_score_best_movie");
+    var display_filmDirector = document.querySelector("#film_director_best_movie");
+    var display_listOfActors = document.querySelector("#actors_best_movie");
+    var display_duration = document.querySelector("#duration_best_movie");
+    var display_country = document.querySelector("#country_best_movie");
+    var display_movieAbstract = document.querySelector("#movie_abstract_best_movie"); 
+
+    display_title.innerHTML = "Movie: " + title;
+    display_gender.innerHTML = "Gender: " + gender;
+    display_releaseDate.innerHTML = "Release Date: " + releaseDate;
+    display_rated.innerHTML = "Rated: " + rated;
+    display_imdbScore.innerHTML = "Imdb score: " + imdbScore;
+    display_filmDirector.innerHTML = "Movie director: " + filmDirector;
+    display_listOfActors.innerHTML = "List of Actors: " + listOfActors;
+    display_duration.innerHTML = "Duration: " + duration;
+    display_country.innerHTML = "Country: " + country;
+    display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
+}
 
  
 // creating modal event object 
@@ -227,10 +277,22 @@ searchbestMovies.then(async (responseData)=>{
 
 		    	var bestMoviesData = fetch(bestMovies[i]);
 		    	bestMoviesData.then(async (responseData)=>{
-		    		console.log(responseData);
+		    		console.log(responseData); 
 
-		    		var response = await responseData.json();
-		    		console.log(response); 
+		    		var response = await responseData.json(); 
+		    		var title = response.title;
+                    var gender = response.genres;
+                    var releaseDate = response.year;
+                    var rated = response.rated;
+                    var imdbScore = response.imdb_score;
+                    var filmDirector = response.directors;
+                    var listOfActors = response.actors;
+                    var duration = response.duration;
+                    var country = response.countries;
+                    var movieAbstract = response.description; 
+                    var movieImage = response.image_url;
+
+		    		console.log(response);  
 		    		try{ 
 
 		    			var movie_title = response.title.replaceAll(' ', '_')
@@ -251,6 +313,11 @@ searchbestMovies.then(async (responseData)=>{
 		    	        var buttonModal = document.createElement('a');
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal')
 		    	        buttonModal.className = "button";
+		    	        listItem.addEventListener("click", function() {
+                            console.log("button clicked!!!!")
+                            const modalId = "modal_window_best_movies";
+                            document.getElementById(modalId).classList.add("is-visible");
+                          });
 		    	   
 		
 		    			// Add the movie image to the li tag
@@ -265,11 +332,13 @@ searchbestMovies.then(async (responseData)=>{
 		    			var new_span = document.getElementById('close_' + movie_title);
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
-		    			var openModal = new modal_window_class(new_modal_window, new_buttonModal, new_span);
+		    			
+		    			function openModal() {
+		    				var openModal = new modal_window_class(new_modal_window, new_buttonModal, new_span);
+		    				return openModal
+		    			}
 
-		    		    
-		    		 
-
+		    		    openModal();		    		
 
 		    		} catch(error) {
     	console.log(error); 
