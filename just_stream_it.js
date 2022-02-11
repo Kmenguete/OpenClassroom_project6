@@ -128,14 +128,10 @@ function setModalValues(
 }
 
  
-// creating modal event object 
+// create function that open and close modal
 
-class modal_window_class {
-	constructor (modal, buttonModal, span) {
-		this.modal = modal;
-		this.buttonModal = buttonModal;
-		this.span = span;
-		buttonModal.addEventListener('mouseover', function() {
+function openAndCloseModal(modal, buttonModal, span) {
+	buttonModal.addEventListener('mouseover', function() {
 			buttonModal.style.transform = 'scale(1.25)';
 			buttonModal.style.cursor = 'pointer';
 			buttonModal.style.textDecoration = 'none';
@@ -156,8 +152,9 @@ class modal_window_class {
 		window.onclick = function(event) {
 			modal.style.display = 'none'
 		}
-	}
-} 
+	};
+
+
 
 // creating modals for movies list
 
@@ -327,8 +324,7 @@ searchbestMovies.then(async (responseData)=>{
 		    			var new_span = document.getElementById('close_' + movie_title);
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
-		    			
-		    			new modal_window_class(new_modal_window, new_buttonModal, new_span);    		
+		    			openAndCloseModal(new_modal_window, new_buttonModal, new_span);   		
 
 		    		} catch(error) {
     	console.log(error); 
