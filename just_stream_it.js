@@ -103,13 +103,10 @@ function setModalValues(
     display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
 }
  
-// creating modal event object 
+// creating a function that open modal
 
-class modal_window_class {
-	constructor (modal, buttonModal) {
-		this.modal = modal;
-		this.buttonModal = buttonModal;
-		buttonModal.addEventListener('mouseover', function() {
+function openModal(modal, buttonModal) {
+	buttonModal.addEventListener('mouseover', function() {
 			buttonModal.style.transform = 'scale(1.25)';
 			buttonModal.style.cursor = 'pointer';
 		})
@@ -119,8 +116,7 @@ class modal_window_class {
 		window.onclick = function(event) {
 			modal.style.display = 'none'
 		}
-	}
-} 
+};
 
 // creating modals for movies list
 
@@ -280,11 +276,7 @@ searchbestMovies.then(async (responseData)=>{
                         
                         
 		    	        buttonModal.className = "button";
-                        listItem.addEventListener("click", function() {
-                            console.log("button clicked!!!!")
-                            const modalId = "modal_window_best_movies";
-                            document.getElementById(modalId).classList.add("is-visible");
-                          });
+                        
 		    	
 		    			// Add the movie image to the li tag
 		    	        var img = document.createElement('img');
@@ -297,7 +289,10 @@ searchbestMovies.then(async (responseData)=>{
 		    		    buttonModal.href = '#' + movie_title + '_modal_window';
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
-		    			var openModal = new modal_window_class(new_modal_window, new_buttonModal);
+		    			openModal(new_modal_window, new_buttonModal); 
+
+
+
 
 		    			
 		    		} catch(error) {
