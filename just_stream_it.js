@@ -31,20 +31,6 @@ searchbestMovie.then(async (responseData)=>{
     var movieAbstract = response.description; 
     var movieImage = response.image_url;
 
-    // Get data displayed
-
-    /*var display_title = document.querySelector("#title_best_movie");
-    var display_gender = document.querySelector("#gender_best_movie");
-    var display_releaseDate = document.querySelector("#release_date_best_movie");
-    var display_rated = document.querySelector("#rated_best_movie");
-    var display_imdbScore = document.querySelector("#imdb_score_best_movie");
-    var display_filmDirector = document.querySelector("#film_director_best_movie");
-    var display_listOfActors = document.querySelector("#actors_best_movie");
-    var display_duration = document.querySelector("#duration_best_movie");
-    var display_country = document.querySelector("#country_best_movie");
-    var display_movieAbstract = document.querySelector("#movie_abstract_best_movie"); 
-    var bestMovieImage = `<img src="${movieImage}"/>`;
-    var display_movieImage = document.querySelector("#best_movie_image"); */ 
 
     setModalValues(
       title, 
@@ -60,18 +46,6 @@ searchbestMovie.then(async (responseData)=>{
       )
       var bestMovieImage = `<img src="${movieImage}"/>`;
       var display_movieImage = document.querySelector("#best_movie_image"); 
-
-
- /*   display_title.innerHTML = "Movie: " + title;
-    display_gender.innerHTML = "Gender: " + gender;
-    display_releaseDate.innerHTML = "Release Date: " + releaseDate;
-    display_rated.innerHTML = "Rated: " + rated;
-    display_imdbScore.innerHTML = "Imdb score: " + imdbScore;
-    display_filmDirector.innerHTML = "Movie director: " + filmDirector;
-    display_listOfActors.innerHTML = "List of Actors: " + listOfActors;
-    display_duration.innerHTML = "Duration: " + duration;
-    display_country.innerHTML = "Country: " + country;
-    display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;*/
     display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
 
 
@@ -176,7 +150,7 @@ function createModal(movie_data) {
     var span = document.createElement('span');
     span.setAttribute('id', 'close_' + movie_title);
     span.setAttribute('class', 'close');
-    span.setAttribute('href', '#'); 
+    span.innerHTML = '&times;';
     span.style.float = 'right';
     span.style.fontSize = '20px';
     span.style.color = 'rgb(100,100,100)';
