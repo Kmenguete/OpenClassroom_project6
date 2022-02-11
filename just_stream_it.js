@@ -313,10 +313,6 @@ searchbestMovies.then(async (responseData)=>{
 		    	        var buttonModal = document.createElement('a');
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal')
 		    	        buttonModal.className = "button";
-		    	        listItem.addEventListener("click", function() {
-                            const modalId = "modal_window_best_movies";
-                            document.getElementById(modalId).classList.add("is-visible");
-                          });
 		    	   
 		
 		    			// Add the movie image to the li tag
