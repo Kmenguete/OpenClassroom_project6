@@ -155,6 +155,7 @@ function createModal(movie_data) {
     span.setAttribute('id', 'close_' + movie_title);
     span.setAttribute('class', 'close');
     span.setAttribute('href', '#'); 
+    span.innerHTML = '&times;';
     span.style.float = 'right';
     span.style.fontSize = '20px';
     span.style.color = 'rgb(100,100,100)';
@@ -294,10 +295,10 @@ searchbestMovies.then(async (responseData)=>{
 		    		    img.src = response.image_url; 
 		    		    buttonModal.appendChild(img);
 		    		    listItem.appendChild(buttonModal);
-                        //listItem.onclick = openModal.createModal(response)
 		    		    document.getElementById('best_movies').appendChild(listItem);
 
 		    		    var new_modal_window = document.getElementById(movie_title + '_modal_window');
+		    		    buttonModal.href = '#' + movie_title + '_modal_window';
 		    			var new_span = document.getElementById('close_' + movie_title);
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
