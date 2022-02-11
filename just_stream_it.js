@@ -103,7 +103,7 @@ function setModalValues(
     display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
 }
  
-// creating a function that open modal
+// creating a function that open modal 
 
 function openModal(modal, buttonModal) {
 	buttonModal.addEventListener('mouseover', function() {
@@ -116,7 +116,7 @@ function openModal(modal, buttonModal) {
 		window.onclick = function(event) {
 			modal.style.display = 'none'
 		}
-};
+	};
 
 // creating modals for movies list
 
@@ -289,8 +289,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		    buttonModal.href = '#' + movie_title + '_modal_window';
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
-		    			openModal(new_modal_window, new_buttonModal); 
-
+		    			openModal(new_modal_window, new_buttonModal);
 
 
 
