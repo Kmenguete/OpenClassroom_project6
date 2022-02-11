@@ -112,7 +112,6 @@ class modal_window_class {
 		buttonModal.addEventListener('mouseover', function() {
 			buttonModal.style.transform = 'scale(1.25)';
 			buttonModal.style.cursor = 'pointer';
-			buttonModal.style.textDecoration = 'none';
 		})
 		buttonModal.onclick = function() {
 			modal.style.display = 'block';
@@ -296,12 +295,10 @@ searchbestMovies.then(async (responseData)=>{
 
 		    		    var new_modal_window = document.getElementById(movie_title + '_modal_window');
 		    		    buttonModal.href = '#' + movie_title + '_modal_window';
-		    			var new_span = document.getElementById('close_' + movie_title);
 		    			var new_buttonModal = document.getElementById(movie_title + '_buttonModal');
 		    			
 		    			var openModal = new modal_window_class(new_modal_window, new_buttonModal);
 
-		    			return openModal;
 		    			
 		    		} catch(error) {
     	console.log(error); 
