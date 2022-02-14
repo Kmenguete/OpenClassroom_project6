@@ -110,7 +110,7 @@ function setModalValues(
 function createModal(movie_data) { 
 	var movie_title = movie_data.title.replaceAll(' ', '_')
 	var modal_window = document.createElement('div'); 
-	modal_window.setAttribute('class', modal_window);
+	modal_window.setAttribute('class', 'modal_window');
 	modal_window.setAttribute('id', movie_title + '_' + 'modal_window');
     modal_window.style.position = 'fixed';
 	modal_window.style.top = '0';
@@ -141,7 +141,7 @@ function createModal(movie_data) {
    
 
     var modal_content = document.createElement('div');
-    modal_content.setAttribute('class', modal_content);
+    modal_content.setAttribute('class', 'modal_content');
     modal_content.setAttribute('id', movie_title + '_' + 'modal_content');
     modal_content.style.position = 'relative';
     modal_content.style.transition = 'all 5s ease-in-out';
