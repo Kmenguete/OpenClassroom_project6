@@ -105,107 +105,6 @@ function setModalValues(
  
 
 
-// creating modals for movies list
-
-function createModal(movie_data) { 
-	var movie_title = movie_data.title.replaceAll(' ', '_')
-	var modal_window = document.createElement('div'); 
-	modal_window.setAttribute('class', 'modal_window');
-	modal_window.setAttribute('id', movie_title + '_' + 'modal_window');
-    modal_window.style.position = 'fixed';
-	modal_window.style.top = '0';
-    modal_window.style.bottom = '0';
-    modal_window.style.left = '0';
-    modal_window.style.right = '0';
-    modal_window.style.background = 'rgba(0, 0, 0, 0.7)';
-    modal_window.style.transition = '500ms';
-    modal_window.style.display = 'none';
-    modal_window.style.opacity = '0';   
-
-    var span = document.createElement('span');
-    span.setAttribute('id', 'close_' + movie_title);
-    span.setAttribute('class', 'close');
-    span.setAttribute('href', '#'); 
-    span.innerHTML = '&times;';
-    span.style.float = 'right';
-    span.style.fontSize = '20px';
-    span.style.color = 'rgb(100,100,100)';
-    span.addEventListener('mouseover', function() {
-			span.style.color = 'black';
-		    span.style.textDecoration = 'none';
-		    span.style.cursor = 'pointer';
-		})
-		span.onclick = function() {
-			modal.style.display = 'none';
-		}
-   
-
-    var modal_content = document.createElement('div');
-    modal_content.setAttribute('class', 'modal_content');
-    modal_content.setAttribute('id', movie_title + '_' + 'modal_content');
-    modal_content.style.position = 'relative';
-    modal_content.style.transition = 'all 5s ease-in-out';
-    modal_content.style.backgroundColor = 'rgb(200, 200, 200)';
-    modal_content.style.margin = '15% auto'; /* 15% from the top and centered */
-    modal_content.style.padding = '20px';
-    modal_content.style.border = '1px solid #414141';
-    modal_content.style.width = '80%'; /* Could be more or less, depending on screen size */
-    modal_content.style.fontSize = '20px';
-    modal_content.style.fontFamily = '"abel_regular", Arial, serif';
-    modal_content.style.textAlign = 'left';
-    modal_content.style.color = 'rgb(50,50,50)'; 
-
-    var imageMovie = document.createElement('img');
-    imageMovie.src = movie_data.image_url;
-    imageMovie.alt = movie_title;
-
-
-
-    var display_titles = document.createElement("p");
-    var display_genres = document.createElement("p");
-    var display_date_published = document.createElement("p");
-    var display_rated = document.createElement("p");
-    var display_imdbScores = document.createElement("p");
-    var display_filmDirectors = document.createElement("p");
-    var display_listsOfActors = document.createElement("p");
-    var display_duration = document.createElement("p");
-    var display_countries = document.createElement("p");
-    var display_moviesAbstract = document.createElement("p"); 
-
-    display_titles.innerHTML = "Movie: " + movie_title;
-    display_genres.innerHTML = "Genres: " + movie_data.genres;
-    display_date_published.innerHTML = "Release Date: " + movie_data.date_published;
-    display_rated.innerHTML = "Rated: " + movie_data.rated;
-    display_imdbScores.innerHTML = "Imdb score: " + movie_data.imdb_score;
-    display_filmDirectors.innerHTML = "Movie director: " + movie_data.directors;
-    display_listsOfActors.innerHTML = "List of Actors: " + movie_data.actors;
-    display_duration.innerHTML = "Duration: " + movie_data.duration;
-    display_countries.innerHTML = "Country: " + movie_data.countries;
-    display_moviesAbstract.innerHTML = "Movie abstract: " + movie_data.description;  
-
-
-    modal_content.appendChild(span)
-    modal_content.appendChild(imageMovie)
-    modal_content.appendChild(display_titles) 
-    modal_content.appendChild(display_genres) 
-    modal_content.appendChild(display_date_published)
-    modal_content.appendChild(display_rated)
-    modal_content.appendChild(display_imdbScores)
-    modal_content.appendChild(display_filmDirectors)
-    modal_content.appendChild(display_listsOfActors)
-    modal_content.appendChild(display_duration)
-    modal_content.appendChild(display_countries)
-    modal_content.appendChild(display_moviesAbstract) 
-
-    modal_window.appendChild(modal_content) 
-    return modal_window;
- 
-}; 
-
-
-
-
-
 // Now I will create a for loop to get the 5 best movies(any category) in my website.
 
 let searchbestMovies = fetch('http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score');
@@ -246,7 +145,19 @@ searchbestMovies.then(async (responseData)=>{
                     var duration = response.duration;
                     var country = response.countries;
                     var movieAbstract = response.description; 
-                    var movieImage = response.image_url;
+                    var movieImage = response.image_url; 
+
+                    var display_title = document.querySelector("#title_best_movies");
+				    var display_gender = document.querySelector("#gender_best_movies");
+				    var display_releaseDate = document.querySelector("#release_date_best_movies");
+				    var display_rated = document.querySelector("#rated_best_movies");
+				    var display_imdbScore = document.querySelector("#imdb_score_best_movies");
+				    var display_filmDirector = document.querySelector("#film_director_best_movies");
+				    var display_listOfActors = document.querySelector("#actors_best_movies");
+				    var display_duration = document.querySelector("#duration_best_movies");
+				    var display_country = document.querySelector("#country_best_movies");
+				    var display_movieAbstract = document.querySelector("#movie_abstract_best_movies"); 
+
                     
                     console.log(response); 
 		    		try{ 
@@ -254,8 +165,6 @@ searchbestMovies.then(async (responseData)=>{
 
 		    			var modal_container = document.querySelector(".modal_container") 
 		    		
-		    			var modal_window = createModal(response);
-		    			modal_container.appendChild(modal_window);
 
 		    			// create an item for each one 
 
@@ -263,7 +172,9 @@ searchbestMovies.then(async (responseData)=>{
 		    	        listItem.className = "modal_info";
 		    	        listElement.appendChild(listItem);
 		    	        var buttonModal = document.createElement('a');
-		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal')
+		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal');
+		    	        listItem.appendChild(buttonModal);
+		    	        var myButton = document.getElementById(movie_title + '_buttonModal');
 		    	        buttonModal.setAttribute('onclick', 'openModal()');
 		    	        
                         
@@ -275,18 +186,16 @@ searchbestMovies.then(async (responseData)=>{
 		    	        var img = document.createElement('img');
 		    		    img.src = response.image_url; 
 		    		    buttonModal.appendChild(img);
-		    		    listItem.appendChild(buttonModal);
 		    		    document.getElementById('best_movies').appendChild(listItem);
-		    		    buttonModal.href = '#' + movie_title + '_modal_window';
+		    		    buttonModal.href = '#' + 'modal_window_best_movies';
 
-		    		    var myButton = document.getElementById(movie_title + '_buttonModal');
+		    		    
 
-		    		    var modal_windows = document.getElementById(movie_title + '_modal_window'); 
+		    		    var modal_windows = document.getElementById('modal_window_best_movies'); 
 
 		    		    function openModal() {
 		    		    myButton.addEventListener('mouseover', function() {
 						myButton.style.transform = 'scale(1.25)';
-						myButton.style.cursor = 'pointer';
 					})
 					myButton.onclick = function() {
 						modal_windows.style.display = "block";
@@ -295,6 +204,16 @@ searchbestMovies.then(async (responseData)=>{
 						modal_windows.style.display = "none";
 					}
 		    		    }; 
+		    		display_title.innerHTML = "Movie: " + title;
+				    display_gender.innerHTML = "Gender: " + gender;
+				    display_releaseDate.innerHTML = "Release Date: " + releaseDate;
+				    display_rated.innerHTML = "Rated: " + rated;
+				    display_imdbScore.innerHTML = "Imdb score: " + imdbScore;
+				    display_filmDirector.innerHTML = "Movie director: " + filmDirector;
+				    display_listOfActors.innerHTML = "List of Actors: " + listOfActors;
+				    display_duration.innerHTML = "Duration: " + duration;
+				    display_country.innerHTML = "Country: " + country;
+				    display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
 
 
 
