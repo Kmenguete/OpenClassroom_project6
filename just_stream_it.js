@@ -279,14 +279,16 @@ searchbestMovies.then(async (responseData)=>{
 		    		    document.getElementById('best_movies').appendChild(listItem);
 		    		    buttonModal.href = '#' + movie_title + '_modal_window';
 
+		    		    var myButton = document.getElementById(movie_title + '_buttonModal');
+
 		    		    var modal_windows = document.getElementById(movie_title + '_modal_window'); 
 
 		    		    function openModal() {
-		    		    buttonModal.addEventListener('mouseover', function() {
-						buttonModal.style.transform = 'scale(1.25)';
-						buttonModal.style.cursor = 'pointer';
+		    		    myButton.addEventListener('mouseover', function() {
+						myButton.style.transform = 'scale(1.25)';
+						myButton.style.cursor = 'pointer';
 					})
-					buttonModal.onclick = function() {
+					myButton.onclick = function() {
 						modal_windows.style.display = "block";
 					} 
 					window.onclick = function(event) {
