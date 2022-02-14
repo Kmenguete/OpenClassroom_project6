@@ -175,7 +175,7 @@ searchbestMovies.then(async (responseData)=>{
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal');
 		    	        listItem.appendChild(buttonModal);
 		    	        var myButton = document.getElementById(movie_title + '_buttonModal');
-		    	        buttonModal.setAttribute('onclick', 'openModal()');
+		    
 		    	        
                         
                         
@@ -192,28 +192,6 @@ searchbestMovies.then(async (responseData)=>{
 		    		    
 
 		    		    var modal_windows = document.getElementById('modal_window_best_movies'); 
-
-		    		    function openModal() {
-		    		    myButton.addEventListener('mouseover', function() {
-						myButton.style.transform = 'scale(1.25)';
-					})
-					myButton.onclick = function() {
-						modal_windows.style.display = "block";
-					} 
-					window.onclick = function(event) {
-						modal_windows.style.display = "none";
-					}
-		    		    }; 
-		    		display_title.innerHTML = "Movie: " + title;
-				    display_gender.innerHTML = "Gender: " + gender;
-				    display_releaseDate.innerHTML = "Release Date: " + releaseDate;
-				    display_rated.innerHTML = "Rated: " + rated;
-				    display_imdbScore.innerHTML = "Imdb score: " + imdbScore;
-				    display_filmDirector.innerHTML = "Movie director: " + filmDirector;
-				    display_listOfActors.innerHTML = "List of Actors: " + listOfActors;
-				    display_duration.innerHTML = "Duration: " + duration;
-				    display_country.innerHTML = "Country: " + country;
-				    display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
 
 
 
@@ -232,3 +210,5 @@ makeBestMoviesList();
     	console.log(error);
     }
 }); 
+
+
