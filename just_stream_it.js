@@ -110,7 +110,7 @@ function setModalValues(
 function createModal(movie_data) { 
 	var movie_title = movie_data.title.replaceAll(' ', '_')
 	var modal_window = document.createElement('div'); 
-	modal_window.setAttribute('class', 'modal_window_best_movies');
+	modal_window.setAttribute('class', modal_window);
 	modal_window.setAttribute('id', movie_title + '_' + 'modal_window');
     modal_window.style.position = 'fixed';
 	modal_window.style.top = '0';
@@ -202,20 +202,8 @@ function createModal(movie_data) {
  
 }; 
 
-function openModal() {
-                        var buttonModal = document.getElementsByClassName("button_best_movies");
-                        var modal_windows = document.getElementsByClassName("modal_window_best_movies"); 
-		    		    buttonModal.addEventListener('mouseover', function() {
-						buttonModal.style.transform = 'scale(1.25)';
-						buttonModal.style.cursor = 'pointer';
-					})
-					buttonModal.onclick = function() {
-						modal_windows.style.display = "block";
-					}
-					window.onclick = function(event) {
-						modal_windows.style.display = "none";
-					}
-		    		    }; 
+
+
 
 
 // Now I will create a for loop to get the 5 best movies(any category) in my website.
@@ -280,7 +268,7 @@ searchbestMovies.then(async (responseData)=>{
 		    	        
                         
                         
-		    	        buttonModal.className = "button_best_movies";
+		    	        buttonModal.className = "button";
                         
 		    	
 		    			// Add the movie image to the li tag
@@ -293,6 +281,18 @@ searchbestMovies.then(async (responseData)=>{
 
 		    		    var modal_windows = document.getElementById(movie_title + '_modal_window'); 
 
+		    		    function openModal() {
+		    		    buttonModal.addEventListener('mouseover', function() {
+						buttonModal.style.transform = 'scale(1.25)';
+						buttonModal.style.cursor = 'pointer';
+					})
+					buttonModal.onclick = function() {
+						modal_windows.style.display = "block";
+					} 
+					window.onclick = function(event) {
+						modal_windows.style.display = "none";
+					}
+		    		    }; 
 
 
 
