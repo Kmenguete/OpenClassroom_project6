@@ -282,18 +282,18 @@ romanceBestMovies.then(async (romance_responseData) =>{
 
 		    		    $(function(){
 		    		    	$('.button_romance').click(function(){
-		    		    		var myModal = $('#modal_window_Romance');
-		    		    		myModal.find('.title_Romance').text("Movie: " + romance_title);
-		    		    		myModal.find('.genres_Romance').text("Genres: " + romance_genres);
-		    		    		myModal.find('.release_date_Romance').text("Release Date: " + romance_releaseDate);
-		    		    		myModal.find('.rated_Romance').text("Rated: " + romance_rated);
-		    		    		myModal.find('.imdb_score_Romance').text("Imdb score: " + romance_imdbScore);
-		    		    		myModal.find('.film_director_Romance').text("Movie director: " + romance_filmDirector);
-		    		    		myModal.find('.actors_Romance').text("List of Actors: " + romance_listOfActors);
-		    		    		myModal.find('.duration_Romance').text("Duration: " + romance_duration);
-		    		    		myModal.find('.country_Romance').text("Country: " + romance_country);
-		    		    		myModal.find('.movie_abstract_Romance').text("Movie abstract: " + romance_movieAbstract); 
-		    		    		myModal.modal('show');
+		    		    		var myRomanceModal = $('#modal_window_Romance');
+		    		    		myRomanceModal.find('.title_Romance').text("Movie: " + romance_title);
+		    		    		myRomanceModal.find('.genres_Romance').text("Genres: " + romance_genres);
+		    		    		myRomanceModal.find('.release_date_Romance').text("Release Date: " + romance_releaseDate);
+		    		    		myRomanceModal.find('.rated_Romance').text("Rated: " + romance_rated);
+		    		    		myRomanceModal.find('.imdb_score_Romance').text("Imdb score: " + romance_imdbScore);
+		    		    		myRomanceModal.find('.film_director_Romance').text("Movie director: " + romance_filmDirector);
+		    		    		myRomanceModal.find('.actors_Romance').text("List of Actors: " + romance_listOfActors);
+		    		    		myRomanceModal.find('.duration_Romance').text("Duration: " + romance_duration);
+		    		    		myRomanceModal.find('.country_Romance').text("Country: " + romance_country);
+		    		    		myRomanceModal.find('.movie_abstract_Romance').text("Movie abstract: " + romance_movieAbstract); 
+		    		    		myRomanceModal.modal('show');
 		    		    	});
 		    		    })
                     } catch(error) {
