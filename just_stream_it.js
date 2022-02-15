@@ -135,17 +135,17 @@ searchbestMovies.then(async (responseData)=>{
 		    		console.log(responseData);
 
 		    		var response = await responseData.json();
-                    var title = response.title;
-                    var genres = response.genres;
-                    var releaseDate = response.year;
-                    var rated = response.rated;
-                    var imdbScore = response.imdb_score;
-                    var filmDirector = response.directors;
-                    var listOfActors = response.actors;
-                    var duration = response.duration;
-                    var country = response.countries;
-                    var movieAbstract = response.description; 
-                    var movieImage = response.image_url; 
+                    var dynamic_title = response.title;
+                    var dynamic_genres = response.genres;
+                    var dynamic_releaseDate = response.year;
+                    var dynamic_rated = response.rated;
+                    var dynamic_imdbScore = response.imdb_score;
+                    var dynamic_filmDirector = response.directors;
+                    var dynamic_listOfActors = response.actors;
+                    var dynamic_duration = response.duration;
+                    var dynamic_country = response.countries;
+                    var dynamic_movieAbstract = response.description; 
+                    
 
                     
                     console.log(response); 
@@ -186,16 +186,16 @@ searchbestMovies.then(async (responseData)=>{
 		    		    	$('.button_best_movies').click(function(e){
 		    		    		e.preventDefault();
 		    		    		var myModal = $('#modal_window_best_movies');
-		    		    		myModal.find('.title_best_movies').text(title);
-		    		    		myModal.find('.genres_best_movies').text(genres);
-		    		    		myModal.find('.release_date_best_movies').text(releaseDate);
-		    		    		myModal.find('.rated_best_movies').text(rated);
-		    		    		myModal.find('.imdb_score_best_movies').text(imdbScore);
-		    		    		myModal.find('.film_director_best_movies').text(filmDirector);
-		    		    		myModal.find('.actors_best_movies').text(listOfActors);
-		    		    		myModal.find('.duration_best_movies').text(duration);
-		    		    		myModal.find('.country_best_movies').text(country);
-		    		    		myModal.find('.movie_abstract_best_movies').text(movieAbstract);
+		    		    		myModal.find('.title_best_movies').text(dynamic_title);
+		    		    		myModal.find('.genres_best_movies').text(dynamic_genres);
+		    		    		myModal.find('.release_date_best_movies').text(dynamic_releaseDate);
+		    		    		myModal.find('.rated_best_movies').text(dynamic_rated);
+		    		    		myModal.find('.imdb_score_best_movies').text(dynamic_imdbScore);
+		    		    		myModal.find('.film_director_best_movies').text(dynamic_filmDirector);
+		    		    		myModal.find('.actors_best_movies').text(dynamic_listOfActors);
+		    		    		myModal.find('.duration_best_movies').text(dynamic_duration);
+		    		    		myModal.find('.country_best_movies').text(dynamic_country);
+		    		    		myModal.find('.movie_abstract_best_movies').text(dynamic_movieAbstract); 
 		    		    		myModal.modal('show');
 		    		    	});
 		    		    })
