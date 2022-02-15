@@ -227,7 +227,22 @@ romanceBestMovies.then(async (responseData) =>{
 	var response = await responseData.json();
 	console.log(response); 
 	try {
-		function MakeRomanceMoviesList() {}
+		function MakeRomanceMoviesList() {
+			// Establish the array that stores the responses from the API
+			var romanceMovies = [response.results[0].url, response.results[1].url, response.results[2].url, response.results[3].url, response.results[4].url], 
+			// Make the list
+		    listElement = document.createElement('ul'),
+		    // Set up a loop that goes through the items in listItems one at a time
+		    numberOfRomancetMovies = romanceMovies.length,
+		    romanceMovie,
+		    i; 
+		    // for (let romanceMovieUrl of romanceMovies) 
+		    for (var i = 0; i < numberOfRomancetMovies; ++i) {
+		    	// Add the item content 
+
+		    	var romanceMoviesData = fetch(romanceMovies[i]);
+		    }
+		}
 	} catch(error) {
     	console.log(error); 
     }
