@@ -185,16 +185,16 @@ searchbestMovies.then(async (responseData)=>{
 		    		    $(function(){
 		    		    	$('.button_best_movies').click(function(){
 		    		    		var myModal = $('#modal_window_best_movies');
-		    		    		myModal.find('.title_best_movies').text(dynamic_title);
-		    		    		myModal.find('.genres_best_movies').text(dynamic_genres);
-		    		    		myModal.find('.release_date_best_movies').text(dynamic_releaseDate);
-		    		    		myModal.find('.rated_best_movies').text(dynamic_rated);
-		    		    		myModal.find('.imdb_score_best_movies').text(dynamic_imdbScore);
-		    		    		myModal.find('.film_director_best_movies').text(dynamic_filmDirector);
-		    		    		myModal.find('.actors_best_movies').text(dynamic_listOfActors);
-		    		    		myModal.find('.duration_best_movies').text(dynamic_duration);
-		    		    		myModal.find('.country_best_movies').text(dynamic_country);
-		    		    		myModal.find('.movie_abstract_best_movies').text(dynamic_movieAbstract); 
+		    		    		myModal.find('.title_best_movies').text("Movie: " + dynamic_title);
+		    		    		myModal.find('.genres_best_movies').text("Genres: " + dynamic_genres);
+		    		    		myModal.find('.release_date_best_movies').text("Release Date: " + dynamic_releaseDate);
+		    		    		myModal.find('.rated_best_movies').text("Rated: " + dynamic_rated);
+		    		    		myModal.find('.imdb_score_best_movies').text("Imdb score: " + dynamic_imdbScore);
+		    		    		myModal.find('.film_director_best_movies').text("Movie director: " + dynamic_filmDirector);
+		    		    		myModal.find('.actors_best_movies').text("List of Actors: " + dynamic_listOfActors);
+		    		    		myModal.find('.duration_best_movies').text("Duration: " + dynamic_duration);
+		    		    		myModal.find('.country_best_movies').text("Country: " + dynamic_country);
+		    		    		myModal.find('.movie_abstract_best_movies').text("Movie abstract: " + dynamic_movieAbstract); 
 		    		    		myModal.modal('show');
 		    		    	});
 		    		    })
