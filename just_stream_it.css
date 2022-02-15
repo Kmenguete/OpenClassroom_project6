@@ -72,6 +72,14 @@ The goal is that the image get bigger when we pass the mouse over the image(it w
 .button_best_movies:hover img {
     /* L'image est grossie de 25% */
     transform: scale(1.25);
+} 
+.button_romance img {
+    transition: all 1s ease;
+} 
+
+.button_romance:hover img {
+    /* L'image est grossie de 25% */
+    transform: scale(1.25);
 }
 
 .abel-regular {
@@ -182,6 +190,17 @@ body {
 
 #close_best_movies:hover,
 #close_best_movies:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} 
+#close_Romance {
+    float: right;
+    font-size: 20px;
+    color: rgb(100,100,100); 
+} 
+#close_Romance:hover,
+#close_Romance:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
