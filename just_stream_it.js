@@ -183,8 +183,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		    var modal_windows = document.getElementById('modal_window_best_movies'); 
 
 		    		    $(function(){
-		    		    	$('.button_best_movies').click(function(e){
-		    		    		e.preventDefault();
+		    		    	$('.button_best_movies').click(function(){
 		    		    		var myModal = $('#modal_window_best_movies');
 		    		    		myModal.find('.title_best_movies').text(dynamic_title);
 		    		    		myModal.find('.genres_best_movies').text(dynamic_genres);
@@ -196,7 +195,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		    		myModal.find('.duration_best_movies').text(dynamic_duration);
 		    		    		myModal.find('.country_best_movies').text(dynamic_country);
 		    		    		myModal.find('.movie_abstract_best_movies').text(dynamic_movieAbstract); 
-		    		    		myModal.show('#modal_window_best_movies');
+		    		    		myModal.modal('show');
 		    		    	});
 		    		    })
 
