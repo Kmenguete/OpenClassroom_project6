@@ -219,17 +219,17 @@ makeBestMoviesList();
 
 // Now I will create a for loop to get the 5 best movies of Romance category in my website.
 
-let romanceBestMovies = fetch('http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genres=Romance');
+let romanceBestMovies = fetch('http://127.0.0.1:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Romance&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=');
 
-romanceBestMovies.then(async (responseData) =>{
-	console.log(responseData); 
+romanceBestMovies.then(async (romance_responseData) =>{
+	console.log(romance_responseData); 
 
-	var response = await responseData.json();
-	console.log(response); 
+	var romance_response = await romance_responseData.json();
+	console.log(romance_response); 
 	try {
 		function MakeRomanceMoviesList() {
 			// Establish the array that stores the responses from the API
-			var romanceMovies = [response.results[0].url, response.results[1].url, response.results[2].url, response.results[3].url, response.results[4].url], 
+			var romanceMovies = [romance_response.results[0].url, romance_response.results[1].url, romance_response.results[2].url, romance_response.results[3].url, romance_response.results[4].url], 
 			// Make the list
 		    listElement = document.createElement('ul'),
 		    // Set up a loop that goes through the items in listItems one at a time
@@ -241,23 +241,70 @@ romanceBestMovies.then(async (responseData) =>{
 		    	// Add the item content 
 
 		    	var romanceMoviesData = fetch(romanceMovies[i]);
-		    	romanceMoviesData.then(async (responseData) => {
-		    		console.log(responseData);
+		    	romanceMoviesData.then(async (romance_responseData) => {
+		    		console.log(romance_responseData);
 
-		    		var response = await responseData.json();
-                    var romance_title = response.title;
-                    var romance_genres = response.genres;
-                    var romance_releaseDate = response.year;
-                    var romance_rated = response.rated;
-                    var romance_imdbScore = response.imdb_score;
-                    var romance_filmDirector = response.directors;
-                    var romance_listOfActors = response.actors;
-                    var romance_duration = response.duration;
-                    var romance_country = response.countries;
-                    var romance_movieAbstract = response.description; 
+		    		var romance_response = await romance_responseData.json();
+                    var romance_title = romance_response.title;
+                    var romance_genres = romance_response.genres;
+                    var romance_releaseDate = romance_response.year;
+                    var romance_rated = romance_response.rated;
+                    var romance_imdbScore = romance_response.imdb_score;
+                    var romance_filmDirector = romance_response.directors;
+                    var romance_listOfActors = romance_response.actors;
+                    var romance_duration = romance_response.duration;
+                    var romance_country = romance_response.countries;
+                    var romance_movieAbstract = romance_response.description; 
+
+                    console.log(romance_response); 
+                    try {
+                    	var romance_movie_title = romance_response.title.replaceAll(' ', '_')		    		
+
+		    			// create an item for each one 
+
+		    	        listItem = document.createElement('li'); 
+		    	        listItem.className = "modal_info";
+		    	        listElement.appendChild(listItem);
+		    	        var buttonModal = document.createElement('a');
+		    	        buttonModal.setAttribute('id', romance_movie_title + '_buttonModal');
+		    	        listItem.appendChild(buttonModal);
+		    	        var myButton = document.getElementById(romance_movie_title + '_buttonModal'); 
+
+		    	        buttonModal.className = "button_romance";
+                        
+		    	
+		    			// Add the movie image to the li tag
+		    	        var img = document.createElement('img');
+		    		    img.src = romance_response.image_url; 
+		    		    buttonModal.appendChild(img);
+		    		    document.getElementById('Romance').appendChild(listItem);
+		    		    buttonModal.href = '#' + 'modal_window_Romance'; 
+
+		    		    $(function(){
+		    		    	$('.button_romance').click(function(){
+		    		    		var myModal = $('#modal_window_Romance');
+		    		    		myModal.find('.title_Romance').text("Movie: " + romance_title);
+		    		    		myModal.find('.genres_Romance').text("Genres: " + romance_genres);
+		    		    		myModal.find('.release_date_Romance').text("Release Date: " + romance_releaseDate);
+		    		    		myModal.find('.rated_Romance').text("Rated: " + romance_rated);
+		    		    		myModal.find('.imdb_score_Romance').text("Imdb score: " + romance_imdbScore);
+		    		    		myModal.find('.film_director_Romance').text("Movie director: " + romance_filmDirector);
+		    		    		myModal.find('.actors_Romance').text("List of Actors: " + romance_listOfActors);
+		    		    		myModal.find('.duration_Romance').text("Duration: " + romance_duration);
+		    		    		myModal.find('.country_Romance').text("Country: " + romance_country);
+		    		    		myModal.find('.movie_abstract_Romance').text("Movie abstract: " + romance_movieAbstract); 
+		    		    		myModal.modal('show');
+		    		    	});
+		    		    })
+                    } catch(error) {
+                    	console.log(error);
+                    }
 		    	})
 		    }
-		}
+		} 
+		// Use the function
+		MakeRomanceMoviesList();
+
 	} catch(error) {
     	console.log(error); 
     }
