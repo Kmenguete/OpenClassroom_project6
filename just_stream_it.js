@@ -136,7 +136,7 @@ searchbestMovies.then(async (responseData)=>{
 
 		    		var response = await responseData.json();
                     var title = response.title;
-                    var gender = response.genres;
+                    var genres = response.genres;
                     var releaseDate = response.year;
                     var rated = response.rated;
                     var imdbScore = response.imdb_score;
@@ -146,17 +146,6 @@ searchbestMovies.then(async (responseData)=>{
                     var country = response.countries;
                     var movieAbstract = response.description; 
                     var movieImage = response.image_url; 
-
-                    var display_title = document.querySelector("#title_best_movies");
-				    var display_gender = document.querySelector("#gender_best_movies");
-				    var display_releaseDate = document.querySelector("#release_date_best_movies");
-				    var display_rated = document.querySelector("#rated_best_movies");
-				    var display_imdbScore = document.querySelector("#imdb_score_best_movies");
-				    var display_filmDirector = document.querySelector("#film_director_best_movies");
-				    var display_listOfActors = document.querySelector("#actors_best_movies");
-				    var display_duration = document.querySelector("#duration_best_movies");
-				    var display_country = document.querySelector("#country_best_movies");
-				    var display_movieAbstract = document.querySelector("#movie_abstract_best_movies"); 
 
                     
                     console.log(response); 
@@ -179,7 +168,7 @@ searchbestMovies.then(async (responseData)=>{
 		    	        
                         
                         
-		    	        buttonModal.className = "button";
+		    	        buttonModal.className = "button_best_movies";
                         
 		    	
 		    			// Add the movie image to the li tag
@@ -192,6 +181,24 @@ searchbestMovies.then(async (responseData)=>{
 		    		    
 
 		    		    var modal_windows = document.getElementById('modal_window_best_movies'); 
+
+		    		    $(function(){
+		    		    	$('.button_best_movies').click(function(e){
+		    		    		e.preventDefault();
+		    		    		var myModal = $('#modal_window_best_movies');
+		    		    		myModal.find('.title_best_movies').text(title);
+		    		    		myModal.find('.genres_best_movies').text(genres);
+		    		    		myModal.find('.release_date_best_movies').text(releaseDate);
+		    		    		myModal.find('.rated_best_movies').text(rated);
+		    		    		myModal.find('.imdb_score_best_movies').text(imdbScore);
+		    		    		myModal.find('.film_director_best_movies').text(filmDirector);
+		    		    		myModal.find('.actors_best_movies').text(listOfActors);
+		    		    		myModal.find('.duration_best_movies').text(duration);
+		    		    		myModal.find('.country_best_movies').text(country);
+		    		    		myModal.find('.movie_abstract_best_movies').text(movieAbstract);
+		    		    		myModal.modal('show');
+		    		    	});
+		    		    })
 
 
 
