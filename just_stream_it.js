@@ -217,29 +217,6 @@ makeBestMoviesList();
     }
 }); 
 
-// I will fetch the 3 other best movies on the next page
-let searchbestMoviesPage2 = fetch('http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&page=2');
 
-searchbestMoviesPage2.then(async (responseData)=>{
-	console.log(responseData);
-
-	var response = await responseData.json();
-	console.log(response); 
-	try{
-		function RetrieveMissingBestMovies(){
-			// Establish the array that stores the responses from the API
-			var bestMoviesPage2 = [response.results[0].url, response.results[1].url, response.results[2].url], 
-
-			// Make the list
-		    listElement = document.createElement('ul'),
-		    // Set up a loop that goes through the items in listItems one at a time
-		    numberOfBestMoviesPage2 = bestMoviesPage2.length,
-		    bestMovie,
-		    i; 
-		    // for (let bestMovieUrlPage2 of bestMoviesPage2)
-		    for (var i = 0; i < numberOfBestMoviesPage2; ++i) {}
-		}
-	}
-})
 
 
