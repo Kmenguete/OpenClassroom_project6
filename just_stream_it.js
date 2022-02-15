@@ -241,6 +241,21 @@ romanceBestMovies.then(async (responseData) =>{
 		    	// Add the item content 
 
 		    	var romanceMoviesData = fetch(romanceMovies[i]);
+		    	romanceMoviesData.then(async (responseData) => {
+		    		console.log(responseData);
+
+		    		var response = await responseData.json();
+                    var romance_title = response.title;
+                    var romance_genres = response.genres;
+                    var romance_releaseDate = response.year;
+                    var romance_rated = response.rated;
+                    var romance_imdbScore = response.imdb_score;
+                    var romance_filmDirector = response.directors;
+                    var romance_listOfActors = response.actors;
+                    var romance_duration = response.duration;
+                    var romance_country = response.countries;
+                    var romance_movieAbstract = response.description; 
+		    	})
 		    }
 		}
 	} catch(error) {
