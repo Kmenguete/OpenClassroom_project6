@@ -64,6 +64,14 @@ The goal is that the image get bigger when we pass the mouse over the image(it w
 .button:hover img {
     /* L'image est grossie de 25% */
     transform: scale(1.25);
+} 
+.button_best_movies img {
+    transition: all 1s ease;
+}
+
+.button_best_movies:hover img {
+    /* L'image est grossie de 25% */
+    transform: scale(1.25);
 }
 
 .abel-regular {

@@ -196,7 +196,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		    		myModal.find('.duration_best_movies').text(dynamic_duration);
 		    		    		myModal.find('.country_best_movies').text(dynamic_country);
 		    		    		myModal.find('.movie_abstract_best_movies').text(dynamic_movieAbstract); 
-		    		    		myModal.modal('show');
+		    		    		myModal.show('#modal_window_best_movies');
 		    		    	});
 		    		    })
 
