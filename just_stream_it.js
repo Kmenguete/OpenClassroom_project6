@@ -217,4 +217,20 @@ makeBestMoviesList();
     }
 }); 
 
+// Now I will create a for loop to get the 5 best movies of Romance category in my website.
+
+let romanceBestMovies = fetch('http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&genres=Romance');
+
+romanceBestMovies.then(async (responseData) =>{
+	console.log(responseData); 
+
+	var response = await responseData.json();
+	console.log(response); 
+	try {
+		function MakeRomanceMoviesList() {}
+	} catch(error) {
+    	console.log(error); 
+    }
+})
+
 
