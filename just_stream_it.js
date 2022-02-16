@@ -320,9 +320,10 @@ animationBestMovies.then(async(animation_responseData) => {
 	var animation_response = await animation_responseData.json();
 	console.log(animation_response);
 	try {
+		
 		function MakeAnimationMoviesList() {
 		// Establish the array that stores the responses from the API
-		var animationMovies = [romance_response.results[0].url, romance_response.results[1].url, romance_response.results[2].url, romance_response.results[3].url, romance_response.results[4].url],
+		var animationMovies = [animation_response.results[0].url, animation_response.results[1].url, animation_response.results[2].url, animation_response.results[3].url, animation_response.results[4].url],
 		// Make the list
 	    listElement = document.createElement('ul'),
 	    // Set up a loop that goes through the items in listItems one at a time
@@ -395,12 +396,15 @@ animationBestMovies.then(async(animation_responseData) => {
                 console.log(error);
                 }
 	    	})
-		} 	
+		}
+
 		}
 		// Use the function
 		MakeAnimationMoviesList();
-	} catch {
-		console.log(error)
+
+	} catch(error) {
+
+		console.log(error);
 	}
    
-});
+})
