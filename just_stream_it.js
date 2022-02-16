@@ -205,7 +205,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		} catch(error) {
     	console.log(error); 
     }
-		    	});
+		    	})
 
 		    }
 		}
@@ -215,7 +215,7 @@ makeBestMoviesList();
 	} catch(error) {
     	console.log(error);
     }
-}); 
+}) 
 
 // Now I will create a for loop to get the 5 best movies of Romance category in my website.
 
