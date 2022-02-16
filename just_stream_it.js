@@ -350,11 +350,57 @@ animationBestMovies.then(async(animation_responseData) => {
                 var animation_movieAbstract = animation_response.description; 
 
                 console.log(animation_response); 
+
+                try {
+                	var animation_movie_title = animation_response.title.replaceAll(' ', '_')		    		
+
+	    			// create an item for each one 
+
+	    	        listItem = document.createElement('li'); 
+	    	        listItem.className = "modal_info";
+	    	        listElement.appendChild(listItem);
+	    	        var buttonModal = document.createElement('a');
+	    	        buttonModal.setAttribute('id', animation_movie_title + '_buttonModal');
+	    	        listItem.appendChild(buttonModal);
+	    	        var myButton = document.getElementById(animation_movie_title + '_buttonModal'); 
+
+	    	        buttonModal.className = "button_animation";
+                    
+	    	
+	    			// Add the movie image to the li tag
+	    	        var img = document.createElement('img');
+	    		    img.src = animation_response.image_url; 
+	    		    buttonModal.appendChild(img);
+	    		    document.getElementById('Animation').appendChild(listItem);
+	    		    buttonModal.href = '#' + 'modal_window_Animation'; 
+
+	    		    $(function(){
+		    		    	$('.button_animation').click(function(){
+		    		    		var myAnimationModal = $('#modal_window_Animation');
+		    		    		myAnimationModal.find('.title_Animation').text("Movie: " + animation_title);
+		    		    		myAnimationModal.find('.genres_Animation').text("Genres: " + animation_genres);
+		    		    		myAnimationModal.find('.release_Animation').text("Release Date: " + animation_releaseDate);
+		    		    		myAnimationModal.find('.rated_Animation').text("Rated: " + animation_rated);
+		    		    		myAnimationModal.find('.imdb_score_Animation').text("Imdb score: " + animation_imdbScore);
+		    		    		myAnimationModal.find('.film_director_Animation').text("Movie director: " + animation_filmDirector);
+		    		    		myAnimationModal.find('.actors_Animation').text("List of Actors: " + animation_listOfActors);
+		    		    		myAnimationModal.find('.duration_Animation').text("Duration: " + animation_duration);
+		    		    		myAnimationModal.find('.country_Animation').text("Country: " + animation_country);
+		    		    		myAnimationModal.find('.movie_abstract_Animation').text("Movie abstract: " + animation_movieAbstract); 
+		    		    		myAnimationModal.modal('show');
+		    		    	});
+		    		    })
+            } catch {
+
+                console.log(error);
+                }
 	    	})
 		} 	
 		}
+		// Use the function
+		MakeAnimationMoviesList();
 	} catch {
-		console.log(error);
+		console.log(error)
 	}
    
 });
