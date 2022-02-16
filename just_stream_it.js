@@ -233,11 +233,11 @@ romanceBestMovies.then(async (romance_responseData) =>{
 			// Make the list
 		    listElement = document.createElement('ul'),
 		    // Set up a loop that goes through the items in listItems one at a time
-		    numberOfRomancetMovies = romanceMovies.length,
+		    numberOfRomanceMovies = romanceMovies.length,
 		    romanceMovie,
 		    i; 
 		    // for (let romanceMovieUrl of romanceMovies) 
-		    for (var i = 0; i < numberOfRomancetMovies; ++i) {
+		    for (var i = 0; i < numberOfRomanceMovies; ++i) {
 		    	// Add the item content 
 
 		    	var romanceMoviesData = fetch(romanceMovies[i]);
@@ -322,7 +322,36 @@ animationBestMovies.then(async(animation_responseData) => {
 	try {
 		function MakeAnimationMoviesList() {
 		// Establish the array that stores the responses from the API
-		var animationMovies = [romance_response.results[0].url, romance_response.results[1].url, romance_response.results[2].url, romance_response.results[3].url, romance_response.results[4].url],	
+		var animationMovies = [romance_response.results[0].url, romance_response.results[1].url, romance_response.results[2].url, romance_response.results[3].url, romance_response.results[4].url],
+		// Make the list
+	    listElement = document.createElement('ul'),
+	    // Set up a loop that goes through the items in listItems one at a time
+	    numberOfAnimationMovies = animationMovies.length,
+	    animationMovie,
+	    i; 
+	    // for (let romanceMovieUrl of romanceMovies) 
+		for (var i = 0; i < numberOfAnimationMovies; ++i) {
+			// Add the item content 
+
+	    	var animationMoviesData = fetch(animationMovies[i]);
+	    	animationMoviesData.then(async(animation_responseData) => {
+	    		console.log(animation_responseData); 
+
+	    		var animation_response = await animation_responseData.json();
+                var animation_title = animation_response.title;
+                var animation_genres = animation_response.genres;
+                var animation_releaseDate = animation_response.year;
+                var animation_rated = animation_response.rated;
+                var animation_imdbScore = animation_response.imdb_score;
+                var animation_filmDirector = animation_response.directors;
+                var animation_listOfActors = animation_response.actors;
+                var animation_duration = animation_response.duration;
+                var animation_country = animation_response.countries;
+                var animation_movieAbstract = animation_response.description; 
+
+                console.log(animation_response); 
+	    	})
+		} 	
 		}
 	} catch {
 		console.log(error);
