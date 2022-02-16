@@ -308,6 +308,24 @@ romanceBestMovies.then(async (romance_responseData) =>{
 	} catch(error) {
     	console.log(error); 
     }
-})
+}) 
 
+// Now I will create a for loop to get the 5 best movies of Animation category in my website.
 
+let animationBestMovies = fetch('http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Animation&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=');
+
+animationBestMovies.then(async(animation_responseData) => {
+	console.log(animation_responseData); 
+
+	var animation_response = await animation_responseData.json();
+    var animation_title = animation_response.title;
+    var animation_genres = animation_response.genres;
+    var animation_releaseDate = animation_response.year;
+    var animation_rated = animation_response.rated;
+    var animation_imdbScore = animation_response.imdb_score;
+    var animation_filmDirector = animation_response.directors;
+    var animation_listOfActors = animation_response.actors;
+    var animation_duration = animation_response.duration;
+    var animation_country = animation_response.countries;
+    var animation_movieAbstract = animation_response.description;
+});
