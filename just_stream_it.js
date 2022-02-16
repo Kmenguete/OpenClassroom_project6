@@ -285,7 +285,7 @@ romanceBestMovies.then(async (romance_responseData) =>{
 		    		    		var myRomanceModal = $('#modal_window_Romance');
 		    		    		myRomanceModal.find('.title_Romance').text("Movie: " + romance_title);
 		    		    		myRomanceModal.find('.genres_Romance').text("Genres: " + romance_genres);
-		    		    		myRomanceModal.find('.release_date_Romance').text("Release Date: " + romance_releaseDate);
+		    		    		myRomanceModal.find('.release_Romance').text("Release Date: " + romance_releaseDate);
 		    		    		myRomanceModal.find('.rated_Romance').text("Rated: " + romance_rated);
 		    		    		myRomanceModal.find('.imdb_score_Romance').text("Imdb score: " + romance_imdbScore);
 		    		    		myRomanceModal.find('.film_director_Romance').text("Movie director: " + romance_filmDirector);
