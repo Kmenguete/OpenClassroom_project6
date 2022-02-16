@@ -195,7 +195,7 @@ searchbestMovies.then(async (responseData)=>{
 		    		    		myModal.find('.duration_best_movies').text("Duration: " + dynamic_duration);
 		    		    		myModal.find('.country_best_movies').text("Country: " + dynamic_country);
 		    		    		myModal.find('.movie_abstract_best_movies').text("Movie abstract: " + dynamic_movieAbstract); 
-		    		    		myModal.show();
+		    		    		myModal.modal('show');
 		    		    	});
 		    		    })
 
@@ -293,7 +293,7 @@ romanceBestMovies.then(async (romance_responseData) =>{
 		    		    		myRomanceModal.find('.duration_Romance').text("Duration: " + romance_duration);
 		    		    		myRomanceModal.find('.country_Romance').text("Country: " + romance_country);
 		    		    		myRomanceModal.find('.movie_abstract_Romance').text("Movie abstract: " + romance_movieAbstract); 
-		    		    		myRomanceModal.show();
+		    		    		myRomanceModal.modal('show');
 		    		    	});
 		    		    })
                     } catch(error) {
