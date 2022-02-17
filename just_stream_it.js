@@ -409,7 +409,7 @@ animationBestMovies.then(async(animation_responseData) => {
    
 }) 
 
-// Now I will create a for loop to get the 5 best movies of Animation category in my website. 
+// Now I will create a for loop to get the 5 best movies of Crime category in my website. 
 
 let crimeBestMovies = fetch('http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Crime&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=');
 
@@ -498,7 +498,9 @@ crimeBestMovies.then(async(crime_responseData) =>{
                 }
 	    	})
 		}
-		}
+		} 
+		// Use the function
+		MakeCrimeMoviesList();
 
 	} catch {
 		console.log(error);
