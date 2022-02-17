@@ -419,7 +419,22 @@ crimeBestMovies.then(async(crime_responseData) =>{
 	var crime_response = await crime_responseData.json();
 	console.log(crime_response); 
 
-	try {} catch {
+	try {
+
+		function MakeCrimeMoviesList() {
+		// Establish the array that stores the responses from the API
+		var crimeMovies = [crime_response.results[0].url, crime_response.results[1].url, crime_response.results[2].url, crime_response.results[3].url, crime_response.results[4].url],
+		// Make the list
+	    listElement = document.createElement('ul'),
+	    // Set up a loop that goes through the items in listItems one at a time
+	    numberOfCrimeMovies = crimeMovies.length,
+	    crimeMovie,
+	    i;
+	    // for (let crimeMovieUrl of crimeMovies) 
+		for (var i = 0; i < numberOfCrimeMovies; ++i) {}
+		}
+
+	} catch {
 		console.log(error);
 	}
 })
