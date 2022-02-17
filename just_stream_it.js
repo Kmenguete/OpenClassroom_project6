@@ -451,6 +451,51 @@ crimeBestMovies.then(async(crime_responseData) =>{
                 var crime_movieAbstract = crime_response.description; 
 
                 console.log(crime_response); 
+
+                try {
+
+                	var crime_movie_title = crime_response.title.replaceAll(' ', '_')		    		
+
+	    			// create an item for each one 
+
+	    	        listItem = document.createElement('li'); 
+	    	        listItem.className = "modal_info";
+	    	        listElement.appendChild(listItem);
+	    	        var buttonModal = document.createElement('a');
+	    	        buttonModal.setAttribute('id', crime_movie_title + '_buttonModal');
+	    	        listItem.appendChild(buttonModal);
+	    	        var myButton = document.getElementById(crime_movie_title + '_buttonModal'); 
+
+	    	        buttonModal.className = "button_crime";
+                    
+	    	
+	    			// Add the movie image to the li tag
+	    	        var img = document.createElement('img');
+	    		    img.src = crime_response.image_url; 
+	    		    buttonModal.appendChild(img);
+	    		    document.getElementById('Crime').appendChild(listItem);
+	    		    buttonModal.href = '#' + 'modal_window_Crime'; 
+
+	    		    $(function(){
+		    		    	$('.button_crime').click(function(){
+		    		    		var myCrimeModal = $('#modal_window_Crime');
+		    		    		myCrimeModal.find('.title_Crime').text("Movie: " + crime_title);
+		    		    		myCrimeModal.find('.genres_Crime').text("Genres: " + crime_genres);
+		    		    		myCrimeModal.find('.release_Crime').text("Release Date: " + crime_releaseDate);
+		    		    		myCrimeModal.find('.rated_Crime').text("Rated: " + crime_rated);
+		    		    		myCrimeModal.find('.imdb_score_Crime').text("Imdb score: " + crime_imdbScore);
+		    		    		myCrimeModal.find('.film_director_Crime').text("Movie director: " + crime_filmDirector);
+		    		    		myCrimeModal.find('.actors_Crime').text("List of Actors: " + crime_listOfActors);
+		    		    		myCrimeModal.find('.duration_Crime').text("Duration: " + crime_duration);
+		    		    		myCrimeModal.find('.country_Crime').text("Country: " + crime_country);
+		    		    		myCrimeModal.find('.movie_abstract_Crime').text("Movie abstract: " + crime_movieAbstract); 
+		    		    		myCrimeModal.modal('show');
+		    		    	});
+		    		    })
+
+                } catch {
+                	console.log(error);
+                }
 	    	})
 		}
 		}
