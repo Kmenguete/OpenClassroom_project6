@@ -431,7 +431,28 @@ crimeBestMovies.then(async(crime_responseData) =>{
 	    crimeMovie,
 	    i;
 	    // for (let crimeMovieUrl of crimeMovies) 
-		for (var i = 0; i < numberOfCrimeMovies; ++i) {}
+		for (var i = 0; i < numberOfCrimeMovies; ++i) {
+			// Add the item content 
+
+	    	var crimeMoviesData = fetch(crimeMovies[i]);
+	    	crimeMoviesData.then(async(crime_responseData) => {
+	    		console.log(crime_responseData); 
+
+	    		var crime_response = await crime_responseData.json();
+                var crime_title = crime_response.title;
+                var crime_genres = crime_response.genres;
+                var crime_releaseDate = crime_response.year;
+                var crime_rated = crime_response.rated;
+                var crime_imdbScore = crime_response.imdb_score;
+                var crime_filmDirector = crime_response.directors;
+                var crime_listOfActors = crime_response.actors;
+                var crime_duration = crime_response.duration;
+                var crime_country = crime_response.countries;
+                var crime_movieAbstract = crime_response.description; 
+
+                console.log(crime_response); 
+	    	})
+		}
 		}
 
 	} catch {
