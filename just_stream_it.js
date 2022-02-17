@@ -721,7 +721,7 @@ animationRemainingBestMovies.then(async(animation_responseData) => {
 })
 
 
-// Now I will create a for loop to get the 5 best movies of Crime category in my website. 
+// Now I will create a for loop to get the first 5 best movies of Crime category in my website. 
 
 let crimeBestMovies = fetch('http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Crime&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=');
 
@@ -813,6 +813,105 @@ crimeBestMovies.then(async(crime_responseData) =>{
 		} 
 		// Use the function
 		MakeCrimeMoviesList();
+
+	} catch {
+		console.log(error);
+	}
+}) 
+
+
+// Now I will create a for loop to get the remaining 2 best movies of Crime category in my website. 
+
+let crimeRemainingBestMovies = fetch('http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Crime&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=');
+
+crimeRemainingBestMovies.then(async(crime_responseData) =>{
+	console.log(crime_responseData);
+
+	var crime_response = await crime_responseData.json();
+	console.log(crime_response); 
+
+	try {
+
+		function MakeRemainingCrimeMoviesList() {
+		// Establish the array that stores the responses from the API
+		var crimeMovies = [crime_response.results[0].url, crime_response.results[1].url],
+		// Make the list
+	    listElement = document.createElement('ul'),
+	    // Set up a loop that goes through the items in listItems one at a time
+	    numberOfCrimeMovies = crimeMovies.length,
+	    crimeMovie,
+	    i;
+	    // for (let crimeMovieUrl of crimeMovies) 
+		for (var i = 0; i < numberOfCrimeMovies; ++i) {
+			// Add the item content 
+
+	    	var crimeMoviesData = fetch(crimeMovies[i]);
+	    	crimeMoviesData.then(async(crime_responseData) => {
+	    		console.log(crime_responseData); 
+
+	    		var crime_response = await crime_responseData.json();
+                var crime_title = crime_response.title;
+                var crime_genres = crime_response.genres;
+                var crime_releaseDate = crime_response.year;
+                var crime_rated = crime_response.rated;
+                var crime_imdbScore = crime_response.imdb_score;
+                var crime_filmDirector = crime_response.directors;
+                var crime_listOfActors = crime_response.actors;
+                var crime_duration = crime_response.duration;
+                var crime_country = crime_response.countries;
+                var crime_movieAbstract = crime_response.description; 
+
+                console.log(crime_response); 
+
+                try {
+
+                	var crime_movie_title = crime_response.title.replaceAll(' ', '_')		    		
+
+	    			// create an item for each one 
+
+	    	        listItem = document.createElement('li'); 
+	    	        listItem.className = "modal_info";
+	    	        listElement.appendChild(listItem);
+	    	        var buttonModal = document.createElement('a');
+	    	        buttonModal.setAttribute('id', crime_movie_title + '_buttonModal');
+	    	        listItem.appendChild(buttonModal);
+	    	        var myButton = document.getElementById(crime_movie_title + '_buttonModal'); 
+
+	    	        buttonModal.className = "button_crime";
+                    
+	    	
+	    			// Add the movie image to the li tag
+	    	        var img = document.createElement('img');
+	    		    img.src = crime_response.image_url; 
+	    		    buttonModal.appendChild(img);
+	    		    document.getElementById('Crime').appendChild(listItem);
+	    		    buttonModal.href = '#' + 'modal_window_Crime'; 
+
+	    		    $(function(){
+		    		    	$('.button_crime').click(function(){
+		    		    		var myCrimeModal = $('#modal_window_Crime');
+		    		    		myCrimeModal.find('.title_Crime').text("Movie: " + crime_title);
+		    		    		myCrimeModal.find('.genres_Crime').text("Genres: " + crime_genres);
+		    		    		myCrimeModal.find('.release_Crime').text("Release Date: " + crime_releaseDate);
+		    		    		myCrimeModal.find('.rated_Crime').text("Rated: " + crime_rated);
+		    		    		myCrimeModal.find('.imdb_score_Crime').text("Imdb score: " + crime_imdbScore);
+		    		    		myCrimeModal.find('.film_director_Crime').text("Movie director: " + crime_filmDirector);
+		    		    		myCrimeModal.find('.actors_Crime').text("List of Actors: " + crime_listOfActors);
+		    		    		myCrimeModal.find('.duration_Crime').text("Duration: " + crime_duration);
+		    		    		myCrimeModal.find('.country_Crime').text("Country: " + crime_country);
+		    		    		myCrimeModal.find('.movie_abstract_Crime').text("Movie abstract: " + crime_movieAbstract); 
+		    		    		myCrimeModal.modal('show');
+		    		    	});
+		    		    })
+
+                } catch {
+                	console.log(error);
+                }
+	    	})
+		}
+		} 
+		// Use the function
+		MakeRemainingCrimeMoviesList();
 
 	} catch {
 		console.log(error);
