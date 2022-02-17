@@ -333,7 +333,7 @@ makeRemainingBestMoviesList();
 
 
 
-// Now I will create a for loop to get the 5 best movies of Romance category in my website.
+// Now I will create a for loop to get the first 5 best movies of Romance category in my website.
 
 let romanceBestMovies = fetch('http://127.0.0.1:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Romance&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=');
 
@@ -425,6 +425,101 @@ romanceBestMovies.then(async (romance_responseData) =>{
     	console.log(error); 
     }
 }) 
+
+
+// Now I will create a for loop to get the first 2 remaining best movies of Romance category in my website.
+
+let romanceRemainingBestMovies = fetch('http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Romance&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=');
+
+romanceRemainingBestMovies.then(async (romance_responseData) =>{
+	console.log(romance_responseData); 
+
+	var romance_response = await romance_responseData.json();
+	console.log(romance_response); 
+	try {
+		function MakeRemainingRomanceMoviesList() {
+			// Establish the array that stores the responses from the API
+			var romanceMovies = [romance_response.results[0].url, romance_response.results[1].url], 
+			// Make the list
+		    listElement = document.createElement('ul'),
+		    // Set up a loop that goes through the items in listItems one at a time
+		    numberOfRomanceMovies = romanceMovies.length,
+		    romanceMovie,
+		    i; 
+		    // for (let romanceMovieUrl of romanceMovies) 
+		    for (var i = 0; i < numberOfRomanceMovies; ++i) {
+		    	// Add the item content 
+
+		    	var romanceMoviesData = fetch(romanceMovies[i]);
+		    	romanceMoviesData.then(async (romance_responseData) => {
+		    		console.log(romance_responseData);
+
+		    		var romance_response = await romance_responseData.json();
+                    var romance_title = romance_response.title;
+                    var romance_genres = romance_response.genres;
+                    var romance_releaseDate = romance_response.year;
+                    var romance_rated = romance_response.rated;
+                    var romance_imdbScore = romance_response.imdb_score;
+                    var romance_filmDirector = romance_response.directors;
+                    var romance_listOfActors = romance_response.actors;
+                    var romance_duration = romance_response.duration;
+                    var romance_country = romance_response.countries;
+                    var romance_movieAbstract = romance_response.description; 
+
+                    console.log(romance_response); 
+                    try {
+                    	var romance_movie_title = romance_response.title.replaceAll(' ', '_')		    		
+
+		    			// create an item for each one 
+
+		    	        listItem = document.createElement('li'); 
+		    	        listItem.className = "modal_info";
+		    	        listElement.appendChild(listItem);
+		    	        var buttonModal = document.createElement('a');
+		    	        buttonModal.setAttribute('id', romance_movie_title + '_buttonModal');
+		    	        listItem.appendChild(buttonModal);
+		    	        var myButton = document.getElementById(romance_movie_title + '_buttonModal'); 
+
+		    	        buttonModal.className = "button_romance";
+                        
+		    	
+		    			// Add the movie image to the li tag
+		    	        var img = document.createElement('img');
+		    		    img.src = romance_response.image_url; 
+		    		    buttonModal.appendChild(img);
+		    		    document.getElementById('Romance').appendChild(listItem);
+		    		    buttonModal.href = '#' + 'modal_window_Romance'; 
+
+		    		    $(function(){
+		    		    	$('.button_romance').click(function(){
+		    		    		var myRomanceModal = $('#modal_window_Romance');
+		    		    		myRomanceModal.find('.title_Romance').text("Movie: " + romance_title);
+		    		    		myRomanceModal.find('.genres_Romance').text("Genres: " + romance_genres);
+		    		    		myRomanceModal.find('.release_Romance').text("Release Date: " + romance_releaseDate);
+		    		    		myRomanceModal.find('.rated_Romance').text("Rated: " + romance_rated);
+		    		    		myRomanceModal.find('.imdb_score_Romance').text("Imdb score: " + romance_imdbScore);
+		    		    		myRomanceModal.find('.film_director_Romance').text("Movie director: " + romance_filmDirector);
+		    		    		myRomanceModal.find('.actors_Romance').text("List of Actors: " + romance_listOfActors);
+		    		    		myRomanceModal.find('.duration_Romance').text("Duration: " + romance_duration);
+		    		    		myRomanceModal.find('.country_Romance').text("Country: " + romance_country);
+		    		    		myRomanceModal.find('.movie_abstract_Romance').text("Movie abstract: " + romance_movieAbstract); 
+		    		    		myRomanceModal.modal('show');
+		    		    	});
+		    		    })
+                    } catch(error) {
+                    	console.log(error);
+                    }
+		    	})
+		    }
+		} 
+		// Use the function
+		MakeRemainingRomanceMoviesList();
+
+	} catch(error) {
+    	console.log(error); 
+    }
+})
+
 
 // Now I will create a for loop to get the 5 best movies of Animation category in my website.
 
