@@ -4,7 +4,7 @@ searchbestMovie.then(async (responseData)=>{
 	console.log(responseData);
 
 	var response = await responseData.json();
-	console.log(response); 
+	console.log(response);
 
 	try {
 		var bestMovie = fetch(response.results[0].url);
@@ -12,13 +12,13 @@ searchbestMovie.then(async (responseData)=>{
     console.log(responseData);
 
     var response = await responseData.json();
-    console.log(response); 
+    console.log(response);
 
     try{
 
     // Get best movie data from API
 
-    
+
     var title = response.title;
     var gender = response.genres;
     var releaseDate = response.year;
@@ -28,12 +28,12 @@ searchbestMovie.then(async (responseData)=>{
     var listOfActors = response.actors;
     var duration = response.duration;
     var country = response.countries;
-    var movieAbstract = response.description; 
+    var movieAbstract = response.description;
     var movieImage = response.image_url;
 
-  
+
   setModalValues(
-      title, 
+      title,
       gender,
       releaseDate,
       rated,
@@ -45,8 +45,7 @@ searchbestMovie.then(async (responseData)=>{
       movieAbstract
       )
       var bestMovieImage = `<img src="${movieImage}"/>`;
-      var display_movieImage = document.querySelector("#best_movie_image"); 
-
+      var display_movieImage = document.querySelector("#best_movie_image");
 
     display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
 
@@ -54,7 +53,7 @@ searchbestMovie.then(async (responseData)=>{
     } catch(error) {
     	console.log(error);
     }
-}) 
+})
 
 .catch((error) => {
 	console.log(error);
@@ -62,11 +61,11 @@ searchbestMovie.then(async (responseData)=>{
 	} catch(error) {
 		console.log(error);
 	}
-}) 
+})
 
 .catch((error) => {
 	console.log(error);
-}); 
+});
 
 function setModalValues(
     title,
@@ -89,7 +88,7 @@ function setModalValues(
     var display_listOfActors = document.querySelector("#actors_best_movie");
     var display_duration = document.querySelector("#duration_best_movie");
     var display_country = document.querySelector("#country_best_movie");
-    var display_movieAbstract = document.querySelector("#movie_abstract_best_movie"); 
+    var display_movieAbstract = document.querySelector("#movie_abstract_best_movie");
 
     display_title.innerHTML = "Movie: " + title;
     display_gender.innerHTML = "Gender: " + gender;
@@ -102,7 +101,115 @@ function setModalValues(
     display_country.innerHTML = "Country: " + country;
     display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
 }
- 
+
+function loadMovies(
+	url,
+	className,
+	id,
+	href,
+	categoryName,
+    maxMoviesToFetch
+) {
+    let movies = fetch(url);
+
+    movies.then(async (responseData) => {
+        console.log(responseData);
+        const response = await responseData.json();
+        console.log(response);
+        try {
+            function makeMoviesList() {
+                // Establish the array that stores the responses from the API
+                const start = 0;
+                const end = maxMoviesToFetch;
+
+                let moviesArray = [];
+
+                for (let index = start; index < end; index++) {
+                    moviesArray.push(response.results[index].url)
+                }
+
+                // Make the list
+                listElement = document.createElement('ul'),
+                    // Set up a loop that goes through the items in listItems one at a time
+                    numberOfRomanceMovies = moviesArray.length
+                    //romanceMovie,
+                    let i = 0;
+                // for (let romanceMovieUrl of romanceMovies)
+                for (i = 0; i < numberOfRomanceMovies; ++i) {
+                    // Add the item content
+
+                    var moviesData = fetch(moviesArray[i]);
+                    moviesData.then(async (responseData) => {
+                        console.log(responseData);
+
+                        const movie = await responseData.json();
+                        const title = movie.title;
+                        const genres = movie.genres;
+                        const releaseDate = movie.year;
+                        const rated = movie.rated;
+                        const imdbScore = movie.imdb_score;
+                        const filmDirector = movie.directors;
+                        const listOfActors = movie.actors;
+                        const duration = movie.duration;
+                        const country = movie.countries;
+                        const movieAbstract = movie.description;
+
+                        console.log(movie);
+                        try {
+                            const movie_title = movie.title.replaceAll(' ', '_')
+
+                            // create an item for each one
+
+                            listItem = document.createElement('li');
+                            listItem.className = "modal_info";
+                            listElement.appendChild(listItem);
+                            var buttonModal = document.createElement('a');
+                            buttonModal.setAttribute('id', movie_title + '_buttonModal');
+                            listItem.appendChild(buttonModal);
+                            var myButton = document.getElementById(movie_title + '_buttonModal');
+
+                            buttonModal.className = className;
+
+                            // Add the movie image to the li tag
+                            var img = document.createElement('img');
+                            img.src = movie.image_url;
+                            buttonModal.appendChild(img);
+                            document.getElementById(id).appendChild(listItem);
+                            buttonModal.href = '#' + href;
+
+                            $(function () {
+                                $('.'+className).click(function () {
+                                    console.log("movie clicked")
+                                    var modal = $('#'+href);
+                                    modal.find('.title_' + categoryName).text("Movie: " + title);
+                                    modal.find('.genres_' + categoryName).text("Genres: " + genres);
+                                    modal.find('.release_' + categoryName).text("Release Date: " + releaseDate);
+                                    modal.find('.rated_' + categoryName).text("Rated: " + rated);
+                                    modal.find('.imdb_score_' + categoryName).text("Imdb score: " + imdbScore);
+                                    modal.find('.film_director_' + categoryName).text("Movie director: " + filmDirector);
+                                    modal.find('.actors_' + categoryName).text("List of Actors: " + listOfActors);
+                                    modal.find('.duration_' + categoryName).text("Duration: " + duration);
+                                    modal.find('.country_' + categoryName).text("Country: " + country);
+                                    modal.find('.movie_abstract_' + categoryName).text("Movie abstract: " + movieAbstract);
+                                    modal.modal('show');
+                                });
+                            })
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    })
+                }
+            }
+
+            // Use the function
+            makeMoviesList();
+
+        } catch (error) {
+            console.log(error);
+        }
+    })
+}
+
 
 
 // Now I will create a for loop to get the first 4 best movies(any category) in my website.
@@ -113,22 +220,22 @@ searchbestMovies.then(async (responseData)=>{
 	console.log(responseData);
 
 	var response = await responseData.json();
-	console.log(response); 
-	try { 
-		function makeBestMoviesList() { 
+	console.log(response);
+	try {
+		function makeBestMoviesList() {
 			// Establish the array that stores the responses from the API
 		    var bestMovies = [response.results[1].url, response.results[2].url, response.results[3].url, response.results[4].url],
-		   
+
 		    // Make the list
 		    listElement = document.createElement('ul'),
 		    // Set up a loop that goes through the items in listItems one at a time
 		    numberOfBestMovies = bestMovies.length,
 		    bestMovie,
-		    i; 
+		    i;
 		    // for (let bestMovieUrl of bestMovies)
 
-		    for (var i = 0; i < numberOfBestMovies; ++i) { 
-		    	// Add the item content 
+		    for (var i = 0; i < numberOfBestMovies; ++i) {
+		    	// Add the item content
 
 		    	var bestMoviesData = fetch(bestMovies[i]);
 		    	bestMoviesData.then(async (responseData)=>{
@@ -144,43 +251,43 @@ searchbestMovies.then(async (responseData)=>{
                     var dynamic_listOfActors = response.actors;
                     var dynamic_duration = response.duration;
                     var dynamic_country = response.countries;
-                    var dynamic_movieAbstract = response.description; 
-                    
+                    var dynamic_movieAbstract = response.description;
 
-                    
-                    console.log(response); 
-		    		try{ 
+
+
+                    console.log(response);
+		    		try{
 		    			var movie_title = response.title.replaceAll(' ', '_')
 
-		    			var modal_container = document.querySelector(".modal_container") 
-		    		
+		    			var modal_container = document.querySelector(".modal_container")
 
-		    			// create an item for each one 
 
-		    	        listItem = document.createElement('li'); 
+		    			// create an item for each one
+
+		    	        listItem = document.createElement('li');
 		    	        listItem.className = "modal_info";
 		    	        listElement.appendChild(listItem);
 		    	        var buttonModal = document.createElement('a');
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal');
 		    	        listItem.appendChild(buttonModal);
 		    	        var myButton = document.getElementById(movie_title + '_buttonModal');
-		    
-		    	        
-                        
-                        
+
+
+
+
 		    	        buttonModal.className = "button_best_movies";
-                        
-		    	
+
+
 		    			// Add the movie image to the li tag
 		    	        var img = document.createElement('img');
-		    		    img.src = response.image_url; 
+		    		    img.src = response.image_url;
 		    		    buttonModal.appendChild(img);
 		    		    document.getElementById('best_movies').appendChild(listItem);
 		    		    buttonModal.href = '#' + 'modal_window_best_movies';
 
-		    		    
 
-		    		    var modal_windows = document.getElementById('modal_window_best_movies'); 
+
+		    		    var modal_windows = document.getElementById('modal_window_best_movies');
 
 		    		    $(function(){
 		    		    	$('.button_best_movies').click(function(){
@@ -194,16 +301,16 @@ searchbestMovies.then(async (responseData)=>{
 		    		    		myModal.find('.actors_best_movies').text("List of Actors: " + dynamic_listOfActors);
 		    		    		myModal.find('.duration_best_movies').text("Duration: " + dynamic_duration);
 		    		    		myModal.find('.country_best_movies').text("Country: " + dynamic_country);
-		    		    		myModal.find('.movie_abstract_best_movies').text("Movie abstract: " + dynamic_movieAbstract); 
+		    		    		myModal.find('.movie_abstract_best_movies').text("Movie abstract: " + dynamic_movieAbstract);
 		    		    		myModal.modal('show');
 		    		    	});
 		    		    })
 
 
 
-		    			
+
 		    		} catch(error) {
-    	console.log(error); 
+    	console.log(error);
     }
 		    	})
 
@@ -211,11 +318,11 @@ searchbestMovies.then(async (responseData)=>{
 		}
 // Use the function
 makeBestMoviesList();
-		
+
 	} catch(error) {
     	console.log(error);
     }
-}) 
+})
 
 
 
@@ -227,22 +334,22 @@ searchRemainingbestMovies.then(async (responseData)=>{
 	console.log(responseData);
 
 	var response = await responseData.json();
-	console.log(response); 
-	try { 
-		function makeRemainingBestMoviesList() { 
+	console.log(response);
+	try {
+		function makeRemainingBestMoviesList() {
 			// Establish the array that stores the responses from the API
 		    var bestMovies = [response.results[0].url, response.results[1].url, response.results[2].url],
-		   
+
 		    // Make the list
 		    listElement = document.createElement('ul'),
 		    // Set up a loop that goes through the items in listItems one at a time
 		    numberOfBestMovies = bestMovies.length,
 		    bestMovie,
-		    i; 
+		    i;
 		    // for (let bestMovieUrl of bestMovies)
 
-		    for (var i = 0; i < numberOfBestMovies; ++i) { 
-		    	// Add the item content 
+		    for (var i = 0; i < numberOfBestMovies; ++i) {
+		    	// Add the item content
 
 		    	var bestMoviesData = fetch(bestMovies[i]);
 		    	bestMoviesData.then(async (responseData)=>{
@@ -258,43 +365,43 @@ searchRemainingbestMovies.then(async (responseData)=>{
                     var dynamic_listOfActors = response.actors;
                     var dynamic_duration = response.duration;
                     var dynamic_country = response.countries;
-                    var dynamic_movieAbstract = response.description; 
-                    
+                    var dynamic_movieAbstract = response.description;
 
-                    
-                    console.log(response); 
-		    		try{ 
+
+
+                    console.log(response);
+		    		try{
 		    			var movie_title = response.title.replaceAll(' ', '_')
 
-		    			var modal_container = document.querySelector(".modal_container") 
-		    		
+		    			var modal_container = document.querySelector(".modal_container")
 
-		    			// create an item for each one 
 
-		    	        listItem = document.createElement('li'); 
+		    			// create an item for each one
+
+		    	        listItem = document.createElement('li');
 		    	        listItem.className = "modal_info";
 		    	        listElement.appendChild(listItem);
 		    	        var buttonModal = document.createElement('a');
 		    	        buttonModal.setAttribute('id', movie_title + '_buttonModal');
 		    	        listItem.appendChild(buttonModal);
 		    	        var myButton = document.getElementById(movie_title + '_buttonModal');
-		    
-		    	        
-                        
-                        
+
+
+
+
 		    	        buttonModal.className = "button_best_movies";
-                        
-		    	
+
+
 		    			// Add the movie image to the li tag
 		    	        var img = document.createElement('img');
-		    		    img.src = response.image_url; 
+		    		    img.src = response.image_url;
 		    		    buttonModal.appendChild(img);
 		    		    document.getElementById('best_movies').appendChild(listItem);
 		    		    buttonModal.href = '#' + 'modal_window_best_movies';
 
-		    		    
 
-		    		    var modal_windows = document.getElementById('modal_window_best_movies'); 
+
+		    		    var modal_windows = document.getElementById('modal_window_best_movies');
 
 		    		    $(function(){
 		    		    	$('.button_best_movies').click(function(){
@@ -308,16 +415,16 @@ searchRemainingbestMovies.then(async (responseData)=>{
 		    		    		myModal.find('.actors_best_movies').text("List of Actors: " + dynamic_listOfActors);
 		    		    		myModal.find('.duration_best_movies').text("Duration: " + dynamic_duration);
 		    		    		myModal.find('.country_best_movies').text("Country: " + dynamic_country);
-		    		    		myModal.find('.movie_abstract_best_movies').text("Movie abstract: " + dynamic_movieAbstract); 
+		    		    		myModal.find('.movie_abstract_best_movies').text("Movie abstract: " + dynamic_movieAbstract);
 		    		    		myModal.modal('show');
 		    		    	});
 		    		    })
 
 
 
-		    			
+
 		    		} catch(error) {
-    	console.log(error); 
+    	console.log(error);
     }
 		    	})
 
@@ -325,595 +432,54 @@ searchRemainingbestMovies.then(async (responseData)=>{
 		}
 // Use the function
 makeRemainingBestMoviesList();
-		
+
 	} catch(error) {
     	console.log(error);
     }
 })
 
-
-
 // Now I will create a for loop to get the first 5 best movies of Romance category in my website.
 
-let romanceBestMovies = fetch('http://127.0.0.1:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Romance&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=');
+function loadMoviesForCategory(url,
+                               secondPageUrl,
+                               className,
+                               id,
+                               href,
+                               categoryName,) {
+    const pageOneMaxNumber = 5
+    const pageTwoMaxNumber = 2
 
-romanceBestMovies.then(async (romance_responseData) =>{
-	console.log(romance_responseData); 
+    // Load page 1
+    loadMovies(url, className, id, href, categoryName, pageOneMaxNumber)
+    // Load page 2
+    loadMovies(secondPageUrl, className, id, href, categoryName, pageTwoMaxNumber)
+}
 
-	var romance_response = await romance_responseData.json();
-	console.log(romance_response); 
-	try {
-		function MakeRomanceMoviesList() {
-			// Establish the array that stores the responses from the API
-			var romanceMovies = [romance_response.results[0].url, romance_response.results[1].url, romance_response.results[2].url, romance_response.results[3].url, romance_response.results[4].url], 
-			// Make the list
-		    listElement = document.createElement('ul'),
-		    // Set up a loop that goes through the items in listItems one at a time
-		    numberOfRomanceMovies = romanceMovies.length,
-		    romanceMovie,
-		    i; 
-		    // for (let romanceMovieUrl of romanceMovies) 
-		    for (var i = 0; i < numberOfRomanceMovies; ++i) {
-		    	// Add the item content 
-
-		    	var romanceMoviesData = fetch(romanceMovies[i]);
-		    	romanceMoviesData.then(async (romance_responseData) => {
-		    		console.log(romance_responseData);
-
-		    		var romance_response = await romance_responseData.json();
-                    var romance_title = romance_response.title;
-                    var romance_genres = romance_response.genres;
-                    var romance_releaseDate = romance_response.year;
-                    var romance_rated = romance_response.rated;
-                    var romance_imdbScore = romance_response.imdb_score;
-                    var romance_filmDirector = romance_response.directors;
-                    var romance_listOfActors = romance_response.actors;
-                    var romance_duration = romance_response.duration;
-                    var romance_country = romance_response.countries;
-                    var romance_movieAbstract = romance_response.description; 
-
-                    console.log(romance_response); 
-                    try {
-                    	var romance_movie_title = romance_response.title.replaceAll(' ', '_')		    		
-
-		    			// create an item for each one 
-
-		    	        listItem = document.createElement('li'); 
-		    	        listItem.className = "modal_info";
-		    	        listElement.appendChild(listItem);
-		    	        var buttonModal = document.createElement('a');
-		    	        buttonModal.setAttribute('id', romance_movie_title + '_buttonModal');
-		    	        listItem.appendChild(buttonModal);
-		    	        var myButton = document.getElementById(romance_movie_title + '_buttonModal'); 
-
-		    	        buttonModal.className = "button_romance";
-                        
-		    	
-		    			// Add the movie image to the li tag
-		    	        var img = document.createElement('img');
-		    		    img.src = romance_response.image_url; 
-		    		    buttonModal.appendChild(img);
-		    		    document.getElementById('Romance').appendChild(listItem);
-		    		    buttonModal.href = '#' + 'modal_window_Romance'; 
-
-		    		    $(function(){
-		    		    	$('.button_romance').click(function(){
-		    		    		var myRomanceModal = $('#modal_window_Romance');
-		    		    		myRomanceModal.find('.title_Romance').text("Movie: " + romance_title);
-		    		    		myRomanceModal.find('.genres_Romance').text("Genres: " + romance_genres);
-		    		    		myRomanceModal.find('.release_Romance').text("Release Date: " + romance_releaseDate);
-		    		    		myRomanceModal.find('.rated_Romance').text("Rated: " + romance_rated);
-		    		    		myRomanceModal.find('.imdb_score_Romance').text("Imdb score: " + romance_imdbScore);
-		    		    		myRomanceModal.find('.film_director_Romance').text("Movie director: " + romance_filmDirector);
-		    		    		myRomanceModal.find('.actors_Romance').text("List of Actors: " + romance_listOfActors);
-		    		    		myRomanceModal.find('.duration_Romance').text("Duration: " + romance_duration);
-		    		    		myRomanceModal.find('.country_Romance').text("Country: " + romance_country);
-		    		    		myRomanceModal.find('.movie_abstract_Romance').text("Movie abstract: " + romance_movieAbstract); 
-		    		    		myRomanceModal.modal('show');
-		    		    	});
-		    		    })
-                    } catch(error) {
-                    	console.log(error);
-                    }
-		    	})
-		    }
-		} 
-		// Use the function
-		MakeRomanceMoviesList();
-
-	} catch(error) {
-    	console.log(error); 
-    }
-}) 
-
-
-// Now I will create a for loop to get the first 2 remaining best movies of Romance category in my website.
-
-let romanceRemainingBestMovies = fetch('http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Romance&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=');
-
-romanceRemainingBestMovies.then(async (romance_responseData) =>{
-	console.log(romance_responseData); 
-
-	var romance_response = await romance_responseData.json();
-	console.log(romance_response); 
-	try {
-		function MakeRemainingRomanceMoviesList() {
-			// Establish the array that stores the responses from the API
-			var romanceMovies = [romance_response.results[0].url, romance_response.results[1].url], 
-			// Make the list
-		    listElement = document.createElement('ul'),
-		    // Set up a loop that goes through the items in listItems one at a time
-		    numberOfRomanceMovies = romanceMovies.length,
-		    romanceMovie,
-		    i; 
-		    // for (let romanceMovieUrl of romanceMovies) 
-		    for (var i = 0; i < numberOfRomanceMovies; ++i) {
-		    	// Add the item content 
-
-		    	var romanceMoviesData = fetch(romanceMovies[i]);
-		    	romanceMoviesData.then(async (romance_responseData) => {
-		    		console.log(romance_responseData);
-
-		    		var romance_response = await romance_responseData.json();
-                    var romance_title = romance_response.title;
-                    var romance_genres = romance_response.genres;
-                    var romance_releaseDate = romance_response.year;
-                    var romance_rated = romance_response.rated;
-                    var romance_imdbScore = romance_response.imdb_score;
-                    var romance_filmDirector = romance_response.directors;
-                    var romance_listOfActors = romance_response.actors;
-                    var romance_duration = romance_response.duration;
-                    var romance_country = romance_response.countries;
-                    var romance_movieAbstract = romance_response.description; 
-
-                    console.log(romance_response); 
-                    try {
-                    	var romance_movie_title = romance_response.title.replaceAll(' ', '_')		    		
-
-		    			// create an item for each one 
-
-		    	        listItem = document.createElement('li'); 
-		    	        listItem.className = "modal_info";
-		    	        listElement.appendChild(listItem);
-		    	        var buttonModal = document.createElement('a');
-		    	        buttonModal.setAttribute('id', romance_movie_title + '_buttonModal');
-		    	        listItem.appendChild(buttonModal);
-		    	        var myButton = document.getElementById(romance_movie_title + '_buttonModal'); 
-
-		    	        buttonModal.className = "button_romance";
-                        
-		    	
-		    			// Add the movie image to the li tag
-		    	        var img = document.createElement('img');
-		    		    img.src = romance_response.image_url; 
-		    		    buttonModal.appendChild(img);
-		    		    document.getElementById('Romance').appendChild(listItem);
-		    		    buttonModal.href = '#' + 'modal_window_Romance'; 
-
-		    		    $(function(){
-		    		    	$('.button_romance').click(function(){
-		    		    		var myRomanceModal = $('#modal_window_Romance');
-		    		    		myRomanceModal.find('.title_Romance').text("Movie: " + romance_title);
-		    		    		myRomanceModal.find('.genres_Romance').text("Genres: " + romance_genres);
-		    		    		myRomanceModal.find('.release_Romance').text("Release Date: " + romance_releaseDate);
-		    		    		myRomanceModal.find('.rated_Romance').text("Rated: " + romance_rated);
-		    		    		myRomanceModal.find('.imdb_score_Romance').text("Imdb score: " + romance_imdbScore);
-		    		    		myRomanceModal.find('.film_director_Romance').text("Movie director: " + romance_filmDirector);
-		    		    		myRomanceModal.find('.actors_Romance').text("List of Actors: " + romance_listOfActors);
-		    		    		myRomanceModal.find('.duration_Romance').text("Duration: " + romance_duration);
-		    		    		myRomanceModal.find('.country_Romance').text("Country: " + romance_country);
-		    		    		myRomanceModal.find('.movie_abstract_Romance').text("Movie abstract: " + romance_movieAbstract); 
-		    		    		myRomanceModal.modal('show');
-		    		    	});
-		    		    })
-                    } catch(error) {
-                    	console.log(error);
-                    }
-		    	})
-		    }
-		} 
-		// Use the function
-		MakeRemainingRomanceMoviesList();
-
-	} catch(error) {
-    	console.log(error); 
-    }
-})
-
+// Romance
+loadMoviesForCategory(
+    'http://127.0.0.1:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Romance&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=',
+    'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Romance&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
+    'button_romance',
+    'Romance',
+    'modal_window_Romance',
+    'Romance'
+)
 
 // Now I will create a for loop to get the first 5 best movies of Animation category in my website.
-
-let animationBestMovies = fetch('http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Animation&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=');
-
-animationBestMovies.then(async(animation_responseData) => {
-	console.log(animation_responseData); 
-
-	var animation_response = await animation_responseData.json();
-	console.log(animation_response);
-	try {
-		
-		function MakeAnimationMoviesList() {
-		// Establish the array that stores the responses from the API
-		var animationMovies = [animation_response.results[0].url, animation_response.results[1].url, animation_response.results[2].url, animation_response.results[3].url, animation_response.results[4].url],
-		// Make the list
-	    listElement = document.createElement('ul'),
-	    // Set up a loop that goes through the items in listItems one at a time
-	    numberOfAnimationMovies = animationMovies.length,
-	    animationMovie,
-	    i; 
-	    // for (let romanceMovieUrl of romanceMovies) 
-		for (var i = 0; i < numberOfAnimationMovies; ++i) {
-			// Add the item content 
-
-	    	var animationMoviesData = fetch(animationMovies[i]);
-	    	animationMoviesData.then(async(animation_responseData) => {
-	    		console.log(animation_responseData); 
-
-	    		var animation_response = await animation_responseData.json();
-                var animation_title = animation_response.title;
-                var animation_genres = animation_response.genres;
-                var animation_releaseDate = animation_response.year;
-                var animation_rated = animation_response.rated;
-                var animation_imdbScore = animation_response.imdb_score;
-                var animation_filmDirector = animation_response.directors;
-                var animation_listOfActors = animation_response.actors;
-                var animation_duration = animation_response.duration;
-                var animation_country = animation_response.countries;
-                var animation_movieAbstract = animation_response.description; 
-
-                console.log(animation_response); 
-
-                try {
-                	var animation_movie_title = animation_response.title.replaceAll(' ', '_')		    		
-
-	    			// create an item for each one 
-
-	    	        listItem = document.createElement('li'); 
-	    	        listItem.className = "modal_info";
-	    	        listElement.appendChild(listItem);
-	    	        var buttonModal = document.createElement('a');
-	    	        buttonModal.setAttribute('id', animation_movie_title + '_buttonModal');
-	    	        listItem.appendChild(buttonModal);
-	    	        var myButton = document.getElementById(animation_movie_title + '_buttonModal'); 
-
-	    	        buttonModal.className = "button_animation";
-                    
-	    	
-	    			// Add the movie image to the li tag
-	    	        var img = document.createElement('img');
-	    		    img.src = animation_response.image_url; 
-	    		    buttonModal.appendChild(img);
-	    		    document.getElementById('Animation').appendChild(listItem);
-	    		    buttonModal.href = '#' + 'modal_window_Animation'; 
-
-	    		    $(function(){
-		    		    	$('.button_animation').click(function(){
-		    		    		var myAnimationModal = $('#modal_window_Animation');
-		    		    		myAnimationModal.find('.title_Animation').text("Movie: " + animation_title);
-		    		    		myAnimationModal.find('.genres_Animation').text("Genres: " + animation_genres);
-		    		    		myAnimationModal.find('.release_Animation').text("Release Date: " + animation_releaseDate);
-		    		    		myAnimationModal.find('.rated_Animation').text("Rated: " + animation_rated);
-		    		    		myAnimationModal.find('.imdb_score_Animation').text("Imdb score: " + animation_imdbScore);
-		    		    		myAnimationModal.find('.film_director_Animation').text("Movie director: " + animation_filmDirector);
-		    		    		myAnimationModal.find('.actors_Animation').text("List of Actors: " + animation_listOfActors);
-		    		    		myAnimationModal.find('.duration_Animation').text("Duration: " + animation_duration);
-		    		    		myAnimationModal.find('.country_Animation').text("Country: " + animation_country);
-		    		    		myAnimationModal.find('.movie_abstract_Animation').text("Movie abstract: " + animation_movieAbstract); 
-		    		    		myAnimationModal.modal('show');
-		    		    	});
-		    		    })
-            } catch {
-
-                console.log(error);
-                }
-	    	})
-		}
-
-		}
-		// Use the function
-		MakeAnimationMoviesList();
-
-	} catch(error) {
-
-		console.log(error);
-	}
-   
-}) 
-
-
-// Now I will create a for loop to get the 2 remaining best movies of Animation category in my website. 
-
-let animationRemainingBestMovies = fetch('http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Animation&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=');
-
-animationRemainingBestMovies.then(async(animation_responseData) => {
-	console.log(animation_responseData); 
-
-	var animation_response = await animation_responseData.json();
-	console.log(animation_response);
-	try {
-		
-		function MakeRemainingAnimationMoviesList() {
-		// Establish the array that stores the responses from the API
-		var animationMovies = [animation_response.results[0].url, animation_response.results[1].url],
-		// Make the list
-	    listElement = document.createElement('ul'),
-	    // Set up a loop that goes through the items in listItems one at a time
-	    numberOfAnimationMovies = animationMovies.length,
-	    animationMovie,
-	    i; 
-	    // for (let romanceMovieUrl of romanceMovies) 
-		for (var i = 0; i < numberOfAnimationMovies; ++i) {
-			// Add the item content 
-
-	    	var animationMoviesData = fetch(animationMovies[i]);
-	    	animationMoviesData.then(async(animation_responseData) => {
-	    		console.log(animation_responseData); 
-
-	    		var animation_response = await animation_responseData.json();
-                var animation_title = animation_response.title;
-                var animation_genres = animation_response.genres;
-                var animation_releaseDate = animation_response.year;
-                var animation_rated = animation_response.rated;
-                var animation_imdbScore = animation_response.imdb_score;
-                var animation_filmDirector = animation_response.directors;
-                var animation_listOfActors = animation_response.actors;
-                var animation_duration = animation_response.duration;
-                var animation_country = animation_response.countries;
-                var animation_movieAbstract = animation_response.description; 
-
-                console.log(animation_response); 
-
-                try {
-                	var animation_movie_title = animation_response.title.replaceAll(' ', '_')		    		
-
-	    			// create an item for each one 
-
-	    	        listItem = document.createElement('li'); 
-	    	        listItem.className = "modal_info";
-	    	        listElement.appendChild(listItem);
-	    	        var buttonModal = document.createElement('a');
-	    	        buttonModal.setAttribute('id', animation_movie_title + '_buttonModal');
-	    	        listItem.appendChild(buttonModal);
-	    	        var myButton = document.getElementById(animation_movie_title + '_buttonModal'); 
-
-	    	        buttonModal.className = "button_animation";
-                    
-	    	
-	    			// Add the movie image to the li tag
-	    	        var img = document.createElement('img');
-	    		    img.src = animation_response.image_url; 
-	    		    buttonModal.appendChild(img);
-	    		    document.getElementById('Animation').appendChild(listItem);
-	    		    buttonModal.href = '#' + 'modal_window_Animation'; 
-
-	    		    $(function(){
-		    		    	$('.button_animation').click(function(){
-		    		    		var myAnimationModal = $('#modal_window_Animation');
-		    		    		myAnimationModal.find('.title_Animation').text("Movie: " + animation_title);
-		    		    		myAnimationModal.find('.genres_Animation').text("Genres: " + animation_genres);
-		    		    		myAnimationModal.find('.release_Animation').text("Release Date: " + animation_releaseDate);
-		    		    		myAnimationModal.find('.rated_Animation').text("Rated: " + animation_rated);
-		    		    		myAnimationModal.find('.imdb_score_Animation').text("Imdb score: " + animation_imdbScore);
-		    		    		myAnimationModal.find('.film_director_Animation').text("Movie director: " + animation_filmDirector);
-		    		    		myAnimationModal.find('.actors_Animation').text("List of Actors: " + animation_listOfActors);
-		    		    		myAnimationModal.find('.duration_Animation').text("Duration: " + animation_duration);
-		    		    		myAnimationModal.find('.country_Animation').text("Country: " + animation_country);
-		    		    		myAnimationModal.find('.movie_abstract_Animation').text("Movie abstract: " + animation_movieAbstract); 
-		    		    		myAnimationModal.modal('show');
-		    		    	});
-		    		    })
-            } catch {
-
-                console.log(error);
-                }
-	    	})
-		}
-
-		}
-		// Use the function
-		MakeRemainingAnimationMoviesList();
-
-	} catch(error) {
-
-		console.log(error);
-	}
-   
-})
-
-
-// Now I will create a for loop to get the first 5 best movies of Crime category in my website. 
-
-let crimeBestMovies = fetch('http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Crime&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=');
-
-crimeBestMovies.then(async(crime_responseData) =>{
-	console.log(crime_responseData);
-
-	var crime_response = await crime_responseData.json();
-	console.log(crime_response); 
-
-	try {
-
-		function MakeCrimeMoviesList() {
-		// Establish the array that stores the responses from the API
-		var crimeMovies = [crime_response.results[0].url, crime_response.results[1].url, crime_response.results[2].url, crime_response.results[3].url, crime_response.results[4].url],
-		// Make the list
-	    listElement = document.createElement('ul'),
-	    // Set up a loop that goes through the items in listItems one at a time
-	    numberOfCrimeMovies = crimeMovies.length,
-	    crimeMovie,
-	    i;
-	    // for (let crimeMovieUrl of crimeMovies) 
-		for (var i = 0; i < numberOfCrimeMovies; ++i) {
-			// Add the item content 
-
-	    	var crimeMoviesData = fetch(crimeMovies[i]);
-	    	crimeMoviesData.then(async(crime_responseData) => {
-	    		console.log(crime_responseData); 
-
-	    		var crime_response = await crime_responseData.json();
-                var crime_title = crime_response.title;
-                var crime_genres = crime_response.genres;
-                var crime_releaseDate = crime_response.year;
-                var crime_rated = crime_response.rated;
-                var crime_imdbScore = crime_response.imdb_score;
-                var crime_filmDirector = crime_response.directors;
-                var crime_listOfActors = crime_response.actors;
-                var crime_duration = crime_response.duration;
-                var crime_country = crime_response.countries;
-                var crime_movieAbstract = crime_response.description; 
-
-                console.log(crime_response); 
-
-                try {
-
-                	var crime_movie_title = crime_response.title.replaceAll(' ', '_')		    		
-
-	    			// create an item for each one 
-
-	    	        listItem = document.createElement('li'); 
-	    	        listItem.className = "modal_info";
-	    	        listElement.appendChild(listItem);
-	    	        var buttonModal = document.createElement('a');
-	    	        buttonModal.setAttribute('id', crime_movie_title + '_buttonModal');
-	    	        listItem.appendChild(buttonModal);
-	    	        var myButton = document.getElementById(crime_movie_title + '_buttonModal'); 
-
-	    	        buttonModal.className = "button_crime";
-                    
-	    	
-	    			// Add the movie image to the li tag
-	    	        var img = document.createElement('img');
-	    		    img.src = crime_response.image_url; 
-	    		    buttonModal.appendChild(img);
-	    		    document.getElementById('Crime').appendChild(listItem);
-	    		    buttonModal.href = '#' + 'modal_window_Crime'; 
-
-	    		    $(function(){
-		    		    	$('.button_crime').click(function(){
-		    		    		var myCrimeModal = $('#modal_window_Crime');
-		    		    		myCrimeModal.find('.title_Crime').text("Movie: " + crime_title);
-		    		    		myCrimeModal.find('.genres_Crime').text("Genres: " + crime_genres);
-		    		    		myCrimeModal.find('.release_Crime').text("Release Date: " + crime_releaseDate);
-		    		    		myCrimeModal.find('.rated_Crime').text("Rated: " + crime_rated);
-		    		    		myCrimeModal.find('.imdb_score_Crime').text("Imdb score: " + crime_imdbScore);
-		    		    		myCrimeModal.find('.film_director_Crime').text("Movie director: " + crime_filmDirector);
-		    		    		myCrimeModal.find('.actors_Crime').text("List of Actors: " + crime_listOfActors);
-		    		    		myCrimeModal.find('.duration_Crime').text("Duration: " + crime_duration);
-		    		    		myCrimeModal.find('.country_Crime').text("Country: " + crime_country);
-		    		    		myCrimeModal.find('.movie_abstract_Crime').text("Movie abstract: " + crime_movieAbstract); 
-		    		    		myCrimeModal.modal('show');
-		    		    	});
-		    		    })
-
-                } catch {
-                	console.log(error);
-                }
-	    	})
-		}
-		} 
-		// Use the function
-		MakeCrimeMoviesList();
-
-	} catch {
-		console.log(error);
-	}
-}) 
-
-
-// Now I will create a for loop to get the remaining 2 best movies of Crime category in my website. 
-
-let crimeRemainingBestMovies = fetch('http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Crime&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=');
-
-crimeRemainingBestMovies.then(async(crime_responseData) =>{
-	console.log(crime_responseData);
-
-	var crime_response = await crime_responseData.json();
-	console.log(crime_response); 
-
-	try {
-
-		function MakeRemainingCrimeMoviesList() {
-		// Establish the array that stores the responses from the API
-		var crimeMovies = [crime_response.results[0].url, crime_response.results[1].url],
-		// Make the list
-	    listElement = document.createElement('ul'),
-	    // Set up a loop that goes through the items in listItems one at a time
-	    numberOfCrimeMovies = crimeMovies.length,
-	    crimeMovie,
-	    i;
-	    // for (let crimeMovieUrl of crimeMovies) 
-		for (var i = 0; i < numberOfCrimeMovies; ++i) {
-			// Add the item content 
-
-	    	var crimeMoviesData = fetch(crimeMovies[i]);
-	    	crimeMoviesData.then(async(crime_responseData) => {
-	    		console.log(crime_responseData); 
-
-	    		var crime_response = await crime_responseData.json();
-                var crime_title = crime_response.title;
-                var crime_genres = crime_response.genres;
-                var crime_releaseDate = crime_response.year;
-                var crime_rated = crime_response.rated;
-                var crime_imdbScore = crime_response.imdb_score;
-                var crime_filmDirector = crime_response.directors;
-                var crime_listOfActors = crime_response.actors;
-                var crime_duration = crime_response.duration;
-                var crime_country = crime_response.countries;
-                var crime_movieAbstract = crime_response.description; 
-
-                console.log(crime_response); 
-
-                try {
-
-                	var crime_movie_title = crime_response.title.replaceAll(' ', '_')		    		
-
-	    			// create an item for each one 
-
-	    	        listItem = document.createElement('li'); 
-	    	        listItem.className = "modal_info";
-	    	        listElement.appendChild(listItem);
-	    	        var buttonModal = document.createElement('a');
-	    	        buttonModal.setAttribute('id', crime_movie_title + '_buttonModal');
-	    	        listItem.appendChild(buttonModal);
-	    	        var myButton = document.getElementById(crime_movie_title + '_buttonModal'); 
-
-	    	        buttonModal.className = "button_crime";
-                    
-	    	
-	    			// Add the movie image to the li tag
-	    	        var img = document.createElement('img');
-	    		    img.src = crime_response.image_url; 
-	    		    buttonModal.appendChild(img);
-	    		    document.getElementById('Crime').appendChild(listItem);
-	    		    buttonModal.href = '#' + 'modal_window_Crime'; 
-
-	    		    $(function(){
-		    		    	$('.button_crime').click(function(){
-		    		    		var myCrimeModal = $('#modal_window_Crime');
-		    		    		myCrimeModal.find('.title_Crime').text("Movie: " + crime_title);
-		    		    		myCrimeModal.find('.genres_Crime').text("Genres: " + crime_genres);
-		    		    		myCrimeModal.find('.release_Crime').text("Release Date: " + crime_releaseDate);
-		    		    		myCrimeModal.find('.rated_Crime').text("Rated: " + crime_rated);
-		    		    		myCrimeModal.find('.imdb_score_Crime').text("Imdb score: " + crime_imdbScore);
-		    		    		myCrimeModal.find('.film_director_Crime').text("Movie director: " + crime_filmDirector);
-		    		    		myCrimeModal.find('.actors_Crime').text("List of Actors: " + crime_listOfActors);
-		    		    		myCrimeModal.find('.duration_Crime').text("Duration: " + crime_duration);
-		    		    		myCrimeModal.find('.country_Crime').text("Country: " + crime_country);
-		    		    		myCrimeModal.find('.movie_abstract_Crime').text("Movie abstract: " + crime_movieAbstract); 
-		    		    		myCrimeModal.modal('show');
-		    		    	});
-		    		    })
-
-                } catch {
-                	console.log(error);
-                }
-	    	})
-		}
-		} 
-		// Use the function
-		MakeRemainingCrimeMoviesList();
-
-	} catch {
-		console.log(error);
-	}
-})
+loadMoviesForCategory(
+    'http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Animation&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=',
+    'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Animation&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
+    'button_animation',
+    'Animation',
+    'modal_window_Animation',
+    'Animation'
+)
+
+loadMoviesForCategory(
+    'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Crime&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
+    'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Crime&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
+    'button_crime',
+    'Crime',
+    'modal_window_Crime',
+    'Crime'
+)
