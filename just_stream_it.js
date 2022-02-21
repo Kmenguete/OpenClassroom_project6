@@ -21,7 +21,7 @@ searchbestMovie.then(async (responseData)=>{
 
     var title = response.title;
     var gender = response.genres;
-    var releaseDate = response.year;
+    var releaseDate = response.date_published;
     var rated = response.rated;
     var imdbScore = response.imdb_score;
     var filmDirector = response.directors;
@@ -147,7 +147,7 @@ function loadMovies(
                         const movie = await responseData.json();
                         const title = movie.title;
                         const genres = movie.genres;
-                        const releaseDate = movie.year;
+                        const releaseDate = movie.date_published;
                         const rated = movie.rated;
                         const imdbScore = movie.imdb_score;
                         const filmDirector = movie.directors;
@@ -259,7 +259,7 @@ function loadBestMovies(
                         const movie = await responseData.json();
                         const title = movie.title;
                         const genres = movie.genres;
-                        const releaseDate = movie.year;
+                        const releaseDate = movie.date_published;
                         const rated = movie.rated;
                         const imdbScore = movie.imdb_score;
                         const filmDirector = movie.directors;
@@ -395,6 +395,9 @@ loadTopRatedMovies(
 	'best_movies',
 	'modal_window_best_movies',
 	'best_movies')
+
+
+// Now I will create a carousel for every movies list
 
 /* new carousel(document.querySelector('#best_movies'), {
 	slidesToscroll: 1,
