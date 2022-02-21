@@ -395,3 +395,8 @@ loadTopRatedMovies(
 	'best_movies',
 	'modal_window_best_movies',
 	'best_movies')
+
+/* new carousel(document.querySelector('#best_movies'), {
+	slidesToscroll: 1,
+	slidesVisible: 4,
+}) */
