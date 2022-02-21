@@ -102,6 +102,8 @@ function setModalValues(
     display_movieAbstract.innerHTML = "Movie abstract: " + movieAbstract;
 }
 
+// I am creating a function that load movies for each category and for top rated movies(any category) list
+
 function loadMovies(
 	url,
 	className,
@@ -438,7 +440,7 @@ makeRemainingBestMoviesList();
     }
 })
 
-// Now I will create a for loop to get the first 5 best movies of Romance category in my website.
+// Now I will create a function that fetch best movies data for each category
 
 function loadMoviesForCategory(url,
                                secondPageUrl,
@@ -455,7 +457,7 @@ function loadMoviesForCategory(url,
     loadMovies(secondPageUrl, className, id, href, categoryName, pageTwoMaxNumber)
 }
 
-// Romance
+// Now I will call the function that fetch best movies data for each category
 loadMoviesForCategory(
     'http://127.0.0.1:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Romance&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=',
     'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Romance&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
@@ -465,7 +467,7 @@ loadMoviesForCategory(
     'Romance'
 )
 
-// Now I will create a for loop to get the first 5 best movies of Animation category in my website.
+
 loadMoviesForCategory(
     'http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Animation&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=',
     'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Animation&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
