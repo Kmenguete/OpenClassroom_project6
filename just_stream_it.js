@@ -377,7 +377,7 @@ function loadTopRatedMovies(url,
 	                        id,
 	                        href,
 	                        categoryName,) {
-    const pageOneMaxNumber = 4
+    const pageOneMaxNumber = 5
     const pageTwoMaxNumber = 3
 
     // Load page 1
