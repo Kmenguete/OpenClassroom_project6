@@ -133,11 +133,11 @@ function loadMovies(
                 // Make the list
                 listElement = document.createElement('ul'),
                     // Set up a loop that goes through the items in listItems one at a time
-                    numberOfRomanceMovies = moviesArray.length
-                    //romanceMovie,
+                    numberOfMovies = moviesArray.length
+                    // Movie,
                     let i = 0;
-                // for (let romanceMovieUrl of romanceMovies)
-                for (i = 0; i < numberOfRomanceMovies; ++i) {
+                // for (let MovieUrl of Movies)
+                for (i = 0; i < numberOfMovies; ++i) {
                     // Add the item content
 
                     var moviesData = fetch(moviesArray[i]);
