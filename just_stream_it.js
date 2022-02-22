@@ -415,8 +415,14 @@ class Carousel {
 			slidesToscroll: 1,
 			slidesVisible: 1
 		}, options)
+		this.children = [].slice.call(element.children)
 		let root = this.createDivWithClass('carousel')
+		let container = this.createDivWithClass('carousel_container')
+		root.appendChild(container)
 		this.element.appendChild(root)
+		this.children.forEach(function (child) {
+			container.appendChild(child)
+		})
 	} 
 
 	createDivWithClass (className) {
