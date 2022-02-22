@@ -415,6 +415,14 @@ class Carousel {
 			slidesToscroll: 1,
 			slidesVisible: 1
 		}, options)
+		let root = this.createDivWithClass('carousel')
+		this.element.appendChild(root)
+	} 
+
+	createDivWithClass (className) {
+		let div = document.createElement('div')
+		div.setAttribute('class', className)
+		return div
 	}
 }
 
