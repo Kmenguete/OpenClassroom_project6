@@ -183,7 +183,7 @@ function loadMovies(
                                 $('.'+className).click(function () {
                                     console.log("movie clicked")
                                     var modal = $('#'+href);
-                                    document.getElementById("Category_movies_image").src = movie.image_url; 
+                                    document.getElementById(categoryName + "_movies_image").src = movie.image_url; 
                                     modal.find('.title_' + categoryName).text("Movie: " + title);
                                     modal.find('.genres_' + categoryName).text("Genres: " + genres);
                                     modal.find('.release_' + categoryName).text("Release Date: " + releaseDate);
