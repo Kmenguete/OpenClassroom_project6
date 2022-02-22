@@ -442,3 +442,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
+document.addEventListener('DOMContentLoaded', function () {
+
+	new carousel(document.querySelector('#Romance'), {
+	slidesVisible: 4,
+
+	}) 
+
+
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+
+	new carousel(document.querySelector('#Animation'), {
+	slidesVisible: 4,
+
+	}) 
+
+
+}) 
+
+document.addEventListener('DOMContentLoaded', function () {
+
+	new carousel(document.querySelector('#Crime'), {
+	slidesVisible: 4,
+
+	}) 
+
+
+})
+
