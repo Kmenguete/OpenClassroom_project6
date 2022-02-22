@@ -183,7 +183,7 @@ function loadMovies(
                             buttonModal.href = '#' + href;
 
                             $(function () {
-                                $('.'+className).click(function () {
+                                $('.'+ className).click(function () {
                                     console.log("movie clicked")
                                     var modal = $('#'+href);
                                     document.getElementById(categoryName + "_movies_image").src = movie.image_url; 
@@ -296,7 +296,7 @@ function loadBestMovies(
                             buttonModal.href = '#' + href;
 
                             $(function () {
-                                $('.'+className).click(function () {
+                                $('.'+ className).click(function () {
                                     console.log("movie clicked")
                                     var modal = $('#'+href); 
                                     document.getElementById("best_movies_image").src = movie.image_url; 
@@ -394,7 +394,7 @@ function loadTopRatedMovies(url,
 // Now I will call the function that fetch best movies(Any Category) from API
 
 loadTopRatedMovies(
-	'http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score',
+	'http://localhost:8000/api/v1/titles/?sort_by=-imdb_score',
 	'http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page=2',
 	'button_best_movies',
 	'best_movies',
