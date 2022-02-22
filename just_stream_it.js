@@ -294,7 +294,8 @@ function loadBestMovies(
                             $(function () {
                                 $('.'+className).click(function () {
                                     console.log("movie clicked")
-                                    var modal = $('#'+href);
+                                    var modal = $('#'+href); 
+                                    document.getElementById("best_movies_image").src = movie.image_url; 
                                     modal.find('.title_' + categoryName).text("Movie: " + title);
                                     modal.find('.genres_' + categoryName).text("Genres: " + genres);
                                     modal.find('.release_date_' + categoryName).text("Release Date: " + releaseDate);
