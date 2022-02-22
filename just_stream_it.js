@@ -347,8 +347,8 @@ function loadMoviesForCategory(url,
 
 // Now I will call the function that fetch best movies data for each category from API
 loadMoviesForCategory(
-    'http://127.0.0.1:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Romance&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=',
-    'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Romance&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
+    'http://127.0.0.1:8000/api/v1/titles/?genre=Romance&sort_by=-imdb_score',
+    'http://localhost:8000/api/v1/titles/?genre=Romance&sort_by=-imdb_score&page=2',
     'button_romance',
     'Romance',
     'modal_window_Romance',
@@ -357,8 +357,8 @@ loadMoviesForCategory(
 
 
 loadMoviesForCategory(
-    'http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Animation&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=',
-    'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Animation&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
+    'http://localhost:8000/api/v1/titles/?genre=Animation&sort_by=-imdb_score',
+    'http://localhost:8000/api/v1/titles/?genre=Animation&sort_by=-imdb_score&page=2',
     'button_animation',
     'Animation',
     'modal_window_Animation',
@@ -366,8 +366,8 @@ loadMoviesForCategory(
 )
 
 loadMoviesForCategory(
-    'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Crime&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
-    'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=Crime&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
+    'http://localhost:8000/api/v1/titles/?genre=Crime&sort_by=-imdb_score',
+    'http://localhost:8000/api/v1/titles/?genre=Crime&sort_by=-imdb_score&page=2',
     'button_crime',
     'Crime',
     'modal_window_Crime',
@@ -395,9 +395,80 @@ function loadTopRatedMovies(url,
 
 loadTopRatedMovies(
 	'http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score',
-	'http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=-imdb_score&title=&title_contains=&writer=&writer_contains=&year=',
+	'http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page=2',
 	'button_best_movies',
 	'best_movies',
 	'modal_window_best_movies',
 	'best_movies')
+
+
+// Now I will create a carousel for every movies list
+
+class Carousel { 
+
+	// options.slidesToScroll = Number of elements to scroll.
+	// options.slidesVisible = Number of elements visible in one slide.
+
+	constructor (element, options = {}) {
+		this.element = element
+		this.options = Object.assign({}, {
+			slidesToscroll: 1,
+			slidesVisible: 1
+		}, options)
+		this.children = [].slice.call(element.children)
+		let root = this.createDivWithClass('carousel')
+		let container = this.createDivWithClass('carousel_container')
+		root.appendChild(container)
+		this.element.appendChild(root)
+		this.children.forEach(function (child) {
+			container.appendChild(child)
+		})
+	} 
+
+	createDivWithClass (className) {
+		let div = document.createElement('div')
+		div.setAttribute('class', className)
+		return div
+	}
+}
+
+/*document.addEventListener('DOMContentLoaded', function () {
+
+	new Carousel(document.querySelector('#best_movies'), {
+	slidesVisible: 4,
+
+	}) 
+
+
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+
+	new Carousel(document.querySelector('#Romance'), {
+	slidesVisible: 4,
+
+	}) 
+
+
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+
+	new Carousel(document.querySelector('#Animation'), {
+	slidesVisible: 4,
+
+	}) 
+
+
+}) 
+
+document.addEventListener('DOMContentLoaded', function () {
+
+	new Carousel(document.querySelector('#Crime'), {
+	slidesVisible: 4,
+
+	}) 
+
+
+})*/
 
