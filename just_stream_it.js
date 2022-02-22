@@ -404,7 +404,22 @@ loadTopRatedMovies(
 
 // Now I will create a carousel for every movies list
 
-/* new carousel(document.querySelector('#best_movies'), {
+class Carousel {
+
+
+	constructor (element, options = {}) {
+
+	}
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+
+	new carousel(document.querySelector('#best_movies'), {
 	slidesToscroll: 1,
 	slidesVisible: 4,
-}) */
+
+	}) 
+
+
+})
+
