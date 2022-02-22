@@ -404,18 +404,23 @@ loadTopRatedMovies(
 
 // Now I will create a carousel for every movies list
 
-class Carousel {
+class Carousel { 
 
+	// options.slidesToScroll = Number of elements to scroll.
+	// options.slidesVisible = Number of elements visible in one slide.
 
 	constructor (element, options = {}) {
-
+		this.element = element
+		this.options = Object.assign({}, {
+			slidesToscroll: 1,
+			slidesVisible: 1
+		}, options)
 	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
 
 	new carousel(document.querySelector('#best_movies'), {
-	slidesToscroll: 1,
 	slidesVisible: 4,
 
 	}) 
