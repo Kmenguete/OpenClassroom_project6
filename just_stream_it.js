@@ -297,7 +297,7 @@ function loadBestMovies(
                                     var modal = $('#'+href);
                                     modal.find('.title_' + categoryName).text("Movie: " + title);
                                     modal.find('.genres_' + categoryName).text("Genres: " + genres);
-                                    modal.find('.release_' + categoryName).text("Release Date: " + releaseDate);
+                                    modal.find('.release_date_' + categoryName).text("Release Date: " + releaseDate);
                                     modal.find('.rated_' + categoryName).text("Rated: " + rated);
                                     modal.find('.imdb_score_' + categoryName).text("Imdb score: " + imdbScore);
                                     modal.find('.film_director_' + categoryName).text("Movie director: " + filmDirector);
