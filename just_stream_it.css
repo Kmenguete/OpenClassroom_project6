@@ -254,3 +254,13 @@ body {
     background-color: rgba(200, 200, 200, 0.5);
 }
 
+.carousel_button:hover,
+.carousel_button:focus {
+    color: rgba(150, 150, 150, 0.5);
+    background-color: rgba(250, 250, 250, 0.5);
+} 
+
+.carousel_button:focus {
+    outline: 1px solid black;
+}
+
