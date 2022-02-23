@@ -264,3 +264,10 @@ body {
     outline: 1px solid black;
 }
 
+.carousel_button.prev {
+    left: 1rem;
+}
+
+.carousel_button.next {
+    right: 1rem;
+}
