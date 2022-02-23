@@ -111,6 +111,7 @@ h2 {
 
 body {
   background-color: rgb(230,230,230);
+  margin:  0;
 }
 
 /* The Modal background */
@@ -221,3 +222,12 @@ body {
     text-decoration: none;
     cursor: pointer;
 } 
+*, *::before, *::after {
+    box-sizing: border-box;
+} 
+
+.carousel {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
