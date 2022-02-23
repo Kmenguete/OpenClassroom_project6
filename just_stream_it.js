@@ -184,9 +184,9 @@ function loadMovies(
 
                             $(function () {
                                 $('.'+ className).click(function () {
-                                    console.log("movie clicked")
+                                    console.log("You opened the modal of the following movie: " + title)
                                     var modal = $('#'+href);
-                                    document.getElementById(categoryName + "_movies_image").src = movie.image_url; 
+                                    document.getElementById(categoryName + "_image").src = movie.image_url; 
                                     modal.find('.title_' + categoryName).text("Movie: " + title);
                                     modal.find('.genres_' + categoryName).text("Genres: " + genres);
                                     modal.find('.release_' + categoryName).text("Release Date: " + releaseDate);
@@ -297,7 +297,7 @@ function loadBestMovies(
 
                             $(function () {
                                 $('.'+ className).click(function () {
-                                    console.log("movie clicked")
+                                    console.log("You opened the modal of the following movie: " + title)
                                     var modal = $('#'+href); 
                                     document.getElementById("best_movies_image").src = movie.image_url; 
                                     modal.find('.title_' + categoryName).text("Movie: " + title);
