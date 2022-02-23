@@ -417,6 +417,6 @@ buttons.forEach(button => {
 		if (newIndex >= slides.children.length) newIndex = 0
 
 		slides.children[newIndex].dataset.active = true
-	    delete activeSlide.dataset.active
+	    
 	    })
 })
