@@ -401,4 +401,15 @@ loadTopRatedMovies(
 	'modal_window_best_movies',
 	'best_movies')
 
+// Now I will make my carousel buttons work
 
+const buttons = document.querySelectorAll("[data-carousel-button]")
+
+buttons.forEach(button => {
+	button.addEventListener("click", () => {
+		const offset = button.dataset.carouselButton === "next" ? 1 : -1
+		const slides = button
+		.closest("[data-carousel]")
+		.querySelector("[data-slides]")
+	})
+})
