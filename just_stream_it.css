@@ -230,7 +230,6 @@ body {
 }
 
 
-
 .carousel_button {
     position: absolute;
     z-index: 2;
@@ -257,9 +256,11 @@ body {
 }
 
 .carousel_button.prev { 
-    left: 10%;
+    top: 165px;
+    left: -80px;
 }
 
 .carousel_button.next { 
-    right: 10%;
+    top: 165px;
+    right: -80px;
 }
