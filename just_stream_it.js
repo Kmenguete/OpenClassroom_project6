@@ -403,26 +403,33 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
-var slideIndex = 1;
-showSlides(SlideIndex);
+// var slideIndex = [1,1,1,1];
 
-// Next/previous controls
-function plusSlides(n) {
-	showSlides(SlideIndex += n);
-}
+// /* Class the members of each slideshow group with different CSS classes */
+// var SlideId = ["best_movies", "Romance", "Animation", "Crime"]
+// showSlides(1, 0); 
+// showSlides(1, 1); 
+// showSlides(1, 0); 
+// showSlides(1, 1); 
 
-// Thumbnail image controls
-function currentSlide(n) {
-	showSlides(slideIndex = n);
-}
 
-function showSlides(n) {
-	var i;
-	var slides = document.getElementsByClassName("carousel");
-	if (n > slides.length) {slideIndex = 1}
-	if (n < 1) {slideIndex = slides.length} 
-	for (i = 0; i < slides.length; i++) {
-		slides[i].style.display = "none";
-	}
-	slides[slideIndex-1].style.display = "block";
-}
+// // Next/previous controls
+// function plusSlides(n) {
+// 	showSlides(slideIndex += n);
+// }
+
+// // Thumbnail image controls
+// function currentSlide(n) {
+// 	showSlides(slideIndex = n);
+// }
+
+// function showSlides(n) {
+// 	var i;
+// 	var slides = document.getElementsByClassName("carousel");
+// 	if (n > slides.length) {slideIndex = 1}
+// 	if (n < 1) {slideIndex = slides.length} 
+// 	for (i = 0; i < slides.length; i++) {
+// 		slides[i].style.display = "none";
+// 	}
+// 	slides[slideIndex-1].style.display = "block";
+// }
