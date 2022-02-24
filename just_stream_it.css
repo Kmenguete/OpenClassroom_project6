@@ -27,19 +27,19 @@
     cursor: pointer;
 }
 
-.top_rated_movies {
-   
-  justify-content: center;
-  border: 1px solid #414141;
-  display: flex;
-  box-shadow: 6px 6px 6px #414141 inset;
+.top_rated_movies { 
+    margin: 15%;
+   justify-content: center;
+   border: 1px solid #414141;
+   display: flex;
+   box-shadow: 6px 6px 6px #414141 inset;
 }
 
-.category {
-  
-  justify-content: center;
-  border: 1px solid #414141;
-  display: flex;
+.category { 
+    margin: 15%;
+   justify-content: center;
+   border: 1px solid #414141;
+   display: flex;
   box-shadow: 6px 6px 6px #414141 inset;
 } 
 
@@ -222,15 +222,14 @@ body {
     box-sizing: border-box;
 } 
 
-.carousel {
+.carousel { 
     width: 100vw;
     height: 100vh;
     position: relative;
 }
 
 .carousel > ul {
-    margin: 0;
-    padding: 0;
+    margin: 15%;
     list-style: none;
 }
 
@@ -261,9 +260,9 @@ body {
 }
 
 .carousel_button.prev { 
-    left: 1rem;
+    left: 10%;
 }
 
 .carousel_button.next { 
-    right: 1rem;
+    right: 10%;
 }
