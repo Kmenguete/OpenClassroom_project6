@@ -27,12 +27,6 @@
     cursor: pointer;
 }
 
-.top_rated_movies { 
-   justify-content: center;
-   display: flex;
-   
-}
-
 .category { 
    justify-content: center;
    display: flex;
