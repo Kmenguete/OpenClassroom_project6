@@ -403,19 +403,26 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
-const buttons = document.querySelectorAll("data-carousel-button")
+var slideIndex = 1;
+showSlides(SlideIndex);
 
-buttons.forEach(button => {
-	button.addEventListener("click", () => {
-		const offset = button.dataset.carouselButton === "next" ? 1 : -1
-		const slides = button.closest("carousel").querySelector("category")
-		const activeSlide = slides.querySelector("li")[0]
-		let newIndex = [...slides.children].indexOf(activeSlide) + offset
-		if (newIndex < 0) newIndex = slides.children.length -1
-		if (newIndex >= slides.children.length) newIndex = 0
+// Next/previous controls
+function plusSlides(n) {
+	showSlides(SlideIndex += n);
+}
 
-		slides.children[newIndex].dataset.active = true
-		delete activeSlide.dataset.active
-	    
-	    })
-})
+// Thumbnail image controls
+function currentSlide(n) {
+	showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+	var i;
+	var slides = document.getElementsByClassName("carousel");
+	if (n > slides.length) {slideIndex = 1}
+	if (n < 1) {slideIndex = slides.length} 
+	for (i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none";
+	}
+	slides[slideIndex-1].style.display = "block";
+}
