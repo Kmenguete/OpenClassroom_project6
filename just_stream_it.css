@@ -30,6 +30,7 @@
 .category { 
    justify-content: center;
    display: flex;
+   overflow: hidden;
 } 
 
 .modal_info {
@@ -211,7 +212,7 @@ body {
     box-sizing: border-box;
 } 
 
-.carousel { 
+.carousel {  
     margin-top: 25px;
     margin-bottom: 25px;
     margin-left: 360px;
@@ -226,7 +227,7 @@ body {
 
 .carousel_button {
     position: absolute;
-    z-index: 2;
+    z-index: 0;
     background: none;
     border: none;
     font-size: 4rem;
