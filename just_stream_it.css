@@ -28,19 +28,14 @@
 }
 
 .top_rated_movies { 
-    margin: 15%;
    justify-content: center;
-   border: 1px solid #414141;
    display: flex;
-   box-shadow: 6px 6px 6px #414141 inset;
+   
 }
 
 .category { 
-    margin: 15%;
    justify-content: center;
-   border: 1px solid #414141;
    display: flex;
-  box-shadow: 6px 6px 6px #414141 inset;
 } 
 
 .modal_info {
@@ -223,8 +218,8 @@ body {
 } 
 
 .carousel { 
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     margin-left: 360px;
     margin-right: 360px;
    justify-content: center;
@@ -234,17 +229,6 @@ body {
    position: relative;
 }
 
-.carousel > ul {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 360px;
-    margin-right: 360px;
-   justify-content: center;
-   border: 1px solid #414141;
-   display: flex;
-  box-shadow: 6px 6px 6px #414141 inset;
-   position: relative;
-}
 
 
 .carousel_button {
