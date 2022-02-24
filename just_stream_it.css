@@ -28,8 +28,7 @@
 }
 
 .top_rated_movies {
-   margin: 100px;
-   padding-left: 150px;
+   
   justify-content: center;
   border: 1px solid #414141;
   display: flex;
@@ -37,8 +36,7 @@
 }
 
 .category {
-  margin: 400px;
-  padding-left: 670px;
+  
   justify-content: center;
   border: 1px solid #414141;
   display: flex;
@@ -224,7 +222,7 @@ body {
     box-sizing: border-box;
 } 
 
-.carousel { 
+.carousel {
     width: 100vw;
     height: 100vh;
     position: relative;
@@ -262,10 +260,10 @@ body {
     outline: 1px solid black;
 }
 
-.carousel_button.prev {
+.carousel_button.prev { 
     left: 1rem;
 }
 
-.carousel_button.next {
+.carousel_button.next { 
     right: 1rem;
 }
