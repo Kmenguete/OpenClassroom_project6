@@ -223,14 +223,27 @@ body {
 } 
 
 .carousel { 
-    width: 100vw;
-    height: 100vh;
-    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 360px;
+    margin-right: 360px;
+   justify-content: center;
+   border: 1px solid #414141;
+   display: flex;
+  box-shadow: 6px 6px 6px #414141 inset;
+   position: relative;
 }
 
 .carousel > ul {
-    margin: 15%;
-    list-style: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 360px;
+    margin-right: 360px;
+   justify-content: center;
+   border: 1px solid #414141;
+   display: flex;
+  box-shadow: 6px 6px 6px #414141 inset;
+   position: relative;
 }
 
 
