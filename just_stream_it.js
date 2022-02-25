@@ -423,8 +423,10 @@ class Carousel {
 		let container = document.getElementsByClassName("category");
 		this.element.appendChild(root)
 		root.appendChild(container)
-		this.children.forEach(function (child) {
-			container.appendChild(child)
+		this.children.forEach(function (child)  {
+			let item = document.getElementsByClassName("modal_info")
+			item.appendChild(child)
+			container.appendChild(item)
 		})
 	}
 }
