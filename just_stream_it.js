@@ -403,22 +403,35 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
-var slideIndex = [1,1];
-var slideId = ["best_movies", "Romance", "Animation", "Crime"]
-showSlides(1, 0);
-showSlides(1, 1);
+class Carousel {
 
-function plusSlides(n, no) {
-  showSlides(slideIndex[no] += n, no);
+	constructor (element, options = {})
 }
 
-function showSlides(n, no) {
-  var i;
-  var x = document.getElementsByClassName(slideId[no]);
-  if (n > x.length) {slideIndex[no] = 1}    
-  if (n < 1) {slideIndex[no] = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex[no]-1].style.display = "block";  
-}
+document.addEventListener('DOMContentLoaded', function () {
+	new Carousel(document.querySelector('#best_movies'), {
+	slidesToScroll: 1,
+	slidesVisible: 4
+	})
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+	new Carousel(document.querySelector('#Romance'), {
+	slidesToScroll: 1,
+	slidesVisible: 4
+	})
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+	new Carousel(document.querySelector('#Animation'), {
+	slidesToScroll: 1,
+	slidesVisible: 4
+	})
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+	new Carousel(document.querySelector('#Crime'), {
+	slidesToScroll: 1,
+	slidesVisible: 4
+	})
+})
