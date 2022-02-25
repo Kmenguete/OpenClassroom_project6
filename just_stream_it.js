@@ -403,9 +403,22 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
-class Carousel {
+class Carousel { 
 
-	constructor (element, options = {})
+ /**
+ * @param {HTMLElement} element
+ * @param {Object} options
+ * @param {Object} options.slidesToScroll number of elements to scroll
+ * @param {Object} options.slidesVisible number of visible elements in one slide
+ */
+
+	constructor (element, options = {}) {
+		this.element = element
+		this.options = Object.assign({}, {
+			slidesToScroll: 1,
+			slidesVisible: 4
+		}, options)
+	}
 }
 
 document.addEventListener('DOMContentLoaded', function () {
