@@ -418,16 +418,17 @@ class Carousel {
 			slidesToScroll: 1,
 			slidesVisible: 4
 		}, options)
-		this.children = [].slice.call(element.children)
+		let children = [].slice.call(element.children)
 		let root = document.getElementsByClassName("carousel");
 		this.container = document.getElementsByClassName("category");
 		this.element.appendChild(root)
 		root.appendChild(this.container)
-		this.children.forEach(function (child)  {
+		this.item = children.map(function (child) {
 			let item = document.getElementsByClassName("modal_info")
 			item.style.width = ((100 / this.options.slidesVisible) / ratio) + "%"
 			item.appendChild(child)
-			container.appendChild(item)
+			this.container.appendChild(item)
+			return item
 		})
 	}
 }
