@@ -250,12 +250,12 @@ body {
     outline: 1px solid black;
 }
 
-.carousel_button.prev { 
+.carousel_button_prev { 
     top: 165px;
     left: -80px;
 }
 
-.carousel_button.next { 
+.carousel_button_next { 
     top: 165px;
     right: -80px;
 }

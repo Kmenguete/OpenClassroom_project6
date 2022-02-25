@@ -446,8 +446,8 @@ function setStyle () {
 
 
 function getNavigation () {
-	let nextButton = document.getElementsByClassName("carousel_button.next")
-	let previousButton = document.getElementsByClassName("carousel_button.prev")
+	let nextButton = document.getElementsByClassName("carousel_button_next")
+	let previousButton = document.getElementsByClassName("carousel_button_prev")
 	this.root.appendChild(nextButton)
 	this.root.appendChild(previousButton)
 }
