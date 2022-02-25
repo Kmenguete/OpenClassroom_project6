@@ -423,21 +423,27 @@ class Carousel {
 		this.container = document.getElementsByClassName("category");
 		this.element.appendChild(root)
 		root.appendChild(this.container)
-		this.item = children.map(function (child) {
+		this.items = children.map(function (child) {
 			let item = document.getElementsByClassName("modal_info")
-			item.style.width = ((100 / this.options.slidesVisible) / ratio) + "%"
 			item.appendChild(child)
 			this.container.appendChild(item)
 			return item
 		})
+		this.setStyle()
+		this.getNavigation()
 	}
 }
 
 function setStyle () {
 
-	let ratio = this.children.length / this.options.slidesVisible
+	let ratio = this.items.length / this.options.slidesVisible
 	this.container.style.width = (ratio * 100) + "%"
+	this.items.forEach(item => item.style.width = ((100 / this.options.slidesVisible) / ratio) + "%")
 }
+
+
+function getNavigation () {}
+
 
 document.addEventListener('DOMContentLoaded', function () {
 	new Carousel(document.querySelector('#best_movies'), {
