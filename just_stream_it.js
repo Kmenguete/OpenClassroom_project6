@@ -403,13 +403,6 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
-var previousButton = document.getElementsByClassName("carousel_button_prev");
-
-var nextButton = document.getElementsByClassName("carousel_button_next");
-
-nextButton.addEventListener("onclick", goTotheNextItem());
-
-previousButton.addEventListener("onclick", goTothePreviousItem());
 
 function goTotheNextItem () {};
 
