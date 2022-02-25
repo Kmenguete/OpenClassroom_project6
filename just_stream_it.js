@@ -404,8 +404,6 @@ loadTopRatedMovies(
 // Now I will make my carousel buttons work
 
 
-
 function goTotheNextItem () {};
 
 function goTothePreviousItem () {};
-
