@@ -405,7 +405,6 @@ loadTopRatedMovies(
 
 var index = 0;
 var items = document.getElementsByClassName("category");
-var slidesVisible = 4;
 
 
 function goTotheNextItem () {
@@ -418,8 +417,8 @@ function goTothePreviousItem () {
 
 function goToItem(n) {
 	if (n < 0) {
-		n = items.length - slidesVisible
-	} else if (n >= items.length || items[n + slidesVisible] === undefined) {
-		n = 0
+		n = items.length 
+	} else {
+		n = n + 1;
 	}
 }
