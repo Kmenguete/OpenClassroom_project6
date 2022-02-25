@@ -420,15 +420,22 @@ class Carousel {
 		}, options)
 		this.children = [].slice.call(element.children)
 		let root = document.getElementsByClassName("carousel");
-		let container = document.getElementsByClassName("category");
+		this.container = document.getElementsByClassName("category");
 		this.element.appendChild(root)
-		root.appendChild(container)
+		root.appendChild(this.container)
 		this.children.forEach(function (child)  {
 			let item = document.getElementsByClassName("modal_info")
+			item.style.width = ((100 / this.options.slidesVisible) / ratio) + "%"
 			item.appendChild(child)
 			container.appendChild(item)
 		})
 	}
+}
+
+function setStyle () {
+
+	let ratio = this.children.length / this.options.slidesVisible
+	this.container.style.width = (ratio * 100) + "%"
 }
 
 document.addEventListener('DOMContentLoaded', function () {
