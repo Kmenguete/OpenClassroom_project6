@@ -225,7 +225,7 @@ body {
 }
 
 
-.carousel_button {
+.carousel_button_prev, .carousel_button_next {
     position: absolute;
     z-index: 0;
     background: none;

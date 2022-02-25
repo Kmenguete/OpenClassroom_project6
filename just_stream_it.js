@@ -455,16 +455,26 @@ function getNavigation () {
 	previousButton.addEventListener('click', this.previous.bind(this))
 } 
 
-function next () {} 
+function next () {
 
-function previous () {}
+	this.goToItem(this.currentItem + this.options.slidesToScroll)
+} 
+
+function previous () {
+
+	this.goToItem(this.currentItem - this.options.slidesToScroll)
+}
 
 /**
  * moves the carousel to the target element
  * @param {number} index
  */
 
-function goToIndex (index) {}
+function goToItem (index) {
+	let translateX = index * -100 / this.items.length
+	this.container.style.transform = 'translate3d(' + translateX + '%, 0, 0)'
+	this.currentItem = index
+}
 
 
 document.addEventListener('DOMContentLoaded', function () {
