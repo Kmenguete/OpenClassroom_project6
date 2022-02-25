@@ -419,6 +419,7 @@ class Carousel {
 			slidesVisible: 4
 		}, options)
 		let children = [].slice.call(element.children)
+		this.currentItem = 0 
 		this.root = document.getElementsByClassName("carousel");
 		this.container = document.getElementsByClassName("category");
 		this.element.appendChild(this.root)
@@ -457,6 +458,13 @@ function getNavigation () {
 function next () {} 
 
 function previous () {}
+
+/**
+ * moves the carousel to the target element
+ * @param {number} index
+ */
+
+function goToIndex (index) {}
 
 
 document.addEventListener('DOMContentLoaded', function () {
