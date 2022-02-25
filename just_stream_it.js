@@ -418,10 +418,14 @@ class Carousel {
 			slidesToScroll: 1,
 			slidesVisible: 4
 		}, options)
+		this.children = [].slice.call(element.children)
 		let root = document.getElementsByClassName("carousel");
 		let container = document.getElementsByClassName("category");
 		this.element.appendChild(root)
 		root.appendChild(container)
+		this.children.forEach(function (child) {
+			container.appendChild(child)
+		})
 	}
 }
 
