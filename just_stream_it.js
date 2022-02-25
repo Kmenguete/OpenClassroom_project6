@@ -419,10 +419,10 @@ class Carousel {
 			slidesVisible: 4
 		}, options)
 		let children = [].slice.call(element.children)
-		let root = document.getElementsByClassName("carousel");
+		this.root = document.getElementsByClassName("carousel");
 		this.container = document.getElementsByClassName("category");
-		this.element.appendChild(root)
-		root.appendChild(this.container)
+		this.element.appendChild(this.root)
+		this.root.appendChild(this.container)
 		this.items = children.map(function (child) {
 			let item = document.getElementsByClassName("modal_info")
 			item.appendChild(child)
@@ -434,6 +434,9 @@ class Carousel {
 	}
 }
 
+
+// Applying the right dimensons to carousel elements
+
 function setStyle () {
 
 	let ratio = this.items.length / this.options.slidesVisible
@@ -442,7 +445,12 @@ function setStyle () {
 }
 
 
-function getNavigation () {}
+function getNavigation () {
+	let nextButton = document.getElementsByClassName("carousel_button.next")
+	let previousButton = document.getElementsByClassName("carousel_button.prev")
+	this.root.appendChild(nextButton)
+	this.root.appendChild(previousButton)
+}
 
 
 document.addEventListener('DOMContentLoaded', function () {
