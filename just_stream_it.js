@@ -404,7 +404,6 @@ loadTopRatedMovies(
 // Now I will make my carousel buttons work
 
 var slideIndex = [1,1];
-/* Class the members of each slideshow group with different CSS classes */
 var slideId = ["best_movies", "Romance", "Animation", "Crime"]
 showSlides(1, 0);
 showSlides(1, 1);
@@ -415,11 +414,11 @@ function plusSlides(n, no) {
 
 function showSlides(n, no) {
   var i;
-  var x = document.getElementById(slideId[no]);
-  if (n > x.length) {slideIndex[no] = 1}
+  var x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}    
   if (n < 1) {slideIndex[no] = x.length}
   for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
+     x[i].style.display = "none";  
   }
-  x[slideIndex[no]-1].style.display = "block";
+  x[slideIndex[no]-1].style.display = "block";  
 }
