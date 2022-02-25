@@ -450,7 +450,13 @@ function getNavigation () {
 	let previousButton = document.getElementsByClassName("carousel_button_prev")
 	this.root.appendChild(nextButton)
 	this.root.appendChild(previousButton)
-}
+	nextButton.addEventListener('click', this.next.bind(this))
+	previousButton.addEventListener('click', this.previous.bind(this))
+} 
+
+function next () {} 
+
+function previous () {}
 
 
 document.addEventListener('DOMContentLoaded', function () {
