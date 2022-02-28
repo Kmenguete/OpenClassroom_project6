@@ -404,7 +404,7 @@ loadTopRatedMovies(
 // Now I will make my carousel buttons work
 
 let index = 1;
-let items = document.getElementsByClassName("category");
+let items = document.getElementsByClassName("modal_info");
 
 
 function goTothePreviousItem () {
