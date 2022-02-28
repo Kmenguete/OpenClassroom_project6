@@ -426,10 +426,10 @@ function goToItem (index) {
 	if (index < 0) {
 		index = items.length - slidesVisible; // come back to the end
 	}
-	else if (index >= items.length || ((items[currentItem + visible] === undefined) && index > currentItem)) {
+	else if (index >= items.length || ((items[currentItem + slidesVisible] === undefined) && index > currentItem)) {
                 index = 0; // Come back to the start
  	}
  	let translateX = index * -100 / items.length;
-            container.style.transform = 'translate3d(' + translateX + '%, 0, 0)'; // Go to the next item
-            currentItem = index; // Update the index of the image
+    container.style.transform = 'translate3d(' + translateX + '%, 0, 0)'; // Go to the next item
+    currentItem = index; // Update the index of the image
  }
