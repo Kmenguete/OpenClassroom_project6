@@ -405,17 +405,16 @@ loadTopRatedMovies(
 
 let index = 1;
 let items = document.getElementsByClassName("category");
-let currentItem = index;
 
 
 function goTothePreviousItem () {
 	let previousButton = document.getElementsByClassName("carousel_button_prev"); 
-	goToItem(currentItem - 1);
+	goToItem(index - 1);
 };
 
 function goTotheNextItem () {
 	let nextButton = document.getElementsByClassName("carousel_button_next");
-	goToItem(currentItem + 1);
+	goToItem(index + 1);
 }; 
 
 function goToItem (index) {
