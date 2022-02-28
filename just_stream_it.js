@@ -405,27 +405,22 @@ loadTopRatedMovies(
 
 let index = 1;
 let items = document.getElementsByClassName("category");
-let slidesVisible = 4;
 let currentItem = index;
-let container = document.getElementsByClassName("carousel")[0];
 
 
 function goTothePreviousItem () {
 	let previousButton = document.getElementsByClassName("carousel_button_prev"); 
-	let slides = document.getElementsByClassName("modal_info");
 	goToItem(currentItem - 1);
 };
 
 function goTotheNextItem () {
 	let nextButton = document.getElementsByClassName("carousel_button_next");
-	let slides = document.getElementsByClassName("modal_info");
 	goToItem(currentItem + 1);
 }; 
 
 function goToItem (index) {
 	if (index > items.length) {index = 0}
-	if (index < 1) {index = items.length}
-		
+	if (index < 1) {index = items.length} 
  	for (i = 0; i < items.length; i++) {
       items[i].style.display = "none";
   }
