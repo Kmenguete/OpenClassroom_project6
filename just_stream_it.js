@@ -403,13 +403,33 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
+let index = 0;
+let items = document.getElementsByClassName("category");
+let slidesVisible = 4;
+let currentItem = index;
+let container = document.getElementsByClassName("carousel");
+
 
 function goTothePreviousItem () {
 	let previousButton = document.getElementsByClassName("carousel_button_prev"); 
 	let slides = document.getElementsByClassName("modal_info");
+	goToItem(currentItem - 1);
 };
 
 function goTotheNextItem () {
 	let nextButton = document.getElementsByClassName("carousel_button_next");
 	let slides = document.getElementsByClassName("modal_info");
-};
+	goToItem(currentItem + 1);
+}; 
+
+function goToItem (index) {
+	if (index < 0) {
+		index = items.length - slidesVisible; // come back to the end
+	}
+	else if (index >= items.length || ((items[currentItem + visible] === undefined) && index > currentItem)) {
+                index = 0; // Come back to the start
+ 	}
+ 	let translateX = index * -100 / items.length;
+            container.style.transform = 'translate3d(' + translateX + '%, 0, 0)'; // Go to the next item
+            currentItem = index; // Update the index of the image
+ }
