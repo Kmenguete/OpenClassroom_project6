@@ -411,19 +411,20 @@ let index = 1;
 let items = [best_movies_items, romance_items, animation_items, crime_items];
 
 
-function goTothePreviousItem () {
-	goToItem(index -= 1);
+function goTothePreviousItem (no) {
+	goToItem(index -= 1, no);
 };
 
-function goTotheNextItem () {
-	goToItem(index += 1);
+function goTotheNextItem (no) {
+	goToItem(index += 1, no);
 }; 
 
-function goToItem (index) {
-	if (index > items.length) {index = 0}
-	if (index < 1) {index = items.length} 
- 	for (i = 0; i < items.length; i++) {
-      items[i].style.display = "none";
+function goToItem (index, no) {
+	var category = items[no];
+	if (index > category.length) {index = 0}
+	if (index < 1) {index = category.length} 
+ 	for (i = 0; i < category.length; i++) {
+      category[i].style.display = "none";
   }
-  items[index-1].style.display = "block";
+  category[index[no]-1].style.display = "block";
  }
