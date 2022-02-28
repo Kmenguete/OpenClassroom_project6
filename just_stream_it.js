@@ -408,11 +408,11 @@ let items = document.getElementsByClassName("category");
 
 
 function goTothePreviousItem () {
-	goToItem(index - 1);
+	goToItem(index -= 1);
 };
 
 function goTotheNextItem () {
-	goToItem(index + 1);
+	goToItem(index += 1);
 }; 
 
 function goToItem (index) {
