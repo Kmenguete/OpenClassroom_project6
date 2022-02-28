@@ -403,11 +403,11 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
-let index = 0;
+let index = 1;
 let items = document.getElementsByClassName("category");
 let slidesVisible = 4;
 let currentItem = index;
-let container = document.getElementsByClassName("carousel");
+let container = document.getElementsByClassName("carousel")[0];
 
 
 function goTothePreviousItem () {
@@ -423,13 +423,11 @@ function goTotheNextItem () {
 }; 
 
 function goToItem (index) {
-	if (index < 0) {
-		index = items.length - slidesVisible; // come back to the end
-	}
-	else if (index >= items.length || ((items[currentItem + slidesVisible] === undefined) && index > currentItem)) {
-                index = 0; // Come back to the start
- 	}
- 	let translateX = index * -100 / items.length;
-    container.style.transform = 'translate3d(' + translateX + '%, 0, 0)'; // Go to the next item
-    currentItem = index; // Update the index of the image
+	if (index > items.length) {index = 0}
+	if (index < 1) {index = items.length}
+		
+ 	for (i = 0; i < items.length; i++) {
+      items[i].style.display = "none";
+  }
+  items[index-1].style.display = "block";
  }
