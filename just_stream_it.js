@@ -403,8 +403,12 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
+let best_movies_items = document.getElementById("best_movies");
+let romance_items = document.getElementById("Romance");
+let animation_items = document.getElementById("Animation");
+let crime_items = document.getElementById("Crime");
 let index = 1;
-let items = document.getElementsByClassName("modal_info");
+let items = [best_movies_items, romance_items, animation_items, crime_items];
 
 
 function goTothePreviousItem () {
