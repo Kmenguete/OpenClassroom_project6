@@ -408,12 +408,10 @@ let items = document.getElementsByClassName("category");
 
 
 function goTothePreviousItem () {
-	let previousButton = document.getElementsByClassName("carousel_button_prev"); 
 	goToItem(index - 1);
 };
 
 function goTotheNextItem () {
-	let nextButton = document.getElementsByClassName("carousel_button_next");
 	goToItem(index + 1);
 }; 
 
