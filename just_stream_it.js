@@ -403,22 +403,13 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
-var index = 0;
-var items = document.getElementsByClassName("category");
-
-
-function goTotheNextItem () {
-	goToItem(index += 1);
-};
 
 function goTothePreviousItem () {
-	goToItem(index -= 1);
+	let previousButton = document.getElementsByClassName("carousel_button_prev"); 
+	let slides = document.getElementsByClassName("modal_info");
 };
 
-function goToItem(n) {
-	if (n < 0) {
-		n = items.length 
-	} else {
-		n = n + 1;
-	}
-}
+function goTotheNextItem () {
+	let nextButton = document.getElementsByClassName("carousel_button_next");
+	let slides = document.getElementsByClassName("modal_info");
+};
