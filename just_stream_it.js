@@ -426,7 +426,7 @@ function goToItem (index, no) {
 	if (index > category.length) {index = 0}
 	if (index < 1) {index = category.length} 
  	for (i = 0; i < category.length; i++) {
-      category[i].style.display = "none";
+      category[i].style.transform = "translate(-250px)";
   }
-  category[index-1].style.display = "block";
+  category[index-1].style.transform = "translate(250px)";
  }
