@@ -421,12 +421,8 @@ function goTotheNextItem (no) {
 }; 
 
 function goToItem (index, no) {
-	var categorySelector = items[no];
-	var category = categorySelector.getElementsByTagName("li");
+	var category = items[no];
 	if (index > category.length) {index = 0}
 	if (index < 1) {index = category.length} 
- 	for (i = 0; i < category.length; i++) {
-      category[i].style.transform = "translate(-250px)";
-  }
-  category[index-1].style.transform = "translate(250px)";
+ 	category.style.transform = "350px";
  }
