@@ -408,8 +408,5 @@ let index = 0;
 window.show = function(increase) {
 	index = index + increase;
 	index = Math.min(Math.max(index,0), category.length-1);
-	if (typeof category[index] !== 'undefined') {
-		category[index].scrollIntoView({behavior: 'smooth'});
-	}
-	
+	category[index].scrollIntoView({behavior: 'smooth'});
 }
