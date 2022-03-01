@@ -413,11 +413,11 @@ let items = [best_movies_items, romance_items, animation_items, crime_items];
 
 function goTothePreviousItem (no) {
 	let category = items[no];
-	category.style.transform = "translateX(-350px)"; 
+	category.style.transform = "translateX(-200px)"; 
 
 };
 
 function goTotheNextItem (no) {
 	let category = items[no];
-	category.style.transform = "translateX(350px)";
+	category.style.transform = "translateX(200px)";
 }; 
