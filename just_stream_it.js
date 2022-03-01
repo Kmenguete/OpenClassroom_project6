@@ -407,22 +407,17 @@ let best_movies_items = document.getElementById("best_movies");
 let romance_items = document.getElementById("Romance");
 let animation_items = document.getElementById("Animation");
 let crime_items = document.getElementById("Crime");
-let index = 1;
 let items = [best_movies_items, romance_items, animation_items, crime_items];
 
 
 
 function goTothePreviousItem (no) {
-	goToItem(index -= 1, no);
+	let category = items[no];
+	category.style.transform = "translateX(-350px)";
+
 };
 
 function goTotheNextItem (no) {
-	goToItem(index += 1, no);
+	let category = items[no];
+	category.style.transform = "translateX(350px)";
 }; 
-
-function goToItem (index, no) {
-	var category = items[no];
-	if (index > category.length) {index = 0}
-	if (index < 1) {index = category.length} 
- 	category.style.transform = "350px";
- }
