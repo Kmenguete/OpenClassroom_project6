@@ -410,8 +410,9 @@ let crime_items = document.getElementById("Crime");
 
 let items = [best_movies_items, romance_items, animation_items, crime_items];
 for (let i = 0; i < items.length; i++) {
-	let category = items[i].querySelectorAll('ul li');
-	let index = 0;
+	let category = items[i].getElementsByTagName('li');
+	let index = 0; 
+	console.log(category)
 	window.show = function(increase) {
 		index = index + increase;
 		index = Math.min(Math.max(index,0), category.length-1);
