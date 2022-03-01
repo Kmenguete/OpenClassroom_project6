@@ -414,9 +414,11 @@ for (let i = 0; i < items.length; i++) {
 	let index = 0; 
 	console.log(category)
 	window.show = function(increase) {
-		index = index + increase;
-		index = Math.min(Math.max(index,0), category.length-1);
-		category[index].scrollIntoView({behavior: 'smooth'});
+		if (index = category.length) {
+			index = category[0];
+		} else {
+			index = index + increase;
+		}
 	}
 }
 
