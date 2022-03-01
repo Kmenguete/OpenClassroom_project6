@@ -414,9 +414,9 @@ for (let i = 0; i < items.length; i++) {
 	let index = 0; 
 	console.log(category)
 	window.show = function(increase) {
-		if (index = category.length) {
+		if (index > category.length) {
 			index = category[0];
-		} else if (index = category[0]) {
+		} else if (index < category[0]) {
 			index = category.length;
 		} else {
 			index = index + increase;
