@@ -403,10 +403,19 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
-let category = document.querySelectorAll('ul li');
-let index = 0;
-window.show = function(increase) {
-	index = index + increase;
-	index = Math.min(Math.max(index,0), category.length-1);
-	category[index].scrollIntoView({behavior: 'smooth'});
+let best_movies_items = document.getElementById("best_movies");
+let romance_items = document.getElementById("Romance");
+let animation_items = document.getElementById("Animation");
+let crime_items = document.getElementById("Crime");
+
+let items = [best_movies_items, romance_items, animation_items, crime_items];
+for (let i = 0; i < items.length; i++) {
+	let category = items[i].querySelectorAll('ul li');
+	let index = 0;
+	window.show = function(increase) {
+		index = index + increase;
+		index = Math.min(Math.max(index,0), category.length-1);
+		category[index].scrollIntoView({behavior: 'smooth'});
+	}
 }
+
