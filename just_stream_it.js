@@ -403,15 +403,13 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work
 
-
-
-function goTothePreviousItem (no, index) {
-	let category = document.querySelectorAll("ul li")[no];
-	let index = 0;
-
-};
-
-function goTotheNextItem (no, index) {
-	let category = document.querySelectorAll("ul li")[no];
-	let index = 0;
-}; 
+let category = document.querySelectorAll('ul li');
+let index = 0;
+window.show = function(increase) {
+	index = index + increase;
+	index = Math.min(Math.max(index,0), category.length-1);
+	if (typeof category[index] !== 'undefined') {
+		category[index].scrollIntoView({behavior: 'smooth'});
+	}
+	
+}
