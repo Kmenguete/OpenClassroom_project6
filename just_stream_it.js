@@ -413,13 +413,18 @@ let items = [best_movies_items, romance_items, animation_items, crime_items];
 
 function goTothePreviousItem (no) {
 	let category = items[no];
-	category_item = document.getElementsByTagName("li");
-	category_item.style.transform = "translateX(-350px)";
+	for (let i = 0; i < category.length; i++) {
+		let category_item = category[i]
+		category_item.style.transform = "translateX(-350px)"; 
+	}
 
 };
 
 function goTotheNextItem (no) {
 	let category = items[no];
-	category_item = document.getElementsByTagName("li");
-	category_item.style.transform = "translateX(350px)";
+	for (let i = 0; i < category.length; i++) {
+		let category_item = category[i]
+		category_item.style.transform = "translateX(350px)"; 
+	}
+
 }; 
