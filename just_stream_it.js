@@ -410,17 +410,19 @@ let crime_items = document.getElementById("Crime");
 
 let items = [best_movies_items, romance_items, animation_items, crime_items];
 for (let i = 0; i < items.length; i++) {
-	let category = items[i].getElementsByTagName('li');
-	let index = 0; 
+	let category = items[i].getElementsByTagName('li'); 
 	console.log(category)
-	window.show = function(increase) {
-		if (index > category.length) {
+	window.show = function(increase) { 
+		for (let index = 0; index < category.length; index++) {
+			if (index > category.length) {
 			index = category[0];
 		} else if (index < category[0]) {
 			index = category.length;
 		} else {
 			index = index + increase;
 		}
+		}
+		
 	}
 }
 
