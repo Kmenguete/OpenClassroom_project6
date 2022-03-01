@@ -413,14 +413,10 @@ for (let i = 0; i < items.length; i++) {
 	let category = items[i].getElementsByTagName('li'); 
 	console.log(category)
 	window.show = function(increase) { 
-		for (let index = 0; index < category.length; index++) {
-			if (index > category.length) {
-			index = category[0];
-		} else if (index < category[0]) {
-			index = category.length;
+		if (increase == +1) {
+			category.style.transform = 'translateX(50px)';
 		} else {
-			index = index + increase;
-		}
+			category.style.transform = 'translateX(-50px)';
 		}
 		
 	}
