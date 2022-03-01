@@ -405,13 +405,13 @@ loadTopRatedMovies(
 
 
 
-function goTothePreviousItem (no) {
-	let category = document.getElementsByTagName("ul")[no];
-	category.style.transform = "translateX(-200px)"; 
+function goTothePreviousItem (no, index) {
+	let category = document.querySelectorAll("ul li")[no];
+	let index = 0;
 
 };
 
-function goTotheNextItem (no) {
-	let category = document.getElementsByTagName("ul")[no];
-	category.style.transform = "translateX(200px)";
+function goTotheNextItem (no, index) {
+	let category = document.querySelectorAll("ul li")[no];
+	let index = 0;
 }; 
