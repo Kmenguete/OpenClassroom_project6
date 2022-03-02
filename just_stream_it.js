@@ -410,4 +410,4 @@ let best_movies_index = 0;
 function show_best_movies(increase) {
 	best_movies_index = best_movies_index + increase;
 	bestMoviesList[best_movies_index].scrollIntoView({behavior: 'smooth'});
-}
+	}
