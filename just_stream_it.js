@@ -473,7 +473,7 @@ function show_animation_movies_previous(decrease) {
 
 // Carousel for crime movies 
 
-let carouselCrimeMovies = document.getElementById("Animation");
+let carouselCrimeMovies = document.getElementById("Crime");
 let crimeMoviesList = carouselCrimeMovies.getElementsByClassName("modal_info");
 console.log("this is the crime movies list: " + crimeMoviesList);
 let next_crime_movies_index = 4;
@@ -492,6 +492,4 @@ function show_crime_movies_previous(decrease) {
 	crimeMoviesList[previous_crime_movies_index].scrollIntoView({behavior: 'smooth'});
 	console.log("the index of the following crime movie is: " + previous_crime_movies_index);
 	} 
-
-
 
