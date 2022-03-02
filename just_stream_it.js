@@ -407,10 +407,19 @@ loadTopRatedMovies(
 let carouselBestMovies = document.getElementById("best_movies");
 let bestMoviesList = carouselBestMovies.getElementsByClassName("modal_info");
 console.log("this is the best movies list: " + bestMoviesList);
-let best_movies_index = 0;
-function show_best_movies(increase) {
-	best_movies_index = best_movies_index + increase;
-	best_movies_index = Math.min(Math.max(best_movies_index,0), bestMoviesList.length-1);
-	bestMoviesList[best_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following movie is: " + best_movies_index);
+let next_best_movies_index = 4;
+function show_best_movies_next(increase) {
+	next_best_movies_index = next_best_movies_index + increase;
+	next_best_movies_index = Math.min(Math.max(next_best_movies_index,4), bestMoviesList.length-1);
+	bestMoviesList[next_best_movies_index].scrollIntoView({behavior: 'smooth'});
+	console.log("the index of the following movie is: " + next_best_movies_index);
+	}
+
+
+let previous_best_movies_index = 0;
+function show_best_movies_previous(decrease) {
+	previous_best_movies_index = previous_best_movies_index - decrease;
+	previous_best_movies_index = Math.min(Math.max(previous_best_movies_index,0), bestMoviesList.length-1);
+	bestMoviesList[previous_best_movies_index].scrollIntoView({behavior: 'smooth'});
+	console.log("the index of the following movie is: " + previous_best_movies_index);
 	}
