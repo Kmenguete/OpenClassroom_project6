@@ -404,10 +404,10 @@ loadTopRatedMovies(
 // Now I will make my carousel buttons work
 
 
-let carouselBestMovies = document.getElementsByClassName("carousel_best_movies");
-let bestMoviesList = carouselBestMovies.querySelectorAll("ul li");
+let carouselBestMovies = document.getElementById("best_movies");
+let bestMoviesList = carouselBestMovies.getElementsByTagName("li");
 let best_movies_index = 0;
-window.show_best_movies = function(increase) {
+function show_best_movies(increase) {
 	best_movies_index = best_movies_index + increase;
 	best_movies_index = Math.min(Math.max(best_movies_index, 0), bestMoviesList.length-1);
 	bestMoviesList[best_movies_index].scrollIntoView({behavior: 'smooth'});
