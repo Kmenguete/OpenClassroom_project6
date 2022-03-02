@@ -430,7 +430,7 @@ function show_best_movies_previous(decrease) {
 
 let carouselRomanceMovies = document.getElementById("Romance");
 let romanceMoviesList = carouselRomanceMovies.getElementsByClassName("modal_info");
-console.log("this is the best movies list: " + romanceMoviesList);
+console.log("this is the romance movies list: " + romanceMoviesList);
 let next_romance_movies_index = 4;
 function show_romance_movies_next(increase) {
 	next_romance_movies_index = next_romance_movies_index + increase;
@@ -441,10 +441,35 @@ function show_romance_movies_next(increase) {
 
 
 let previous_romance_movies_index = 0;
-function show_best_movies_previous(decrease) {
+function show_romance_movies_previous(decrease) {
 	previous_romance_movies_index = previous_romance_movies_index - decrease;
 	previous_romance_movies_index = Math.min(Math.max(previous_romance_movies_index,0), romanceMoviesList.length-1);
 	romanceMoviesList[previous_romance_movies_index].scrollIntoView({behavior: 'smooth'});
 	console.log("the index of the following movie is: " + previous_romance_movies_index);
 	}
 
+// Carousel for Animation movies 
+
+let carouselAnimationMovies = document.getElementById("Animation");
+let animationMoviesList = carouselAnimationMovies.getElementsByClassName("modal_info");
+console.log("this is the animation movies list: " + animationMoviesList);
+let next_animation_movies_index = 4;
+function show_animation_movies_next(increase) {
+	next_animation_movies_index = next_animation_movies_index + increase;
+	next_animation_movies_index = Math.min(Math.max(next_animation_movies_index,4), animationMoviesList.length-1);
+	animationMoviesList[next_animation_movies_index].scrollIntoView({behavior: 'smooth'});
+	console.log("the index of the following movie is: " + next_animation_movies_index);
+	}
+
+
+let previous_animation_movies_index = 0;
+function show_animation_movies_previous(decrease) {
+	previous_animation_movies_index = previous_animation_movies_index - decrease;
+	previous_animation_movies_index = Math.min(Math.max(previous_animation_movies_index,0), animationMoviesList.length-1);
+	animationMoviesList[previous_animation_movies_index].scrollIntoView({behavior: 'smooth'});
+	console.log("the index of the following movie is: " + previous_animation_movies_index);
+	} 
+
+	// Carousel for crime movies 
+
+	
