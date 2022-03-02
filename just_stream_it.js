@@ -401,7 +401,9 @@ loadTopRatedMovies(
 	'modal_window_best_movies',
 	'best_movies')
 
-// Now I will make my carousel buttons work
+// Now I will make my carousel buttons work 
+
+// Carousels for best movies
 
 
 let carouselBestMovies = document.getElementById("best_movies");
@@ -421,5 +423,28 @@ function show_best_movies_previous(decrease) {
 	previous_best_movies_index = previous_best_movies_index - decrease;
 	previous_best_movies_index = Math.min(Math.max(previous_best_movies_index,0), bestMoviesList.length-1);
 	bestMoviesList[previous_best_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following movie is: " + previous_best_movies_index);
+	console.log("the index of the following movie is: " + previous_best_movies_index); 
 	}
+
+// Carousel for Romance movies
+
+let carouselRomanceMovies = document.getElementById("Romance");
+let romanceMoviesList = carouselRomanceMovies.getElementsByClassName("modal_info");
+console.log("this is the best movies list: " + romanceMoviesList);
+let next_romance_movies_index = 4;
+function show_romance_movies_next(increase) {
+	next_romance_movies_index = next_romance_movies_index + increase;
+	next_romance_movies_index = Math.min(Math.max(next_romance_movies_index,4), romanceMoviesList.length-1);
+	romanceMoviesList[next_romance_movies_index].scrollIntoView({behavior: 'smooth'});
+	console.log("the index of the following movie is: " + next_romance_movies_index);
+	}
+
+
+let previous_romance_movies_index = 0;
+function show_best_movies_previous(decrease) {
+	previous_romance_movies_index = previous_romance_movies_index - decrease;
+	previous_romance_movies_index = Math.min(Math.max(previous_romance_movies_index,0), romanceMoviesList.length-1);
+	romanceMoviesList[previous_romance_movies_index].scrollIntoView({behavior: 'smooth'});
+	console.log("the index of the following movie is: " + previous_romance_movies_index);
+	}
+
