@@ -405,9 +405,12 @@ loadTopRatedMovies(
 
 
 let carouselBestMovies = document.getElementById("best_movies");
-let bestMoviesList = carouselBestMovies.getElementsByTagName("li");
+let bestMoviesList = carouselBestMovies.getElementsByClassName("modal_info");
+console.log("this is the best movies list: " + bestMoviesList);
 let best_movies_index = 0;
 function show_best_movies(increase) {
 	best_movies_index = best_movies_index + increase;
+	best_movies_index = Math.min(Math.max(best_movies_index,0), bestMoviesList.length-1);
 	bestMoviesList[best_movies_index].scrollIntoView({behavior: 'smooth'});
+	console.log("You scrolled to the following next element: " + bestMoviesList[best_movies_index]);
 	}
