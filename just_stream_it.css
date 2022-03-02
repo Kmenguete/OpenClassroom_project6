@@ -39,6 +39,7 @@
     background-color: rgb(230,230,230);
     box-shadow: 6px 6px 6px #414141;
     margin: 30px;
+    display: block;
 }
  
 .button_best_movies img {
@@ -234,7 +235,6 @@ body {
     border: none;
     font-size: 4rem;
     top: 20%;
-    transform: translateY(-50%);
     color: rgba(50, 50, 50, 0.5);
     cursor: pointer;
     border-radius: 0.25rem;
@@ -292,7 +292,6 @@ body {
     border: none;
     font-size: 4rem;
     top: 20%;
-    transform: translateY(-50%);
     color: rgba(50, 50, 50, 0.5);
     cursor: pointer;
     border-radius: 0.25rem;
