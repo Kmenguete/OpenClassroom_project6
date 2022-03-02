@@ -31,6 +31,8 @@
    justify-content: center;
    display: flex;
    overflow: hidden;
+   padding-left: 660px;
+   padding-right: 150px;
 } 
 
 .modal_info {
@@ -221,7 +223,7 @@ body {
    border: 1px solid #414141;
    display: flex;
   box-shadow: 6px 6px 6px #414141 inset;
-   position: relative;
+   position: relative; 
 }
 
 
@@ -279,7 +281,7 @@ body {
    border: 1px solid #414141;
    display: flex;
   box-shadow: 6px 6px 6px #414141 inset;
-   position: relative;
+   position: relative; 
 }
 
 
