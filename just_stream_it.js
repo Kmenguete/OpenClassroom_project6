@@ -412,5 +412,5 @@ function show_best_movies(increase) {
 	best_movies_index = best_movies_index + increase;
 	best_movies_index = Math.min(Math.max(best_movies_index,0), bestMoviesList.length-1);
 	bestMoviesList[best_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("You scrolled to the following next element: " + bestMoviesList[best_movies_index]);
+	console.log("the index of the following movie is: " + best_movies_index);
 	}

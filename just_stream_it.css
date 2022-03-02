@@ -272,19 +272,6 @@ body {
     outline: 1px solid black;
 } 
 
-.carousel_best_movies {  
-    margin-top: 25px;
-    margin-bottom: 25px;
-    margin-left: 360px;
-    margin-right: 360px;
-   justify-content: center;
-   border: 1px solid #414141;
-   display: flex;
-  box-shadow: 6px 6px 6px #414141 inset;
-   position: relative; 
-}
-
-
 .carousel_button_prev_best_movies, .carousel_button_next_best_movies {
     position: absolute;
     z-index: 0;
