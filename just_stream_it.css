@@ -218,8 +218,8 @@ body {
 .carousel {  
     margin-top: 25px;
     margin-bottom: 25px;
-    margin-left: 360px;
-    margin-right: 360px;
+    margin-left: 350px;
+    margin-right: 350px;
    justify-content: center;
    border: 1px solid #414141;
    display: flex;
