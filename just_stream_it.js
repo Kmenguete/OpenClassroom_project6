@@ -44,10 +44,9 @@ searchbestMovie.then(async (responseData)=>{
       country,
       movieAbstract
       )
-  
-      var display_movieImage = document.querySelector("#best_movie_image");
-      var the_best_movie = document.getElementsByClassName("the_best_movie");
-      the_best_movie.style.backgroundImage = "url('" + movieImage + "')";
+
+	var the_best_movie = document.getElementsByClassName("the_best_movie");
+	the_best_movie.style.backgroundImage = "url('" + movieImage + "')";
 
 
     var display_modal_best_movie_image = document.getElementById("modal_best_movie_image");
