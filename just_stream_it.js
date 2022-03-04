@@ -426,7 +426,7 @@ var scrollAmount_Crime = 0;
 
 const moviesPerSlider = 7;
 
-function show_next(id) {
+function show_previous(id) {
     const sliders = document.querySelector("#"+id);
     let scrollTotal = "scrollAmount_" + id
     sliders.scrollTo({
@@ -440,7 +440,7 @@ function show_next(id) {
     }
 }
 
-function show_previous(id) {
+function show_next(id) {
     const sliders = document.querySelector("#"+id);
     let scrollTotal = "scrollAmount_" + id
     if (window[scrollTotal] <= sliders.scrollWidth - sliders.clientWidth) {
