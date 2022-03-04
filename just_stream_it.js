@@ -44,10 +44,11 @@ searchbestMovie.then(async (responseData)=>{
       country,
       movieAbstract
       )
-      var bestMovieImage = `<img src="${movieImage}"/>`;
+  
       var display_movieImage = document.querySelector("#best_movie_image");
+      var the_best_movie = document.getElementsByClassName("the_best_movie");
+      the_best_movie.style.backgroundImage = "url('" + movieImage + "')";
 
-    display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
 
     var display_modal_best_movie_image = document.getElementById("modal_best_movie_image");
     display_modal_best_movie_image.src = movieImage;
