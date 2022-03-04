@@ -403,20 +403,6 @@ loadTopRatedMovies(
 
 // Now I will make my carousel buttons work 
 
-// Carousels for best movies
-
-
-/*let carouselBestMovies = document.getElementById("best_movies");
-let bestMoviesList = carouselBestMovies.getElementsByClassName("modal_info");
-console.log("this is the best movies list: " + bestMoviesList);
-let next_best_movies_index = 4;
-function show_best_movies_next(increase) {
-	next_best_movies_index = next_best_movies_index + increase;
-	next_best_movies_index = Math.min(Math.max(next_best_movies_index,4), bestMoviesList.length-1);
-	bestMoviesList[next_best_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following best movie is: " + next_best_movies_index);
-	}
-*/ 
 
 let scrollPerClick;
 var scrollAmount_best_movies = 0;
@@ -454,79 +440,4 @@ function show_next(id) {
 
 scrollPerClick = document.querySelector(".category").clientWidth + 20;
 
-
-/*let previous_best_movies_index = 0;
-function show_best_movies_previous(decrease) {
-	previous_best_movies_index = previous_best_movies_index - decrease;
-	previous_best_movies_index = Math.min(Math.max(previous_best_movies_index,0), bestMoviesList.length-1);
-	bestMoviesList[previous_best_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following best movie is: " + previous_best_movies_index); 
-	}*/
-
-// Carousel for Romance movies
-
-/*let carouselRomanceMovies = document.getElementById("Romance");
-let romanceMoviesList = carouselRomanceMovies.getElementsByClassName("modal_info");
-console.log("this is the romance movies list: " + romanceMoviesList);
-let next_romance_movies_index = 4;
-function show_romance_movies_next(increase) {
-	next_romance_movies_index = next_romance_movies_index + increase;
-	next_romance_movies_index = Math.min(Math.max(next_romance_movies_index,4), romanceMoviesList.length-1);
-	romanceMoviesList[next_romance_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following romance movie is: " + next_romance_movies_index);
-	}
-
-
-let previous_romance_movies_index = 0;
-function show_romance_movies_previous(decrease) {
-	previous_romance_movies_index = previous_romance_movies_index - decrease;
-	previous_romance_movies_index = Math.min(Math.max(previous_romance_movies_index,0), romanceMoviesList.length-1);
-	romanceMoviesList[previous_romance_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following romance movie is: " + previous_romance_movies_index);
-	}*/
-
-// Carousel for Animation movies 
-
-/*let carouselAnimationMovies = document.getElementById("Animation");
-let animationMoviesList = carouselAnimationMovies.getElementsByClassName("modal_info");
-console.log("this is the animation movies list: " + animationMoviesList);
-let next_animation_movies_index = 4;
-function show_animation_movies_next(increase) {
-	next_animation_movies_index = next_animation_movies_index + increase;
-	next_animation_movies_index = Math.min(Math.max(next_animation_movies_index,4), animationMoviesList.length-1);
-	animationMoviesList[next_animation_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following animation movie is: " + next_animation_movies_index);
-	}
-
-
-let previous_animation_movies_index = 0;
-function show_animation_movies_previous(decrease) {
-	previous_animation_movies_index = previous_animation_movies_index - decrease;
-	previous_animation_movies_index = Math.min(Math.max(previous_animation_movies_index,0), animationMoviesList.length-1);
-	animationMoviesList[previous_animation_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following animation movie is: " + previous_animation_movies_index);
-	} */
-
-
-// Carousel for crime movies 
-
-/*let carouselCrimeMovies = document.getElementById("Crime");
-let crimeMoviesList = carouselCrimeMovies.getElementsByClassName("modal_info");
-console.log("this is the crime movies list: " + crimeMoviesList);
-let next_crime_movies_index = 4;
-function show_crime_movies_next(increase) {
-	next_crime_movies_index = next_crime_movies_index + increase;
-	next_crime_movies_index = Math.min(Math.max(next_crime_movies_index,4), crimeMoviesList.length-1);
-	crimeMoviesList[next_crime_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following crime movie is: " + next_crime_movies_index);
-	}
-
-
-let previous_crime_movies_index = 0;
-function show_crime_movies_previous(decrease) {
-	previous_crime_movies_index = previous_crime_movies_index - decrease;
-	previous_crime_movies_index = Math.min(Math.max(previous_crime_movies_index,0), crimeMoviesList.length-1);
-	crimeMoviesList[previous_crime_movies_index].scrollIntoView({behavior: 'smooth'});
-	console.log("the index of the following crime movie is: " + previous_crime_movies_index);
-	} */
 
