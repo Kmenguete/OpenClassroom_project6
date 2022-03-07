@@ -3,6 +3,7 @@
   height: 460px;
   box-shadow: 6px 6px 6px #414141 inset;
   margin: 50px;
+  background-color: rgba(100, 100, 100, 0.25);
 } 
 
 .the_best_movie #the_best_movie_info {
@@ -24,6 +25,12 @@
 #the_best_movie_info:hover{
     background-color: black;
     cursor: pointer;
+} 
+
+#best_movie_description { 
+    font-size: 20px;
+    color: rgb(50,50,50);
+    text-align: center;
 }
 
 .category { 
