@@ -158,6 +158,12 @@ body {
     } 
     .movie_info{
         width: 70%;
+    } 
+    .category {
+        width:  70%;
+    } 
+    .carousel {
+        width: 70%;
     }
 } 
 #close_best_movies {
