@@ -174,11 +174,12 @@ body {
         display: flex;
         overflow: auto;
         justify-content: center;
+        flex-direction: column;
     } 
     .carousel {
-        width: 70%;
         display: flex;
         justify-content: center;
+        flex-direction: column;
     } 
     .carousel_button_prev_best_movies, .carousel_button_next_best_movies {
         display: none;
