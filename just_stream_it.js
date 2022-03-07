@@ -46,8 +46,8 @@ searchbestMovie.then(async (responseData)=>{
       )
       var bestMovieImage = `<img src="${movieImage}"/>`;
       var display_movieImage = document.querySelector("#best_movie_image");
-      /*var bestMovieDiv = document.getElementsByClassName("the_best_movie");
-      bestMovieDiv.style.backgroundImage ="url('" + movieImage + "')";*/
+      var bestMovieDiv = document.getElementsByClassName("the_best_movie")[0];
+      bestMovieDiv.style.backgroundImage ="url('" + movieImage + "')";
       console.log("Here is the movie image of the best movie: " + movieImage);
 
     display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
