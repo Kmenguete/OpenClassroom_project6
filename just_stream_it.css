@@ -152,7 +152,7 @@ body {
     cursor: pointer;
 } 
 
-@media screen and (max-width:  700px){
+@media screen and (max-width:  1024px){
     .modal_info{
         width: 70%;
     } 
@@ -161,9 +161,24 @@ body {
     } 
     .category {
         width:  70%;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
     } 
     .carousel {
         width: 70%;
+    } 
+    .carousel_button_prev_best_movies, .carousel_button_next_best_movies {
+        display: none;
+    } 
+    .carousel_button_prev_romance, .carousel_button_next_romance {
+        display: none;
+    } 
+    .carousel_button_prev_animation, .carousel_button_next_animation {
+        display: none;
+    }
+    .carousel_button_prev_crime, .carousel_button_next_crime {
+        display: none;
     }
 } 
 #close_best_movies {
