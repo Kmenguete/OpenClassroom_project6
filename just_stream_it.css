@@ -182,8 +182,19 @@ body {
     } 
 
 .the_best_movie #the_best_movie_info {
-        height: auto;
-        width: auto;
+      height: auto;
+      position: relative;
+      right: auto;
+      bottom: auto;
+      background-color: rgb(50, 50, 50);
+      border: 1px solid #414141;
+      border-radius: 5px;
+      font-size: 20px;
+      font-family: "abel_regular", Arial, serif;
+      text-align: center;
+      padding: 10px 15px 10px 15px;
+      color: rgb(200,200,200);
+      text-decoration: none;
     } 
 
     .carousel { 
@@ -233,7 +244,7 @@ body {
         color: rgba(25,25,25, 0.75);
         text-align: right;
         } 
-    #the_best_movie_info {
+    .the_best_movie #the_best_movie_info {
         top: 50%;
         right: 50%;
         position: absolute;
