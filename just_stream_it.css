@@ -163,25 +163,47 @@ body {
 @media screen and (max-width:  1280px){ 
     body {
         width: auto;
+    } 
+
+    h1 {
+        width: auto;
     }
-    .movie_info{
+
+    h2 {
         width: auto;
     } 
+    .the_best_movie {
+        width: auto;
+    } 
+
+.the_best_movie #the_best_movie_info {
+        width: auto;
+    }
+
+    .movie_info {
+        width: auto;
+    } 
+
     .category {
         width: auto;
     } 
+
     .carousel {
         width: auto;
     } 
+
     .carousel_button_prev_best_movies, .carousel_button_next_best_movies {
         width: auto;
     } 
+
     .carousel_button_prev_romance, .carousel_button_next_romance {
         width: auto;
     } 
+
     .carousel_button_prev_animation, .carousel_button_next_animation {
         width: auto;
     }
+    
     .carousel_button_prev_crime, .carousel_button_next_crime {
         width: auto;
     }
