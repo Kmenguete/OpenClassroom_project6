@@ -184,28 +184,48 @@ body {
 .the_best_movie #the_best_movie_info {
         height: auto;
         width: auto;
-    }
+    } 
+
+    .carousel { 
+        height: 50%; 
+        margin-top: 25%;
+        margin-bottom: 25%;
+        margin-left: 50%;
+        margin-right: 50%;
+       justify-content: center;
+       border: 1px solid rgba(200, 200, 200, 0.15);
+       display: inline-block;
+      box-shadow: 1px 1px 1px rgba(200, 200, 200, 0.15) outset;
+       position: inherit; 
+    } 
+
+    .category { 
+       justify-content: center;
+       display: inline-block;
+       overflow: inherit;
+       padding-left: 20%;
+       padding-right: auto;
+    } 
 
     .movie_info {
         height: auto;
         width: auto;
     } 
 
-    /*.category {
-        height: auto;
-        width: auto; 
-    } */
-
-    .carousel {
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-left: 0;
-        margin-right: 0;
+    .carousel_button_prev_best_movies, .carousel_button_next_best_movies {
+        display: none;
     } 
 
-    .modal_info {
-        height: auto;
-        width: auto;
+    .carousel_button_prev_romance, .carousel_button_next_romance {
+        display: none;
+    } 
+
+    .carousel_button_prev_animation, .carousel_button_next_animation {
+        display: none;
+    } 
+
+    .carousel_button_prev_crime, .carousel_button_next_crime {
+        display: none;
     }
 } 
 #close_best_movies {
