@@ -193,36 +193,57 @@ body {
     .category {
         height: auto;
         width: auto;
-        overflow: auto;
-        margin-left: 520px;
-        margin-right: 520px;
-        padding-left: 820px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: auto;
         padding-right: auto;
     } 
 
     .carousel {
         height: auto;
         width: auto;
-        margin-left: 520px;
-        margin-right: 520px;
-        border: none;
-        box-shadow: none;
+        margin-left: auto;
+        margin-right: auto;
     } 
 
-    .carousel_button_prev_best_movies, .carousel_button_next_best_movies {
-        display: none;
+    .carousel_button_prev_best_movies {
+        top: auto;
+        left: auto;
     } 
 
-    .carousel_button_prev_romance, .carousel_button_next_romance {
-        display: none;
-    } 
-
-    .carousel_button_prev_animation, .carousel_button_next_animation {
-        display: none;
+    .carousel_button_next_best_movies {
+        top: auto;
+        right: auto;
     }
 
-    .carousel_button_prev_crime, .carousel_button_next_crime {
-        display: none;
+    .carousel_button_prev_romance {
+        top: auto;
+        left: auto;
+    } 
+
+    .carousel_button_next_romance {
+        top: auto;
+        right: auto;
+    }
+
+    .carousel_button_prev_animation {
+        top: auto;
+        left: auto;
+    }
+
+    .carousel_button_next_animation {
+        top: auto;
+        right: auto;
+    }
+
+    .carousel_button_prev_crime {
+        top: auto;
+        left: auto;
+    }
+
+    .carousel_button_next_crime {
+        top: auto;
+        right: auto;
     }
 } 
 #close_best_movies {
