@@ -193,12 +193,12 @@ body {
 
     .category {
         height: auto;
-        width: auto;
+        width: 100%; 
     } 
 
     .carousel {
         height: auto;
-        width: auto;
+        width: 100%; 
     } 
 
     .modal_info {
