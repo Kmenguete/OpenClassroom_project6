@@ -226,6 +226,17 @@ body {
 
     .carousel_button_prev_crime, .carousel_button_next_crime {
         display: none;
+    } 
+
+    #best_movie_description {
+        font-size: 20px;
+        color: rgba(25,25,25, 0.75);
+        text-align: right;
+        } 
+    #the_best_movie_info {
+        top: 50%;
+        right: 50%;
+        position: absolute;
     }
 } 
 #close_best_movies {
