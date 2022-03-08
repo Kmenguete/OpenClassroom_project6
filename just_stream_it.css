@@ -194,57 +194,16 @@ body {
     .category {
         height: auto;
         width: auto;
-        margin-left: 520px;
-        margin-right: 520px;
-        padding-left: 690px;
-        padding-right: auto;
     } 
 
     .carousel {
         height: auto;
         width: auto;
-        margin-left: auto;
-        margin-right: auto;
     } 
 
-    .carousel_button_prev_best_movies {
-        top: 165px;
-        left: -950px;
-    } 
-
-    .carousel_button_next_best_movies {
-        top: 165px;
-        right: -950px;
-    }
-
-    .carousel_button_prev_romance {
-        top: 165px;
-        left: -950px;
-    } 
-
-    .carousel_button_next_romance {
-        top: 165px;
-        right: -950px;
-    }
-
-    .carousel_button_prev_animation {
-        top: 165px;
-        left: -950px;
-    }
-
-    .carousel_button_next_animation {
-        top: 165px;
-        right: -950px;
-    }
-
-    .carousel_button_prev_crime {
-        top: 165px;
-        left: -950px;
-    }
-
-    .carousel_button_next_crime {
-        top: 165px;
-        right: -950px;
+    .modal_info {
+        height: auto;
+        width: auto;
     }
 } 
 #close_best_movies {
