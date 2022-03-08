@@ -160,7 +160,7 @@ body {
     cursor: pointer;
 } 
 
-@media all and (max-width: 1024px){ 
+@media screen and (max-width: 1024px){ 
     body { 
         height: auto;
         width: auto;
@@ -191,14 +191,16 @@ body {
         width: auto;
     } 
 
-    .category {
+    /*.category {
         height: auto;
-        width: 100%; 
-    } 
+        width: auto; 
+    } */
 
     .carousel {
-        height: auto;
-        width: 100%; 
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
     } 
 
     .modal_info {
