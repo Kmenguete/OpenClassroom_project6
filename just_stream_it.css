@@ -225,7 +225,7 @@ body {
 
     .carousel_button_prev, .carousel_button_next {
         display: none;
-    }
+    } 
 
     #best_movie_description {
         font-size: 20px;
