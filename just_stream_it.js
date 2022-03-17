@@ -53,8 +53,8 @@ searchbestMovie.then(async (responseData)=>{
 
     display_movieImage.insertAdjacentHTML("afterbegin", bestMovieImage);
 
-    var display_modal_best_movie_image = document.getElementById("modal_best_movie_image");
-    display_modal_best_movie_image.src = movieImage;
+    var span_best_movie_image = document.getElementById("modal_best_movie_image");
+    span_best_movie_image.insertAdjacentHTML("afterbegin", bestMovieImage);
 
 
     } catch(error) {
