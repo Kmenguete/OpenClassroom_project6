@@ -1,352 +1,289 @@
 .the_best_movie {
-  position: relative;
-  height: 460px;
-  box-shadow: 6px 6px 6px #414141 inset;
-  margin: 50px;
-  background-color: rgba(100, 100, 100, 0.25);
-} 
-
+position : relative;
+height : 460px;
+box-shadow : 6px 6px 6px #414141 inset;
+margin : 50px;
+background-color : rgb(100, 100, 100, 0.25);
+}
 .the_best_movie #the_best_movie_info {
-  height: 50px;
-  position: relative;
-  right: -80px;
-  bottom: -320px;
-  background-color: rgb(50, 50, 50);
-  border: 1px solid #414141;
-  border-radius: 5px;
-  font-size: 20px;
-  font-family: "abel_regular", Arial, serif;
-  text-align: center;
-  padding: 10px 15px 10px 15px;
-  color: rgb(200,200,200);
-  text-decoration: none;
+height : 50px;
+position : relative;
+right : -80px;
+bottom : -320px;
+background-color : rgb(50, 50, 50);
+border : #414141 solid 1px;
+border-radius : 5px;
+font-size : 20px;
+font-family : "abel_regular", Arial, serif;
+text-align : center;
+padding : 10px 15px 10px 15px;
+color : rgb(200, 200, 200);
+text-decoration : none;
 }
-
-#the_best_movie_info:hover{
-    background-color: black;
-    cursor: pointer;
-} 
-
-#best_movie_description { 
-    font-size: 20px;
-    color: rgb(50,50,50);
-    text-align: center;
+#the_best_movie_info:hover {
+background-color : black;
+cursor : pointer;
 }
-
-.category { 
-   justify-content: center;
-   display: flex;
-   overflow: hidden;
-   padding-left: 490px;
-   padding-right: auto;
-} 
-
+#best_movie_description {
+font-size : 20px;
+color : rgb(50, 50, 50);
+text-align : center;
+}
+.category {
+justify-content : center;
+display : flex;
+overflow : hidden;
+padding-left : 490px;
+}
 .modal_info {
-    background-color: rgb(230,230,230);
-    box-shadow: 6px 6px 6px #414141;
-    margin: 30px;
-    display: block;
+background-color : rgb(230, 230, 230);
+box-shadow : 6px 6px 6px #414141;
+margin : 30px;
+display : block;
 }
- 
 .button_best_movies img {
-    transition: all 1s ease;
+transition : all 1s ease;
 }
-
 .button_best_movies:hover img {
-    /* L'image est grossie de 25% */
-    transform: scale(1.25);
-} 
+transform : scale(1.25);
+}
 .button_romance img {
-    transition: all 1s ease;
-} 
-
+transition : all 1s ease;
+}
 .button_romance:hover img {
-    /* L'image est grossie de 25% */
-    transform: scale(1.25);
-} 
+transform : scale(1.25);
+}
 .button_animation img {
-    transition: all 1s ease;
-} 
+transition : all 1s ease;
+}
 .button_animation:hover img {
-    /* L'image est grossie de 25% */
-    transform: scale(1.25);
-} 
+transform : scale(1.25);
+}
 .button_crime img {
-    transition: all 1s ease;
-} 
+transition : all 1s ease;
+}
 .button_crime:hover img {
-    /* L'image est grossie de 25% */
-    transform: scale(1.25);
+transform : scale(1.25);
 }
-
 .abel-regular {
-  font-family: "abel_regular", Arial, serif;
+font-family : "abel_regular", Arial, serif;
 }
-
 header {
-  display: flex;
-  justify-content: center;
+display : flex;
+justify-content : center;
 }
-
 @font-face {
-  font-family: "abel_regular";
-  src: url("abel/abel-regular.ttf");
+font-family : "abel_regular";
+src : url("abel/abel-regular.ttf");
 }
 h1 {
-  font-size: 30px;
-  color: rgb(50,50,50);
-  text-align: center;
+font-size : 30px;
+color : rgb(50, 50, 50);
+text-align : center;
 }
-
 h2 {
-  font-size: 25px;
-  color: rgb(50,50,50);
-  text-align: center;
+font-size : 25px;
+color : rgb(50, 50, 50);
+text-align : center;
 }
-
 body {
-  background-color: rgb(230,230,230);
-  
+background-color : rgb(230, 230, 230);
 }
-
-/* The Modal background */
-
 .movie_info {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: 500ms;
-    visibility: hidden;
-    opacity: 0;
-    overflow: auto;
+position : fixed;
+top : 0;
+bottom : 0;
+left : 0;
+right : 0;
+background : rgb(0, 0, 0, 0.7);
+transition : 500ms;
+visibility : hidden;
+opacity : 0;
+overflow : auto;
 }
-
 .movie_info:target {
-    visibility: visible;
-    opacity: 1;
+visibility : visible;
+opacity : 1;
 }
-
-/* Modal Content */
-
 .modal_content {
-    position: relative;
-    transition: all 5s ease-in-out;
-    background-color: rgb(200, 200, 200);
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #414141;
-    width: 80%; /* Could be more or less, depending on screen size */
-    font-size: 20px;
-    font-family: "abel_regular", Arial, serif;
-    text-align: left;
-    color: rgb(50,50,50); 
-} 
-
-
-/* The Close Button */
+position : relative;
+transition : all 5s ease-in-out;
+background-color : rgb(200, 200, 200);
+margin : 15% auto;
+padding : 20px;
+border : #414141 solid 1px;
+width : 80%;
+font-size : 20px;
+font-family : "abel_regular", Arial, serif;
+text-align : left;
+color : rgb(50, 50, 50);
+}
 #close_best_movie {
-    float: right;
-    font-size: 20px;
-    color: rgb(100,100,100);
+float : right;
+font-size : 20px;
+color : rgb(100, 100, 100);
 }
-
-#close_best_movie:hover,
-#close_best_movie:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-} 
-
-@media screen and (max-width: 1024px){ 
-    body { 
-        height: auto;
-        width: auto;
-        background-color: rgb(210,210,210);
-    } 
-
-    h1 {
-        height: auto;
-        width: auto;
-    }
-
-    h2 {
-        height: auto;
-        width: auto;
-    } 
-    .the_best_movie {
-        height: auto;
-        width: auto;
-    } 
-
+#close_best_movie:hover, #close_best_movie:focus {
+color : black;
+text-decoration : none;
+cursor : pointer;
+}
+@media screen and (max-width: 1024px) {
+body {
+height : auto;
+width : auto;
+background-color : rgb(210, 210, 210);
+}
+h1 {
+height : auto;
+width : auto;
+}
+h2 {
+height : auto;
+width : auto;
+}
+.the_best_movie {
+height : auto;
+width : auto;
+}
 .the_best_movie #the_best_movie_info {
-      height: auto;
-      position: relative;
-      right: auto;
-      bottom: auto;
-      background-color: rgb(50, 50, 50);
-      border: 1px solid #414141;
-      border-radius: 5px;
-      font-size: 20px;
-      font-family: "abel_regular", Arial, serif;
-      text-align: center;
-      padding: 10px 15px 10px 15px;
-      color: rgb(200,200,200);
-      text-decoration: none;
-    } 
-
-    .carousel { 
-        height: 50%; 
-        margin-top: 25%;
-        margin-bottom: 25%;
-        margin-left: 50%;
-        margin-right: 50%;
-       justify-content: center;
-       border: 1px solid rgba(200, 200, 200, 0.15);
-       display: inline-block;
-      box-shadow: 1px 1px 1px rgba(200, 200, 200, 0.15) outset;
-       position: inherit; 
-    } 
-
-    .category { 
-       justify-content: center;
-       display: inline-block;
-       overflow: inherit;
-       padding-left: 20%;
-       padding-right: auto;
-    } 
-
-    .movie_info {
-        height: auto;
-        width: auto;
-    } 
-
-    .carousel_button_prev, .carousel_button_next {
-        display: none;
-    } 
-
-    #best_movie_description {
-        font-size: 20px;
-        color: rgba(25,25,25, 0.75);
-        text-align: right;
-        } 
-    .the_best_movie #the_best_movie_info {
-        top: 50%;
-        right: 50%;
-        position: absolute;
-    }
-} 
-#close_best_movies {
-    float: right;
-    font-size: 20px;
-    color: rgb(100,100,100); 
+height : auto;
+position : relative;
+right : auto;
+bottom : auto;
+background-color : rgb(50, 50, 50);
+border : #414141 solid 1px;
+border-radius : 5px;
+font-size : 20px;
+font-family : "abel_regular", Arial, serif;
+text-align : center;
+padding : 10px 15px 10px 15px;
+color : rgb(200, 200, 200);
+text-decoration : none;
 }
-
-#close_best_movies:hover,
-#close_best_movies:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-} 
-#close_Romance {
-    float: right;
-    font-size: 20px;
-    color: rgb(100,100,100); 
-} 
-#close_Romance:hover,
-#close_Romance:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-} 
-
-#close_Animation {
-    float: right;
-    font-size: 20px;
-    color: rgb(100,100,100); 
-} 
-
-#close_Animation:hover,
-#close_Animation:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.carousel {
+height : 50%;
+margin-top : 25%;
+margin-bottom : 25%;
+margin-left : 50%;
+margin-right : 50%;
+justify-content : center;
+border : rgb(200, 200, 200, 0.15) solid 1px;
+display : inline-block;
+position : inherit;
 }
-
-#close_Crime {
-    float: right;
-    font-size: 20px;
-    color: rgb(100,100,100); 
-} 
-
-#close_Crime:hover,
-#close_Crime:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-} 
-*, *::before, *::after {
-    box-sizing: border-box;
-} 
-
-.carousel {  
-    margin-top: 25px;
-    margin-bottom: 25px;
-    margin-left: 320px;
-    margin-right: 320px;
-   justify-content: center;
-   border: 1px solid #414141;
-   display: flex;
-  box-shadow: 6px 6px 6px #414141 inset;
-   position: relative; 
+.category {
+justify-content : center;
+display : inline-block;
+overflow : inherit;
+padding-left : 20%;
 }
-
-
+.movie_info {
+height : auto;
+width : auto;
+}
 .carousel_button_prev, .carousel_button_next {
-    position: absolute;
-    z-index: 0;
-    background: none;
-    border: none;
-    font-size: 4rem;
-    top: 20%;
-    color: rgba(50, 50, 50, 0.5);
-    cursor: pointer;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    background-color: rgba(200, 200, 200, 0.5);
+display : none;
 }
-
-.carousel_button_prev:hover,
+#best_movie_description {
+font-size : 20px;
+color : rgb(25, 25, 25, 0.75);
+text-align : right;
+}
+.the_best_movie #the_best_movie_info {
+top : 50%;
+right : 50%;
+position : absolute;
+}
+}
+#close_best_movies {
+float : right;
+font-size : 20px;
+color : rgb(100, 100, 100);
+}
+#close_best_movies:hover, #close_best_movies:focus {
+color : black;
+text-decoration : none;
+cursor : pointer;
+}
+#close_Romance {
+float : right;
+font-size : 20px;
+color : rgb(100, 100, 100);
+}
+#close_Romance:hover, #close_Romance:focus {
+color : black;
+text-decoration : none;
+cursor : pointer;
+}
+#close_Animation {
+float : right;
+font-size : 20px;
+color : rgb(100, 100, 100);
+}
+#close_Animation:hover, #close_Animation:focus {
+color : black;
+text-decoration : none;
+cursor : pointer;
+}
+#close_Crime {
+float : right;
+font-size : 20px;
+color : rgb(100, 100, 100);
+}
+#close_Crime:hover, #close_Crime:focus {
+color : black;
+text-decoration : none;
+cursor : pointer;
+}
+*, *::before, *::after {
+box-sizing : border-box;
+}
+.carousel {
+margin-top : 25px;
+margin-bottom : 25px;
+margin-left : 320px;
+margin-right : 320px;
+justify-content : center;
+border : #414141 solid 1px;
+display : flex;
+box-shadow : 6px 6px 6px #414141 inset;
+position : relative;
+}
+.carousel_button_prev, .carousel_button_next {
+position : absolute;
+z-index : 0;
+background : none;
+border : none;
+font-size : 4rem;
+top : 20%;
+color : rgb(50, 50, 50, 0.5);
+cursor : pointer;
+border-radius : 0.25rem;
+padding : 0.5rem;
+background-color : rgb(200, 200, 200, 0.5);
+}
+.carousel_button_prev:hover, .carousel_button_prev:focus {
+color : rgb(150, 150, 150, 0.5);
+background-color : rgb(250, 250, 250, 0.5);
+}
 .carousel_button_prev:focus {
-    color: rgba(150, 150, 150, 0.5);
-    background-color: rgba(250, 250, 250, 0.5);
-} 
-
-.carousel_button_prev:focus {
-    outline: 1px solid black;
+outline : 1px solid black;
 }
-
-.carousel_button_prev { 
-    top: 165px;
-    left: -80px;
+.carousel_button_prev {
+top : 165px;
+left : -80px;
 }
-
-.carousel_button_next { 
-    top: 165px;
-    right: -80px;
+.carousel_button_next {
+top : 165px;
+right : -80px;
 }
-
-.carousel_button_next:hover,
+.carousel_button_next:hover, .carousel_button_next:focus {
+color : rgb(150, 150, 150, 0.5);
+background-color : rgb(250, 250, 250, 0.5);
+}
 .carousel_button_next:focus {
-    color: rgba(150, 150, 150, 0.5);
-    background-color: rgba(250, 250, 250, 0.5);
-} 
-
-.carousel_button_next:focus {
-    outline: 1px solid black;
-} 
-
+outline : 1px solid black;
+}
 
 
